@@ -74,6 +74,7 @@ class BookmarksManager;
 class BrowserMainWindow;
 class CookieJar;
 class DownloadManager;
+class ExtensionManager;
 class HistoryManager;
 class NetworkAccessManager;
 class LanguageManager;
@@ -104,6 +105,7 @@ public:
     static BookmarksManager *bookmarksManager();
     static LanguageManager *languageManager();
     static AutoFillManager *autoFillManager();
+    static ExtensionManager *extensionManager();
 
     static QString installedDataDirectory();
     static QString dataFilePath(const QString &fileName);
@@ -154,6 +156,7 @@ private:
     static BookmarksManager *s_bookmarksManager;
     static LanguageManager *s_languageManager;
     static AutoFillManager *s_autoFillManager;
+    static ExtensionManager *s_extensionManager;
 
     QList<QPointer<BrowserMainWindow> > m_mainWindows;
     QByteArray m_lastSession;

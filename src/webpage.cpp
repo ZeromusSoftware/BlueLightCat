@@ -22,6 +22,7 @@
 
 #include "browserapplication.h"
 #include "downloadmanager.h"
+#include "extensionmanager.h"
 #include "historymanager.h"
 #include "networkaccessmanager.h"
 #include "opensearchengine.h"
@@ -217,6 +218,10 @@ void WebPage::addExternalBinding(QWebFrame *frame)
 
 QString WebPage::userAgentForUrl(const QUrl &url) const
 {
+    QString extensionResult = BrowserApplication::extensionManager()->userAgentForUrl(url);
+    if (!extensionResult.isEmpty())
+        return extensionResult;
+
     if (s_userAgent.isEmpty())
         s_userAgent = QWebPage::userAgentForUrl(url);
     return s_userAgent;

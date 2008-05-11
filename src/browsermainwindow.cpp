@@ -76,6 +76,7 @@
 #include "browserapplication.h"
 #include "clearprivatedata.h"
 #include "downloadmanager.h"
+#include "extensionmanager.h"
 #include "history.h"
 #include "languagemanager.h"
 #include "networkaccessmanager.h"
@@ -835,6 +836,11 @@ void BrowserMainWindow::setupMenu()
             this, SLOT(preferences()));
     m_toolsMenu->addAction(m_toolsPreferencesAction);
 
+    ExtensionManager *extensionManager = BrowserApplication::extensionManager();
+    m_toolsMenu->addActions(extensionManager->getActionsForMenu(QLatin1String("MainWindow_ToolsMenu")));
+    connect(extensionManager, SIGNAL(installExtension(Extension *)),
+            this, SLOT(installExtension(Extension *)));
+
     // Help
     m_helpMenu = new QMenu(menuBar());
     menuBar()->addMenu(m_helpMenu);
@@ -994,6 +1000,11 @@ void BrowserMainWindow::retranslate()
     // Toolbar
     m_navigationBar->setWindowTitle(tr("Navigation"));
     m_bookmarksToolbar->setWindowTitle(tr("&Bookmarks"));
+}
+
+void BrowserMainWindow::installExtension(Extension *extension)
+{
+    m_toolsMenu->addActions(extension->actions(QLatin1String("MainWindow_ToolsMenu")));
 }
 
 void BrowserMainWindow::setupToolBar()

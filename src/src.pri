@@ -7,7 +7,7 @@ win32 : Debug : CONFIG += console
 INCLUDEPATH += $$PWD
 DEPENDPATH += $$PWD
 
-QT += webkit network
+QT += webkit network script
 
 # Share object files for faster compiling
 RCC_DIR     = $$PWD/.rcc
@@ -103,6 +103,7 @@ include(locationbar/locationbar.pri)
 include(network/network.pri)
 include(opensearch/opensearch.pri)
 include(qwebplugins/qwebplugins.pri)
+include(extensions/extensions.pri)
 include(utils/utils.pri)
 
 RESOURCES += \

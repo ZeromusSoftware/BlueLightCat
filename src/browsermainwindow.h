@@ -68,6 +68,7 @@
 class AutoSaver;
 class BookmarksToolBar;
 class QWebFrame;
+class Extension;
 class TabWidget;
 class ToolbarSearch;
 class WebView;
@@ -113,6 +114,7 @@ protected:
 
 private slots:
     void save();
+    void installExtension(Extension *extension);
 
     void lastTabClosed();
 
