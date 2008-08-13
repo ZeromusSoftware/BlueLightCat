@@ -65,6 +65,8 @@
 
 #include <qmainwindow.h>
 
+class ActionCollection;
+class ActionManager;
 class AutoSaver;
 class BookmarksToolBar;
 class QWebFrame;
@@ -164,6 +166,7 @@ private slots:
 
     void printRequested(QWebFrame *frame);
     void geometryChangeRequested(const QRect &geometry);
+    void configureShortcuts();
 
 private:
     void retranslate();
@@ -261,7 +264,8 @@ private:
     bool m_menuBarVisible;
     bool m_statusBarVisible;
 
-    friend class BrowserApplication;
+    ActionCollection *m_actionCollection;
+    ActionManager *m_actionManager;
 };
 
 #endif // BROWSERMAINWINDOW_H

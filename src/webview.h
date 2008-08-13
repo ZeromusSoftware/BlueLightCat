@@ -67,6 +67,7 @@
 #include <qwebview.h>
 
 #include "tabwidget.h"
+#include "actioncollection.h"
 
 #if QT_VERSION >= 0x040600 || defined(WEBKIT_TRUNK)
 #include <qwebelement.h>
@@ -76,9 +77,14 @@ class QLabel;
 class BrowserMainWindow;
 class TabWidget;
 class WebPage;
-class WebView : public QWebView
+class WebView : public QWebView, public ActionCollection
 {
     Q_OBJECT
+
+signals:
+    void showFind();
+    void findNext();
+    void findPrevious();
 
 public:
     WebView(QWidget *parent = 0);
@@ -146,7 +152,13 @@ private slots:
     void accessKeyShortcut();
 #endif
 
+    void viewTextBigger();
+    void viewTextNormal();
+    void viewTextSmaller();
+
 private:
+    void createWebViewActions();
+
     QString m_statusBarText;
     QUrl m_initialUrl;
     int m_progress;

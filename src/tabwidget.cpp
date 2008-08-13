@@ -133,10 +133,12 @@ TabWidget::TabWidget(QWidget *parent)
     // Actions
     m_newTabAction = new QAction(this);
     m_newTabAction->setShortcuts(QKeySequence::AddTab);
+    m_newTabAction->setObjectName(QLatin1String("file_newTab"));
     connect(m_newTabAction, SIGNAL(triggered()), this, SLOT(newTab()));
 
     m_closeTabAction = new QAction(this);
     m_closeTabAction->setShortcuts(QKeySequence::Close);
+    m_closeTabAction->setObjectName(QLatin1String("file_closeTab"));
     connect(m_closeTabAction, SIGNAL(triggered()), this, SLOT(closeTab()));
 
     m_bookmarkTabsAction = new QAction(this);
@@ -152,6 +154,7 @@ TabWidget::TabWidget(QWidget *parent)
 
     m_nextTabAction = new QAction(this);
     connect(m_nextTabAction, SIGNAL(triggered()), this, SLOT(nextTab()));
+    m_nextTabAction->setObjectName(QLatin1String("file_nextTab"));
 
     m_previousTabAction = new QAction(this);
     connect(m_previousTabAction, SIGNAL(triggered()), this, SLOT(previousTab()));
@@ -159,6 +162,7 @@ TabWidget::TabWidget(QWidget *parent)
     m_previousTabAction->setIcon(QIcon::fromTheme(QLatin1String("go-previous")));
     m_nextTabAction->setIcon(QIcon::fromTheme(QLatin1String("go-next")));
 #endif
+    m_previousTabAction->setObjectName(QLatin1String("file_nextTab"));
 
     m_recentlyClosedTabsMenu = new QMenu(this);
     connect(m_recentlyClosedTabsMenu, SIGNAL(aboutToShow()),
@@ -168,6 +172,7 @@ TabWidget::TabWidget(QWidget *parent)
     m_recentlyClosedTabsAction = new QAction(this);
     m_recentlyClosedTabsAction->setMenu(m_recentlyClosedTabsMenu);
     m_recentlyClosedTabsAction->setEnabled(false);
+    m_recentlyClosedTabsAction->setObjectName(QLatin1String("history_recentTabs"));
 
     bool newTabButtonInRightCorner = settings.value(QLatin1String("newTabButtonInRightCorner"), true).toBool();
 #ifndef Q_WS_MAC // can't seem to figure out the background color :(
