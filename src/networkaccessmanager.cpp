@@ -84,6 +84,19 @@
 #include <qdesktopservices.h>
 #endif
 
+#if QT_VERSION >= 0x040500
+class NetworkProxyFactory : public QNetworkProxyFactory {
+    Q_OBJECT
+public:
+    QList<QNetworkProxy> queryProxy(const QNetworkProxyQuery &query = QNetworkProxyQuery());
+};
+
+QList<QNetworkProxy> NetworkProxyFactory::queryProxy(const QNetworkProxyQuery &query)
+{
+    return systemProxyForQuery(query);
+}
+#endif
+
 NetworkAccessManager::NetworkAccessManager(QObject *parent)
     : QNetworkAccessManager(parent)
 {
@@ -110,6 +123,16 @@ void NetworkAccessManager::loadSettings()
 {
     QSettings settings;
     settings.beginGroup(QLatin1String("proxy"));
+#if QT_VERSION >= 0x040500
+#if defined(Q_WS_MAC) && (defined(Q_OS_WIN))
+    NetworkProxyFactory *proxyFactory = 0;
+    if (settings.value(QLatin1String("enabled"), false).toBool())
+        proxyFactory = new NetworkProxyFactory;
+    QNetworkProxyFactory::setApplicationProxyFactory(0);
+#endif
+#endif
+
+#if QT_VERSION < 0x040500 || (!defined(Q_WS_MAC) && !defined(Q_OS_WIN))
     QNetworkProxy proxy;
     if (settings.value(QLatin1String("enabled"), false).toBool()) {
         if (settings.value(QLatin1String("type"), 0).toInt() == 0)
@@ -123,6 +146,7 @@ void NetworkAccessManager::loadSettings()
     }
     setProxy(proxy);
     settings.endGroup();
+#endif
 
 #ifndef QT_NO_OPENSSL
     QSslConfiguration sslCfg = QSslConfiguration::defaultConfiguration();
