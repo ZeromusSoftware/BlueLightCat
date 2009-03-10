@@ -41,8 +41,7 @@
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
 ** http://trolltech.com/products/qt/licenses/licensing/opensource/. If
-
- ** you are unsure which license is appropriate for your use, please
+** you are unsure which license is appropriate for your use, please
 ** review the following information:
 ** http://trolltech.com/products/qt/licenses/licensing/licensingoverview
 ** or contact the sales department at sales@trolltech.com.
@@ -746,7 +745,7 @@ void BrowserMainWindow::setupMenu()
 #endif
 
     m_actionCollection->addMenu(new QMenu(tr("Hi&story")));
-    m_actionManager->setMenu(historyMenu);
+    m_actionManager->setMenu(m_historyMenu);
 
     // Bookmarks
     m_bookmarksMenu = new BookmarksMenuBarMenu(this);
@@ -786,7 +785,7 @@ void BrowserMainWindow::setupMenu()
     m_bookmarksShowAllAction->setIcon(QIcon::fromTheme(QLatin1String("user-bookmarks")));
 #endif
     m_actionCollection->addMenu(new QMenu(tr("&Bookmarks")));
-    m_actionManager->setMenu(bookmarksMenu);
+    m_actionManager->setMenu(m_bookmarksMenu);
 
     // Window
     m_windowMenu = new QMenu(menuBar());
@@ -839,9 +838,9 @@ void BrowserMainWindow::setupMenu()
     connect(configureShortcutsAction, SIGNAL(triggered()),
             this, SLOT(configureShortcuts()));
     configureShortcutsAction->setObjectName(QLatin1String("tools_configureShortcuts"));
-    toolsMenu->addAction(configureShortcutsAction);
+    m_toolsMenu->addAction(configureShortcutsAction);
 
-    m_actionCollection->addMenu(toolsMenu);
+    m_actionCollection->addMenu(m_toolsMenu);
 
     // Help
     m_helpMenu = new QMenu(menuBar());
@@ -1025,8 +1024,6 @@ void BrowserMainWindow::currentChanged(int index)
     qDebug() << "currentChagned" << index;
     if (ActionCollection *document = dynamic_cast<ActionCollection*>(m_tabWidget->webView(index)))
         m_actionManager->setDocumentActionCollection(document);
->>>>>>> API tweak #2:src/browsermainwindow.cpp
->>>>>>> API tweak #2:src/browsermainwindow.cpp
 }
 
 void BrowserMainWindow::setupToolBar()
