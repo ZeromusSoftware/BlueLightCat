@@ -109,11 +109,12 @@ ToolbarSearch::ToolbarSearch(QWidget *parent)
     m_completer->setModel(m_model);
     m_completer->setCompletionMode(QCompleter::UnfilteredPopupCompletion);
     setCompleter(m_completer);
-
+/*
     searchButton()->setShowMenuTriangle(true);
 
     connect(searchButton(), SIGNAL(clicked()),
             this, SLOT(showEnginesMenu()));
+*/
     connect(this, SIGNAL(returnPressed()),
             this, SLOT(searchNow()));
 
@@ -168,13 +169,13 @@ bool ToolbarSearch::completerHighlighted(const QModelIndex &index)
 void ToolbarSearch::focusInEvent(QFocusEvent *event)
 {
     SearchLineEdit::focusInEvent(event);
-
+/*
     // Every time we get a focus in event QLineEdit re-connects...
     disconnect(completer(), SIGNAL(activated(QString)),
                this, SLOT(setText(QString)));
     disconnect(completer(), SIGNAL(highlighted(QString)),
                this, SLOT(_q_completionHighlighted(QString)));
-
+*/
     // And every time it gets a focus out it disconnects everything from the completer to this :(
     // So we have to re-connect
     connect(completer(), SIGNAL(activated(const QModelIndex &)),
@@ -277,7 +278,7 @@ void ToolbarSearch::showEnginesMenu()
 {
     QMenu menu;
 
-    QWidget *parent = searchButton()->parentWidget();
+    QWidget *parent = 0;//searchButton()->parentWidget();
     if (!parent)
         return;
 
@@ -409,8 +410,8 @@ void ToolbarSearch::setupList()
         }
     }
 
-    QAbstractItemView *view = completer()->popup();
-    view->setFixedHeight(view->sizeHintForRow(0) * m_model->rowCount() + view->frameWidth() * 2);
+//    QAbstractItemView *view = completer()->popup();
+//    view->setFixedHeight(view->sizeHintForRow(0) * m_model->rowCount() + view->frameWidth() * 2);
 }
 
 void ToolbarSearch::clear()
@@ -418,7 +419,7 @@ void ToolbarSearch::clear()
     m_recentSearches.clear();
     m_autosaver->changeOccurred();
     setupList();
-    QLineEdit::clear();
+    SearchLineEdit::clear();
     clearFocus();
 }
 

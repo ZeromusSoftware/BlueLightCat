@@ -31,6 +31,38 @@
 
 #include "lineedit.h"
 
+#ifdef Q_WS_MAC
+
+class SearchLineEdit : public QWidget
+{
+    Q_OBJECT
+
+signals:
+    void returnPressed();
+    void textEdited(const QString &text);
+
+public:
+    SearchLineEdit(QWidget *parent = 0);
+
+    QSize sizeHint() const;
+
+    QString text() const;
+    void setText(const QString &text);
+    void selectAll();
+    void setInactiveText(const QString &text);
+    void clear();
+
+    QCompleter *completer() { return 0; }
+    void setCompleter(QCompleter *completer) {}
+
+private:
+    QWidget *nativeWidget;
+
+};
+
+#else
+/*
+
 class ClearButton;
 class SearchButton;
 class SearchLineEdit : public LineEdit
@@ -49,6 +81,8 @@ private:
     SearchButton *m_searchButton;
 
 };
+*/
+#endif
 
 #endif // SEARCHLINEEDIT_H
 
