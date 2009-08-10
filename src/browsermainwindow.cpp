@@ -1142,13 +1142,46 @@ void BrowserMainWindow::downloadManager()
     BrowserApplication::downloadManager()->show();
 }
 
+void BrowserMainWindow::showAndFocus(QWidget *widget)
+{
+    widget->setFocus();
+
+    if (widget->isVisible())
+        return;
+
+    QWidget *widgetToShow = widget;
+    QObject *parent = widget;
+    while ((parent = parent->parent())) {
+        if (QToolBar *toolBar = qobject_cast<QToolBar*>(parent)) {
+            widgetToShow = toolBar;
+            break;
+        }
+    }
+
+    if (!widgetToShow || !widgetToShow->parent())
+        return;
+
+    m_shownWidget = widgetToShow;
+    widgetToShow->show();
+
+    connect(qApp, SIGNAL(focusChanged(QWidget *, QWidget *)),
+            this, SLOT(onFocusChange(QWidget *, QWidget *)));
+}
+
+void BrowserMainWindow::onFocusChange(QWidget *oldWidget, QWidget *newWidget)
+{
+    Q_UNUSED(oldWidget);
+    if (!m_shownWidget->isAncestorOf(newWidget)) {
+        m_shownWidget->hide();
+        disconnect(qApp, SIGNAL(focusChanged(QWidget *, QWidget *)),
+                   this, SLOT(onFocusChange(QWidget *, QWidget *)));
+    }
+}
+
 void BrowserMainWindow::selectLineEdit()
 {
-    if (m_navigationBar->isHidden())
-        m_navigationBar->show();
-
     m_tabWidget->currentLocationBar()->selectAll();
-    m_tabWidget->currentLocationBar()->setFocus();
+    showAndFocus(m_tabWidget->currentLocationBar());
 }
 
 void BrowserMainWindow::fileSaveAs()
@@ -1408,7 +1441,7 @@ void BrowserMainWindow::goHome()
 void BrowserMainWindow::webSearch()
 {
     m_toolbarSearch->selectAll();
-    m_toolbarSearch->setFocus();
+    showAndFocus(m_toolbarSearch);
 }
 
 void BrowserMainWindow::clearPrivateData()
@@ -1437,7 +1470,7 @@ void BrowserMainWindow::toggleInspector(bool enable)
 void BrowserMainWindow::swapFocus()
 {
     if (currentTab()->hasFocus()) {
-        m_tabWidget->currentLocationBar()->setFocus();
+        showAndFocus(m_tabWidget->currentLocationBar());
         m_tabWidget->currentLocationBar()->selectAll();
     } else {
         currentTab()->setFocus();
