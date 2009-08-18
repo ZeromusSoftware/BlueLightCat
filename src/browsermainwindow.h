@@ -101,6 +101,8 @@ public:
     QAction *showMenuBarAction() const;
     QAction *searchManagerAction() const { return m_toolsSearchManagerAction; }
 
+    void addToolBar(QToolBar *);
+
 public slots:
     void goHome();
     void privacyChanged(bool isPrivate);
@@ -111,6 +113,7 @@ protected:
     void keyPressEvent(QKeyEvent *event);
     void mousePressEvent(QMouseEvent *event);
     void changeEvent(QEvent *event);
+    bool event(QEvent *event);
 
 private slots:
     void save();
@@ -139,8 +142,6 @@ private slots:
     void zoomNormal();
     void zoomOut();
     void viewMenuBar();
-    void viewToolbar();
-    void viewBookmarksBar();
     void viewStatusbar();
     void viewPageSource();
     void viewFullScreen(bool enable);
@@ -201,9 +202,8 @@ private:
     QAction *m_editFindPreviousAction;
 
     QMenu *m_viewMenu;
+    QAction *m_toolBarMenuAction;
     QAction *m_viewShowMenuBarAction;
-    QAction *m_viewToolbarAction;
-    QAction *m_viewBookmarkBarAction;
     QAction *m_viewStatusbarAction;
     QAction *m_viewStopAction;
     QAction *m_viewReloadAction;

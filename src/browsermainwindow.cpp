@@ -197,10 +197,6 @@ BrowserMainWindow::BrowserMainWindow(QWidget *parent, Qt::WindowFlags flags)
             menuBar(), SLOT(setVisible(bool)));
     connect(m_tabWidget, SIGNAL(statusBarVisibilityChangeRequested(bool)),
             statusBar(), SLOT(setVisible(bool)));
-    connect(m_tabWidget, SIGNAL(toolBarVisibilityChangeRequested(bool)),
-            m_navigationBar, SLOT(setVisible(bool)));
-    connect(m_tabWidget, SIGNAL(toolBarVisibilityChangeRequested(bool)),
-            m_bookmarksToolbar, SLOT(setVisible(bool)));
     connect(m_tabWidget, SIGNAL(lastTabClosed()),
             this, SLOT(lastTabClosed()));
 
@@ -420,10 +416,10 @@ bool BrowserMainWindow::restoreState(const QByteArray &state)
         m_bookmarksToolbar->setVisible(showBookmarksBarDEAD);
         Qt::ToolBarArea navigationArea = Qt::ToolBarArea(navigationBarLocation);
         if (navigationArea != Qt::TopToolBarArea && navigationArea != Qt::NoToolBarArea)
-            addToolBar(navigationArea, m_navigationBar);
+            QMainWindow::addToolBar(navigationArea, m_navigationBar);
         Qt::ToolBarArea bookmarkArea = Qt::ToolBarArea(bookmarkBarLocation);
         if (bookmarkArea != Qt::TopToolBarArea && bookmarkArea != Qt::NoToolBarArea)
-            addToolBar(bookmarkArea, m_bookmarksToolbar);
+            QMainWindow::addToolBar(bookmarkArea, m_bookmarksToolbar);
     } else {
         QMainWindow::restoreState(qMainWindowState);
     }
@@ -614,13 +610,8 @@ void BrowserMainWindow::setupMenu()
     connect(m_viewShowMenuBarAction, SIGNAL(triggered()), this, SLOT(viewMenuBar()));
     addAction(m_viewShowMenuBarAction);
 
-    m_viewToolbarAction = new QAction(this);
-    connect(m_viewToolbarAction, SIGNAL(triggered()), this, SLOT(viewToolbar()));
-    m_viewMenu->addAction(m_viewToolbarAction);
-
-    m_viewBookmarkBarAction = new QAction(m_viewMenu);
-    connect(m_viewBookmarkBarAction, SIGNAL(triggered()), this, SLOT(viewBookmarksBar()));
-    m_viewMenu->addAction(m_viewBookmarkBarAction);
+    m_toolBarMenuAction = new QAction(this);
+    m_viewMenu->addAction(m_toolBarMenuAction);
 
     QAction *viewTabBarAction = m_tabWidget->tabBar()->viewTabBarAction();
     m_viewMenu->addAction(viewTabBarAction);
@@ -874,8 +865,10 @@ void BrowserMainWindow::setupMenu()
 
 void BrowserMainWindow::aboutToShowViewMenu()
 {
-    m_viewToolbarAction->setText(m_navigationBar->isVisible() ? tr("Hide Toolbar") : tr("Show Toolbar"));
-    m_viewBookmarkBarAction->setText(m_bookmarksToolbar->isVisible() ? tr("Hide Bookmarks Bar") : tr("Show Bookmarks Bar"));
+    QMenu *oldMenu = m_toolBarMenuAction->menu();
+    m_toolBarMenuAction->setMenu(createPopupMenu());
+    delete oldMenu;
+
     m_viewStatusbarAction->setText(statusBar()->isVisible() ? tr("Hide Status Bar") : tr("Show Status Bar"));
 }
 
@@ -955,8 +948,7 @@ void BrowserMainWindow::retranslate()
     m_editFindPreviousAction->setText(tr("Find P&revious"));
 
     m_viewMenu->setTitle(tr("&View"));
-    m_viewToolbarAction->setShortcut(tr("Ctrl+|"));
-    m_viewBookmarkBarAction->setShortcut(tr("Alt+Ctrl+B"));
+    m_toolBarMenuAction->setText(tr("Toolbars"));
     m_viewStatusbarAction->setShortcut(tr("Ctrl+/"));
     m_viewShowMenuBarAction->setText(tr("Show Menu Bar"));
     m_viewReloadAction->setText(tr("&Reload Page"));
@@ -1007,6 +999,15 @@ void BrowserMainWindow::retranslate()
 
     m_stopReloadAction->setText(tr("Reload / Stop"));
     updateStopReloadActionText(false);
+}
+
+void BrowserMainWindow::addToolBar(QToolBar *toolBar)
+{
+    connect(toolBar->toggleViewAction(), SIGNAL(triggered(bool)),
+            m_autoSaver, SLOT(changeOccurred()));
+    connect(m_tabWidget, SIGNAL(toolBarVisibilityChangeRequested(bool)),
+            toolBar, SLOT(setVisible(bool)));
+    QMainWindow::addToolBar(toolBar);
 }
 
 void BrowserMainWindow::setupToolBar()
@@ -1095,26 +1096,6 @@ void BrowserMainWindow::viewMenuBar()
     menuBar()->setVisible(!menuBar()->isVisible());
 
     m_menuBarVisible = menuBar()->isVisible();
-    m_autoSaver->changeOccurred();
-}
-
-void BrowserMainWindow::viewToolbar()
-{
-    if (m_navigationBar->isVisible()) {
-        m_navigationBar->close();
-    } else {
-        m_navigationBar->show();
-    }
-    m_autoSaver->changeOccurred();
-}
-
-void BrowserMainWindow::viewBookmarksBar()
-{
-    if (m_bookmarksToolbar->isVisible()) {
-        m_bookmarksToolbar->hide();
-    } else {
-        m_bookmarksToolbar->show();
-    }
     m_autoSaver->changeOccurred();
 }
 
@@ -1609,3 +1590,26 @@ void BrowserMainWindow::geometryChangeRequested(const QRect &geometry)
     setGeometry(geometry);
 }
 
+bool BrowserMainWindow::event(QEvent *event)
+{
+    // This is called when pressing the toolbar button in the title bar on OS X.
+    // Qt's implementation doesn't actually hide the toolbars; it moves them
+    // offscreen. We'll use our own so our menu actions are updated correctly.
+    if (event->type() == QEvent::ToolBarChange) {
+        QList<QToolBar*> toolBars = findChildren<QToolBar*>();
+
+        bool toolBarsHidden = true;
+        foreach (QToolBar *toolBar, toolBars) {
+            if (toolBar->isVisible()) {
+                toolBarsHidden = false;
+                break;
+            }
+        }
+
+        foreach (QToolBar *toolBar, toolBars)
+            toolBar->setVisible(toolBarsHidden);
+
+        return true;
+    }
+    return QMainWindow::event(event);
+}
