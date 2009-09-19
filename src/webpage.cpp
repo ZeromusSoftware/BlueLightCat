@@ -23,6 +23,7 @@
 #include "browserapplication.h"
 #include "downloadmanager.h"
 #include "historymanager.h"
+#include "locationbar.h"
 #include "networkaccessmanager.h"
 #include "opensearchengine.h"
 #include "opensearchmanager.h"
@@ -94,6 +95,7 @@ QString JavaScriptAroraObject::searchUrl(const QString &string) const
 {
     return QString::fromUtf8(ToolbarSearch::openSearchManager()->currentEngine()->searchUrl(string).toEncoded());
 }
+#include "adblocklocationbarbutton.h"
 
 WebPage::WebPage(QObject *parent)
     : QWebPage(parent)
@@ -107,8 +109,20 @@ WebPage::WebPage(QObject *parent)
             this, SLOT(handleUnsupportedContent(QNetworkReply *)));
     connect(this, SIGNAL(frameCreated(QWebFrame *)),
             this, SLOT(addExternalBinding(QWebFrame *)));
+
     addExternalBinding(mainFrame());
     loadSettings();
+}
+
+AdBlockLocationBarButton *WebPage::blockedLocationBarButtion() const
+{
+    if (WebView *webView = qobject_cast<WebView*>(view())) {
+        TabWidget *tabWidget = webView->tabWidget();
+        QLineEdit *lineEdit = tabWidget->locationBar(tabWidget->webViewIndex(webView));
+        if (LocationBar *locationBar = qobject_cast<LocationBar*>(lineEdit))
+            return locationBar->adBlockLocationBarButton();
+    }
+    return 0;
 }
 
 WebPluginFactory *WebPage::webPluginFactory()

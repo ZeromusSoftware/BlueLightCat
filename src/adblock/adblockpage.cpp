@@ -31,11 +31,13 @@
 #include "adblockmanager.h"
 #include "adblocksubscription.h"
 #include "adblockrule.h"
+#include "adblocklocationbarbutton.h"
+
+#include "webpage.h"
 
 #if QT_VERSION >= 0x040600
 #include <qwebelement.h>
 #endif
-#include <qwebpage.h>
 #include <qwebframe.h>
 
 #include <qdebug.h>
@@ -47,7 +49,7 @@ AdBlockPage::AdBlockPage(QObject *parent)
 {
 }
 
-void AdBlockPage::checkRule(const AdBlockRule *rule, QWebPage *page, const QString &host)
+void AdBlockPage::checkRule(const AdBlockRule *rule, WebPage *page, const QString &host)
 {
     if (!rule->isEnabled())
         return;
@@ -90,6 +92,7 @@ void AdBlockPage::checkRule(const AdBlockRule *rule, QWebPage *page, const QStri
     if (elements.count() != 0)
         qDebug() << "AdBlockPage::" << __FUNCTION__ << "blocking" << elements.count() << "items" << selectorQuery << elements.count() << "rule:" << rule->filter();
 #endif
+    page->blockedLocationBarButtion()->blocked(filter, filter);
     foreach (QWebElement element, elements) {
         element.setStyleProperty(QLatin1String("visibility"), QLatin1String("hidden"));
         element.removeFromDocument();
@@ -98,7 +101,7 @@ void AdBlockPage::checkRule(const AdBlockRule *rule, QWebPage *page, const QStri
 #endif
 }
 
-void AdBlockPage::applyRulesToPage(QWebPage *page)
+void AdBlockPage::applyRulesToPage(WebPage *page)
 {
     if (!page || !page->mainFrame())
         return;

@@ -28,6 +28,7 @@
 class WebView;
 class LocationBarSiteIcon;
 class PrivacyIndicator;
+class AdBlockLocationBarButton;
 class LocationBar : public LineEdit
 {
     Q_OBJECT
@@ -36,6 +37,7 @@ public:
     LocationBar(QWidget *parent = 0);
     void setWebView(WebView *webView);
     WebView *webView() const;
+    AdBlockLocationBarButton *adBlockLocationBarButton() const;
 
 protected:
     void paintEvent(QPaintEvent *event);
@@ -54,6 +56,7 @@ private:
 
     LocationBarSiteIcon *m_siteIcon;
     PrivacyIndicator *m_privacyIndicator;
+    AdBlockLocationBarButton *m_adBlockLocationBarButton;
 };
 
 #endif // LOCATIONBAR_H

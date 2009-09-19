@@ -26,25 +26,31 @@
  * SUCH DAMAGE.
  */
 
-#ifndef ADBLOCKPAGE_H
-#define ADBLOCKPAGE_H
+#ifndef ADBLOCKLOCATIONBARBUTTON_H
+#define ADBLOCKLOCATIONBARBUTTON_H
 
-#include <qobject.h>
+#include <qlabel.h>
 
-class AdBlockRule;
-class WebPage;
-class AdBlockPage : public QObject
+class AdBlockLocationBarButton : public QLabel
 {
     Q_OBJECT
 
 public:
-    AdBlockPage(QObject *parent = 0);
+    AdBlockLocationBarButton(QWidget *parent = 0);
 
-    void applyRulesToPage(WebPage *page);
+    void blocked(const QString &address, const QString &filter);
+
+public slots:
+    void clear() { blockedItems.clear(); }
+
+private slots:
+    void check();
+    void customContextMenuRequested(const QPoint &pos);
 
 private:
-    void checkRule(const AdBlockRule *rule, WebPage *page, const QString &host);
+    typedef QPair<QString, QString> Block;
+    QList<Block> blockedItems;
 };
 
-#endif // ADBLOCKPAGE_H
+#endif // ADBLOCKLOCATIONBARBUTTON_H
 

@@ -64,6 +64,7 @@ public slots:
     QString searchUrl(const QString &string) const;
 };
 
+class AdBlockLocationBarButton;
 class WebPage : public QWebPage
 {
     Q_OBJECT
@@ -77,6 +78,7 @@ public:
 
     static WebPluginFactory *webPluginFactory();
     QList<WebPageLinkedResource> linkedResources(const QString &relation = QString());
+    AdBlockLocationBarButton *blockedLocationBarButtion() const;
 
 protected:
     QString userAgentForUrl(const QUrl &url) const;

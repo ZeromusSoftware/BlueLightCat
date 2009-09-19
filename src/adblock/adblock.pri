@@ -4,6 +4,7 @@ DEPENDPATH += $$PWD
 HEADERS += \
     adblockblockednetworkreply.h \
     adblockdialog.h \
+    adblocklocationbarbutton.h \
     adblockmanager.h \
     adblockmodel.h \
     adblocknetwork.h \
@@ -15,6 +16,7 @@ HEADERS += \
 SOURCES += \
     adblockblockednetworkreply.cpp \
     adblockdialog.cpp \
+    adblocklocationbarbutton.cpp \
     adblockmanager.cpp \
     adblockmodel.cpp \
     adblocknetwork.cpp \

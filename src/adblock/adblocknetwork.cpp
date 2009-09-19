@@ -31,6 +31,8 @@
 #include "adblockblockednetworkreply.h"
 #include "adblockmanager.h"
 #include "adblocksubscription.h"
+#include "adblocklocationbarbutton.h"
+#include "webpage.h"
 
 #include <qdebug.h>
 
@@ -68,13 +70,20 @@ QNetworkReply *AdBlockNetwork::block(const QNetworkRequest &request)
         }
     }
 
-    if (blockedRule) {
+    if (!blockedRule)
+        return 0;
+
+    QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
+    WebPage *webPage = static_cast<WebPage*>(v.value<void*>());
+    if (!webPage)
+        qWarning() << "AdBlockNetwork:" << "QWebPage is not set in QNetworkRequest.";
+    else
+        webPage->blockedLocationBarButtion()->blocked(url.toString(), blockedRule->filter());
+
 #if defined(ADBLOCKNETWORK_DEBUG)
-        qDebug() << "AdBlockNetwork::" << __FUNCTION__ << "rule:" << blockedRule->filter() << "subscription:" << blockingSubscription->title() << url;
+    qDebug() << "AdBlockNetwork::" << __FUNCTION__ << "rule:" << blockedRule->filter() << "subscription:" << blockingSubscription->title() << url;
 #endif
-       AdBlockBlockedNetworkReply *reply = new AdBlockBlockedNetworkReply(request, blockedRule, this);
-        return reply;
-    }
-    return 0;
+   AdBlockBlockedNetworkReply *reply = new AdBlockBlockedNetworkReply(request, blockedRule, this);
+    return reply;
 }
 

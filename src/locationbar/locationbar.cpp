@@ -19,6 +19,7 @@
 
 #include "locationbar.h"
 
+#include "adblocklocationbarbutton.h"
 #include "browserapplication.h"
 #include "clearbutton.h"
 #include "locationbarsiteicon.h"
@@ -38,6 +39,7 @@ LocationBar::LocationBar(QWidget *parent)
     , m_webView(0)
     , m_siteIcon(0)
     , m_privacyIndicator(0)
+    , m_adBlockLocationBarButton(0)
 {
     // Urls are always LeftToRight
     setLayoutDirection(Qt::LeftToRight);
@@ -50,6 +52,10 @@ LocationBar::LocationBar(QWidget *parent)
     // privacy indicator at rightmost position
     m_privacyIndicator = new PrivacyIndicator(this);
     addWidget(m_privacyIndicator, RightSide);
+
+    // blocked button at rightmost position
+    m_adBlockLocationBarButton = new AdBlockLocationBarButton(this);
+    addWidget(m_adBlockLocationBarButton, RightSide);
 
     // clear button on the right
     ClearButton *m_clearButton = new ClearButton(this);
@@ -69,6 +75,11 @@ LocationBar::LocationBar(QWidget *parent)
     setPalette(p);
 }
 
+AdBlockLocationBarButton *LocationBar::adBlockLocationBarButton() const
+{
+    return m_adBlockLocationBarButton;
+}
+
 void LocationBar::setWebView(WebView *webView)
 {
     Q_ASSERT(webView);
@@ -78,6 +89,8 @@ void LocationBar::setWebView(WebView *webView)
             this, SLOT(webViewUrlChanged(const QUrl &)));
     connect(webView, SIGNAL(loadProgress(int)),
             this, SLOT(update()));
+    connect(webView->page(), SIGNAL(loadStarted()),
+            adBlockLocationBarButton(), SLOT(clear()));
 }
 
 WebView *LocationBar::webView() const

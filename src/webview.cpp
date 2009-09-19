@@ -557,7 +557,7 @@ void WebView::loadFinished()
                    << "Url:" << url();
     }
     m_progress = 0;
-    AdBlockManager::instance()->page()->applyRulesToPage(page());
+    AdBlockManager::instance()->page()->applyRulesToPage(m_page);
 }
 
 void WebView::loadUrl(const QUrl &url, const QString &title)

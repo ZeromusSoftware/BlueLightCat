@@ -26,25 +26,41 @@
  * SUCH DAMAGE.
  */
 
-#ifndef ADBLOCKPAGE_H
-#define ADBLOCKPAGE_H
+#include "adblocklocationbarbutton.h"
 
-#include <qobject.h>
+#include <qmenu.h>
+#include <qstyle.h>
 
-class AdBlockRule;
-class WebPage;
-class AdBlockPage : public QObject
+#include <qdebug.h>
+
+AdBlockLocationBarButton::AdBlockLocationBarButton(QWidget *parent)
+    : QLabel(parent)
 {
-    Q_OBJECT
+    setPixmap(QIcon(QLatin1String(":32x32/adblock.png")).pixmap(16, 16));
+    check();
+    setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(this, SIGNAL(customContextMenuRequested(const QPoint &)),
+            this, SLOT(customContextMenuRequested(const QPoint &)));
+}
 
-public:
-    AdBlockPage(QObject *parent = 0);
+void AdBlockLocationBarButton::customContextMenuRequested(const QPoint &/*pos*/)
+{
+    QMenu menu;
+    foreach (const Block &block, blockedItems) {
+        menu.addAction(block.first);
+    }
 
-    void applyRulesToPage(WebPage *page);
+    menu.exec(QCursor::pos());
 
-private:
-    void checkRule(const AdBlockRule *rule, WebPage *page, const QString &host);
-};
+}
 
-#endif // ADBLOCKPAGE_H
+void AdBlockLocationBarButton::blocked(const QString &address, const QString &filter)
+{
+    blockedItems.append(QPair<QString,QString>(address, filter));
+}
+
+void AdBlockLocationBarButton::check()
+{
+    setVisible(true);
+}
 
