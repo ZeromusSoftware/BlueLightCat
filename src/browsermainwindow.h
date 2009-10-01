@@ -258,6 +258,7 @@ private:
     TabWidget *m_tabWidget;
 
     AutoSaver *m_autoSaver;
+    friend class BrowserApplication;
 
     // These store if the user requested the menu/status bars visible. They are
     // used to determine if these bars should be reshown when leaving fullscreen.

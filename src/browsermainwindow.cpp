@@ -377,7 +377,7 @@ bool BrowserMainWindow::restoreState(const QByteArray &state)
         resize(size);
 
 #if defined(Q_WS_MAC)
-    m_bookmarksToolbarFrame->setVisible(showBookmarksBar);
+//    m_bookmarksToolbarFrame->setVisible(showBookmarksBar);
 #endif
 
     if (maximized)
@@ -1018,14 +1018,14 @@ void BrowserMainWindow::configureShortcuts()
     KeyboardShortcutsDialog dialog;
     dialog.exec();
 }
-
+/*
 void BrowserMainWindow::currentChanged(int index)
 {
     qDebug() << "currentChagned" << index;
     if (ActionCollection *document = dynamic_cast<ActionCollection*>(m_tabWidget->webView(index)))
         m_actionManager->setDocumentActionCollection(document);
 }
-
+*/
 void BrowserMainWindow::setupToolBar()
 {
     setUnifiedTitleAndToolBarOnMac(true);
