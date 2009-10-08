@@ -314,7 +314,7 @@ QByteArray BrowserMainWindow::saveState(bool withTabs) const
     // save the normal size so exiting fullscreen/maximize will work reasonably
     stream << normalGeometry().size();
     stream << !m_navigationBar->isHidden(); // DEAD
-    stream << !m_bookmarksToolbar->isHidden(); // DEAD
+    stream << !m_bookmarksToolbar->isHidden(); // DEAD except on Mac
     stream << !statusBar()->isHidden();
     if (withTabs)
         stream << tabWidget()->saveState();
@@ -410,6 +410,10 @@ bool BrowserMainWindow::restoreState(const QByteArray &state)
     tabWidget()->restoreState(tabState);
 
     m_tabWidget->tabBar()->setShowTabBarWhenOneTab(showTabBarWhenOneTab);
+
+#if defined(Q_WS_MAC)
+    m_bookmarksToolbar->setVisible(showBookmarksBarDEAD);
+#endif
 
     if (qMainWindowState.isEmpty()) {
         m_navigationBar->setVisible(showToolbarDEAD);
