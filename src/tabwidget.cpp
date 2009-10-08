@@ -185,6 +185,8 @@ TabWidget::TabWidget(QWidget *parent)
             this, SLOT(currentChanged(int)));
 
     m_locationBars = new QStackedWidget(this);
+    m_locationBars->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Maximum);
+    m_locationBars->setMinimumWidth(120);
 
     connect(BrowserApplication::historyManager(), SIGNAL(historyCleared()),
         this, SLOT(historyCleared()));
@@ -412,7 +414,6 @@ WebView *TabWidget::makeNewTab(bool makeCurrent)
     locationBar->setCompleter(m_lineEditCompleter);
     connect(locationBar, SIGNAL(returnPressed()), this, SLOT(lineEditReturnPressed()));
     m_locationBars->addWidget(locationBar);
-    m_locationBars->setSizePolicy(locationBar->sizePolicy());
 
 #ifndef AUTOTESTS
     QWidget::setTabOrder(locationBar, qFindChild<ToolbarSearch*>(BrowserMainWindow::parentWindow(this)));
