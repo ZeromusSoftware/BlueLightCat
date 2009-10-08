@@ -114,9 +114,6 @@ BrowserMainWindow::BrowserMainWindow(QWidget *parent, Qt::WindowFlags flags)
     , m_navigationBar(0)
     , m_navigationSplitter(0)
     , m_toolbarSearch(0)
-#if defined(Q_WS_MAC)
-    , m_bookmarksToolbarFrame(0)
-#endif
     , m_bookmarksToolbar(0)
     , m_tabWidget(new TabWidget(this))
     , m_autoSaver(new AutoSaver(this))
@@ -144,19 +141,22 @@ BrowserMainWindow::BrowserMainWindow(QWidget *parent, Qt::WindowFlags flags)
     layout->setSpacing(0);
     layout->setMargin(0);
 #if defined(Q_WS_MAC)
-    m_bookmarksToolbarFrame = new QFrame(this);
-    m_bookmarksToolbarFrame->setLineWidth(1);
-    m_bookmarksToolbarFrame->setMidLineWidth(0);
-    m_bookmarksToolbarFrame->setFrameShape(QFrame::HLine);
-    m_bookmarksToolbarFrame->setFrameShadow(QFrame::Raised);
-    QPalette fp = m_bookmarksToolbarFrame->palette();
+    QFrame *bookmarksToolbarFrame = new QFrame(this);
+    bookmarksToolbarFrame->setLineWidth(1);
+    bookmarksToolbarFrame->setMidLineWidth(0);
+    bookmarksToolbarFrame->setFrameShape(QFrame::HLine);
+    bookmarksToolbarFrame->setFrameShadow(QFrame::Raised);
+    QPalette fp = bookmarksToolbarFrame->palette();
     fp.setColor(QPalette::Active, QPalette::Light, QColor(64, 64, 64));
     fp.setColor(QPalette::Active, QPalette::Dark, QColor(192, 192, 192));
     fp.setColor(QPalette::Inactive, QPalette::Light, QColor(135, 135, 135));
     fp.setColor(QPalette::Inactive, QPalette::Dark, QColor(226, 226, 226));
-    m_bookmarksToolbarFrame->setAttribute(Qt::WA_MacNoClickThrough, true);
-    m_bookmarksToolbarFrame->setPalette(fp);
-    layout->addWidget(m_bookmarksToolbarFrame);
+    bookmarksToolbarFrame->setAttribute(Qt::WA_MacNoClickThrough, true);
+    bookmarksToolbarFrame->setPalette(fp);
+    layout->addWidget(bookmarksToolbarFrame);
+
+    connect(m_bookmarksToolbar->toggleViewAction(), SIGNAL(toggled(bool)),
+            bookmarksToolbarFrame, SLOT(setVisible(bool)));
 
     layout->addWidget(m_bookmarksToolbar);
     QPalette p = m_bookmarksToolbar->palette();
@@ -423,10 +423,6 @@ bool BrowserMainWindow::restoreState(const QByteArray &state)
     } else {
         QMainWindow::restoreState(qMainWindowState);
     }
-
-#if defined(Q_WS_MAC)
-    m_bookmarksToolbarFrame->setVisible(m_bookmarksToolbar->isVisible());
-#endif
 
     return true;
 }
@@ -1112,14 +1108,8 @@ void BrowserMainWindow::viewBookmarksBar()
 {
     if (m_bookmarksToolbar->isVisible()) {
         m_bookmarksToolbar->hide();
-#if defined(Q_WS_MAC)
-        m_bookmarksToolbarFrame->hide();
-#endif
     } else {
         m_bookmarksToolbar->show();
-#if defined(Q_WS_MAC)
-        m_bookmarksToolbarFrame->show();
-#endif
     }
     m_autoSaver->changeOccurred();
 }
