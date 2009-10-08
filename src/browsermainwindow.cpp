@@ -2,6 +2,7 @@
  * Copyright 2008-2009 Benjamin C. Meyer <ben@meyerhome.net>
  * Copyright 2008 Jason A. Donenfeld <Jason@zx2c4.com>
  * Copyright 2008 Ariya Hidayat <ariya.hidayat@gmail.com>
+ * Copyright 2009 Christopher Eby <kreed@kreed.org>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -76,6 +77,7 @@
 #include "browserapplication.h"
 #include "clearprivatedata.h"
 #include "downloadmanager.h"
+#include "edittoolbar.h"
 #include "history.h"
 #include "languagemanager.h"
 #include "networkaccessmanager.h"
@@ -84,6 +86,7 @@
 #include "sourceviewer.h"
 #include "tabbar.h"
 #include "tabwidget.h"
+#include "toolbardialog.h"
 #include "toolbarsearch.h"
 #include "webview.h"
 #include "webviewsearch.h"
@@ -98,12 +101,11 @@
 #include <qtextcodec.h>
 #include <qmenubar.h>
 #include <qmessagebox.h>
+#include <qpointer.h>
 #include <qstatusbar.h>
-#include <qtoolbar.h>
 #include <qinputdialog.h>
-#include <qsplitter.h>
+#include <qwidgetaction.h>
 
-#include <qurl.h>
 #include <qwebframe.h>
 #include <qwebhistory.h>
 
@@ -111,8 +113,6 @@
 
 BrowserMainWindow::BrowserMainWindow(QWidget *parent, Qt::WindowFlags flags)
     : QMainWindow(parent, flags)
-    , m_navigationBar(0)
-    , m_navigationSplitter(0)
     , m_toolbarSearch(0)
     , m_bookmarksToolbar(0)
     , m_tabWidget(new TabWidget(this))
@@ -204,9 +204,6 @@ BrowserMainWindow::BrowserMainWindow(QWidget *parent, Qt::WindowFlags flags)
     loadDefaultState();
     m_tabWidget->newTab();
     m_tabWidget->currentLocationBar()->setFocus();
-#if defined(Q_WS_MAC)
-    m_navigationBar->setIconSize(QSize(18, 18));
-#endif
 
     // Add each item in the menu bar to the main window so
     // if the menu bar is hidden the shortcuts still work.
@@ -274,8 +271,8 @@ void BrowserMainWindow::loadDefaultState()
     QSettings settings;
     settings.beginGroup(QLatin1String("BrowserMainWindow"));
     QByteArray data = settings.value(QLatin1String("defaultState")).toByteArray();
-    restoreState(data);
-    settings.endGroup();
+    if (!restoreState(data))
+        restoreDefaultToolBars();
 }
 
 QSize BrowserMainWindow::sizeHint() const
@@ -296,11 +293,24 @@ void BrowserMainWindow::save()
     settings.endGroup();
 }
 
+void BrowserMainWindow::saveToolBarState(QDataStream &out) const
+{
+    out << QMainWindow::saveState();
+
+    out << qint32(iconSize().width());
+    out << qint32(toolButtonStyle());
+
+    QList<EditToolBar*> toolBars = findChildren<EditToolBar*>();
+    out << toolBars.size();
+    foreach (EditToolBar *toolBar, toolBars)
+        out << toolBar->saveState();
+}
+
 static const qint32 BrowserMainWindowMagic = 0xba;
 
 QByteArray BrowserMainWindow::saveState(bool withTabs) const
 {
-    int version = 3;
+    int version = 4;
     QByteArray data;
     QDataStream stream(&data, QIODevice::WriteOnly);
 
@@ -309,18 +319,15 @@ QByteArray BrowserMainWindow::saveState(bool withTabs) const
 
     // save the normal size so exiting fullscreen/maximize will work reasonably
     stream << normalGeometry().size();
-    stream << !m_navigationBar->isHidden(); // DEAD
-    stream << !m_bookmarksToolbar->isHidden(); // DEAD except on Mac
+#if defined(Q_WS_MAC)
+    stream << !m_bookmarksToolbar->isHidden();
+#endif
     stream << !statusBar()->isHidden();
     if (withTabs)
         stream << tabWidget()->saveState();
     else
         stream << QByteArray();
-    stream << m_navigationSplitter->saveState();
     stream << m_tabWidget->tabBar()->showTabBarWhenOneTab();
-
-    stream << qint32(toolBarArea(m_navigationBar));
-    stream << qint32(toolBarArea(m_bookmarksToolbar));
 
     // version 3
     stream << isMaximized();
@@ -329,9 +336,41 @@ QByteArray BrowserMainWindow::saveState(bool withTabs) const
     stream << m_menuBarVisible; // DEAD
     stream << m_statusBarVisible;
 
-    stream << QMainWindow::saveState();
+    saveToolBarState(stream);
 
     return data;
+}
+
+void BrowserMainWindow::restoreToolBarState(QDataStream &in, int version)
+{
+    QByteArray mainWindowState;
+    qint32 iconSize;
+    qint32 toolButtonStyle;
+
+    in >> mainWindowState;
+
+    if (!version || version >= 4) {
+        in >> iconSize;
+        in >> toolButtonStyle;
+
+        setIconSize(QSize(iconSize, iconSize));
+        setToolButtonStyle(Qt::ToolButtonStyle(toolButtonStyle));
+
+        int barDataCount = 0;
+        in >> barDataCount;
+
+        while (--barDataCount >= 0) {
+            QByteArray barData;
+            in >> barData;
+            EditToolBar *toolBar = new EditToolBar;
+            if (toolBar->restoreState(m_toolBarActions, barData))
+                addToolBar(toolBar);
+            else
+                delete toolBar;
+        }
+    }
+
+    QMainWindow::restoreState(mainWindowState);
 }
 
 bool BrowserMainWindow::restoreState(const QByteArray &state)
@@ -345,7 +384,7 @@ bool BrowserMainWindow::restoreState(const QByteArray &state)
     qint32 version;
     stream >> marker;
     stream >> version;
-    if (marker != BrowserMainWindowMagic || !(version == 2 || version == 3))
+    if (marker != BrowserMainWindowMagic || version < 2 || version > 4)
         return false;
 
     QSize size;
@@ -353,24 +392,36 @@ bool BrowserMainWindow::restoreState(const QByteArray &state)
     bool showBookmarksBarDEAD;
     bool showStatusbar;
     QByteArray tabState;
-    QByteArray splitterState;
     bool showTabBarWhenOneTab;
     qint32 navigationBarLocation;
     qint32 bookmarkBarLocation;
     bool maximized;
     bool fullScreen;
     bool showMenuBar;
-    QByteArray qMainWindowState;
 
     stream >> size;
-    stream >> showToolbarDEAD;
-    stream >> showBookmarksBarDEAD;
+
+    if (version < 4)
+        stream >> showToolbarDEAD;
+#if !defined(Q_WS_MAC)
+    if (version < 4)
+#endif
+        stream >> showBookmarksBarDEAD;
+
     stream >> showStatusbar;
     stream >> tabState;
-    stream >> splitterState;
+
+    if (version < 4) {
+        QByteArray splitterState;
+        stream >> splitterState;
+    }
+
     stream >> showTabBarWhenOneTab;
-    stream >> navigationBarLocation;
-    stream >> bookmarkBarLocation;
+
+    if (version < 4) {
+        stream >> navigationBarLocation;
+        stream >> bookmarkBarLocation;
+    }
 
     if (version >= 3) {
         stream >> maximized;
@@ -378,7 +429,6 @@ bool BrowserMainWindow::restoreState(const QByteArray &state)
         stream >> showMenuBar;
         stream >> showMenuBar; // m_menuBarVisible DEAD
         stream >> m_statusBarVisible;
-        stream >> qMainWindowState;
     } else {
         maximized = false;
         fullScreen = false;
@@ -401,8 +451,6 @@ bool BrowserMainWindow::restoreState(const QByteArray &state)
 
     statusBar()->setVisible(showStatusbar);
 
-    m_navigationSplitter->restoreState(splitterState);
-
     tabWidget()->restoreState(tabState);
 
     m_tabWidget->tabBar()->setShowTabBarWhenOneTab(showTabBarWhenOneTab);
@@ -411,18 +459,9 @@ bool BrowserMainWindow::restoreState(const QByteArray &state)
     m_bookmarksToolbar->setVisible(showBookmarksBarDEAD);
 #endif
 
-    if (qMainWindowState.isEmpty()) {
-        m_navigationBar->setVisible(showToolbarDEAD);
-        m_bookmarksToolbar->setVisible(showBookmarksBarDEAD);
-        Qt::ToolBarArea navigationArea = Qt::ToolBarArea(navigationBarLocation);
-        if (navigationArea != Qt::TopToolBarArea && navigationArea != Qt::NoToolBarArea)
-            QMainWindow::addToolBar(navigationArea, m_navigationBar);
-        Qt::ToolBarArea bookmarkArea = Qt::ToolBarArea(bookmarkBarLocation);
-        if (bookmarkArea != Qt::TopToolBarArea && bookmarkArea != Qt::NoToolBarArea)
-            QMainWindow::addToolBar(bookmarkArea, m_bookmarksToolbar);
-    } else {
-        QMainWindow::restoreState(qMainWindowState);
-    }
+    restoreToolBarState(stream, version);
+    if (version < 4)
+        restoreDefaultToolBars();
 
     return true;
 }
@@ -612,6 +651,9 @@ void BrowserMainWindow::setupMenu()
 
     m_toolBarMenuAction = new QAction(this);
     m_viewMenu->addAction(m_toolBarMenuAction);
+
+    m_viewEditToolBarsAction = new QAction(this);
+    connect(m_viewEditToolBarsAction, SIGNAL(triggered()), this, SLOT(editToolBars()));
 
     QAction *viewTabBarAction = m_tabWidget->tabBar()->viewTabBarAction();
     m_viewMenu->addAction(viewTabBarAction);
@@ -949,6 +991,7 @@ void BrowserMainWindow::retranslate()
 
     m_viewMenu->setTitle(tr("&View"));
     m_toolBarMenuAction->setText(tr("Toolbars"));
+    m_viewEditToolBarsAction->setText(tr("Customize Toolbars..."));
     m_viewStatusbarAction->setShortcut(tr("Ctrl+/"));
     m_viewShowMenuBarAction->setText(tr("Show Menu Bar"));
     m_viewReloadAction->setText(tr("&Reload Page"));
@@ -994,15 +1037,22 @@ void BrowserMainWindow::retranslate()
     m_helpAboutApplicationAction->setText(tr("About &%1", "About Browser").arg(QApplication::applicationName()));
 
     // Toolbar
-    m_navigationBar->setWindowTitle(tr("Navigation"));
-    m_bookmarksToolbar->setWindowTitle(tr("&Bookmarks"));
-
     m_stopReloadAction->setText(tr("Reload / Stop"));
     updateStopReloadActionText(false);
+
+    m_bookmarksToolbar->setWindowTitle(tr("&Bookmarks"));
+    foreach (EditToolBar *toolBar, findChildren<EditToolBar*>())
+        if (toolBar->objectName() == QLatin1String("NavigationToolBar"))
+            toolBar->setWindowTitle(tr("Navigation"));
 }
 
 void BrowserMainWindow::addToolBar(QToolBar *toolBar)
 {
+#if !defined(Q_WS_MAC)
+    toolBar->setMovable(m_editingToolBars);
+#endif
+    if (EditToolBar *edit = qobject_cast<EditToolBar*>(toolBar))
+        edit->setEditable(m_editingToolBars);
     connect(toolBar->toggleViewAction(), SIGNAL(triggered(bool)),
             m_autoSaver, SLOT(changeOccurred()));
     connect(m_tabWidget, SIGNAL(toolBarVisibilityChangeRequested(bool)),
@@ -1010,12 +1060,29 @@ void BrowserMainWindow::addToolBar(QToolBar *toolBar)
     QMainWindow::addToolBar(toolBar);
 }
 
+void BrowserMainWindow::addToolBar(const QString &name)
+{
+    EditToolBar *toolBar = new EditToolBar(name, this);
+
+    // try to generate a unique object name
+    toolBar->setObjectName(name + QString::number(time(0), 36));
+
+    addToolBarBreak();
+    addToolBar(toolBar);
+}
+
+static QWidgetAction *createWidgetAction(QWidget *widget, const QString &objectName, QObject *parent)
+{
+    QWidgetAction *action = new QWidgetAction(parent);
+    action->setDefaultWidget(widget);
+    action->setObjectName(objectName);
+    return action;
+}
+
 void BrowserMainWindow::setupToolBar()
 {
     setUnifiedTitleAndToolBarOnMac(true);
-    m_navigationBar = new QToolBar(this);
-    m_navigationBar->setObjectName(QLatin1String("NavigationToolBar"));
-    addToolBar(m_navigationBar);
+    m_editingToolBars = false;
 
     m_historyBackAction->setIcon(style()->standardIcon(QStyle::SP_ArrowBack, 0, this));
     m_historyBackMenu = new QMenu(this);
@@ -1024,7 +1091,8 @@ void BrowserMainWindow::setupToolBar()
             this, SLOT(aboutToShowBackMenu()));
     connect(m_historyBackMenu, SIGNAL(triggered(QAction *)),
             this, SLOT(openActionUrl(QAction *)));
-    m_navigationBar->addAction(m_historyBackAction);
+    m_historyBackAction->setObjectName(QLatin1String("back"));
+    m_toolBarActions.insert(m_historyBackAction->objectName(), m_historyBackAction);
 
     m_historyForwardAction->setIcon(style()->standardIcon(QStyle::SP_ArrowForward, 0, this));
     m_historyForwardMenu = new QMenu(this);
@@ -1033,26 +1101,72 @@ void BrowserMainWindow::setupToolBar()
     connect(m_historyForwardMenu, SIGNAL(triggered(QAction *)),
             this, SLOT(openActionUrl(QAction *)));
     m_historyForwardAction->setMenu(m_historyForwardMenu);
-    m_navigationBar->addAction(m_historyForwardAction);
+    m_historyForwardAction->setObjectName(QLatin1String("forward"));
+    m_toolBarActions.insert(m_historyForwardAction->objectName(), m_historyForwardAction);
 
     m_stopReloadAction = new QAction(this);
     m_stopReloadAction->setIcon(m_reloadIcon);
-    m_navigationBar->addAction(m_stopReloadAction);
+    m_stopReloadAction->setObjectName(QLatin1String("stopReload"));
+    m_toolBarActions.insert(m_stopReloadAction->objectName(), m_stopReloadAction);
 
-    m_navigationSplitter = new QSplitter(m_navigationBar);
-    m_navigationSplitter->addWidget(m_tabWidget->locationBarStack());
-
-    m_toolbarSearch = new ToolbarSearch(m_navigationBar);
-    m_navigationSplitter->addWidget(m_toolbarSearch);
+    m_toolbarSearch = new ToolbarSearch(this);
     connect(m_toolbarSearch, SIGNAL(search(const QUrl&)),
             m_tabWidget, SLOT(loadUrl(const QUrl&)));
-    m_navigationSplitter->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Maximum);
-    m_navigationSplitter->setCollapsible(0, false);
-    m_navigationBar->addWidget(m_navigationSplitter);
-    int splitterWidth = m_navigationSplitter->width();
-    QList<int> sizes;
-    sizes << (int)((double)splitterWidth * .80) << (int)((double)splitterWidth * .20);
-    m_navigationSplitter->setSizes(sizes);
+    QAction *action = createWidgetAction(m_toolbarSearch, QLatin1String("search"), this);
+    m_toolBarActions.insert(action->objectName(), action);
+
+    action = createWidgetAction(m_tabWidget->locationBarStack(),
+                                QLatin1String("location"), this);
+    m_toolBarActions.insert(action->objectName(), action);
+}
+
+static const int defaultIconSize =
+#if defined(Q_WS_MAC)
+    18;
+#else
+    24;
+#endif
+
+void BrowserMainWindow::restoreDefaultToolBars()
+{
+    foreach (EditToolBar *toolBar, findChildren<EditToolBar*>())
+        delete toolBar;
+
+    setIconSize(QSize(defaultIconSize, defaultIconSize));
+    setToolButtonStyle(Qt::ToolButtonIconOnly);
+
+    QToolBar *navigation = new EditToolBar(tr("Nagivation"), this);
+    navigation->setObjectName(QLatin1String("NavigationToolBar"));
+    navigation->addAction(m_historyBackAction);
+    navigation->addAction(m_historyForwardAction);
+    navigation->addAction(m_stopReloadAction);
+    navigation->addAction(m_toolBarActions.value(QLatin1String("location")));
+    navigation->addAction(m_toolBarActions.value(QLatin1String("search")));
+    addToolBar(navigation);
+    navigation->show(); // required on Mac (?)
+
+    QAction *action = m_toolBarActions.value(QLatin1String("location"));
+    QWidget *widget = navigation->widgetForAction(action);
+    QSizePolicy policy = widget->sizePolicy();
+    policy.setHorizontalStretch(4);
+    widget->setSizePolicy(policy);
+    action = m_toolBarActions.value(QLatin1String("search"));
+    widget = navigation->widgetForAction(action);
+    policy = widget->sizePolicy();
+    policy.setHorizontalStretch(1);
+    widget->setSizePolicy(policy);
+
+#if !defined(Q_WS_MAC)
+    addToolBarBreak();
+    addToolBar(m_bookmarksToolbar);
+#endif
+
+    if (m_editingToolBars) {
+        m_bookmarksToolbar->show();
+        m_toolBarsToHide << m_bookmarksToolbar;
+    } else {
+        m_bookmarksToolbar->hide();
+    }
 }
 
 void BrowserMainWindow::showBookmarksDialog()
@@ -1589,6 +1703,24 @@ void BrowserMainWindow::geometryChangeRequested(const QRect &geometry)
     setGeometry(geometry);
 }
 
+QMenu *BrowserMainWindow::createPopupMenu()
+{
+    QMenu *menu = QMainWindow::createPopupMenu();
+    if (!menu)
+        menu = new QMenu(this);
+
+#if defined(Q_WS_MAC)
+    menu->addAction(m_bookmarksToolbar->toggleViewAction());
+#endif
+
+    if (!m_editingToolBars) {
+        menu->addSeparator();
+        menu->addAction(m_viewEditToolBarsAction);
+    }
+
+    return menu;
+}
+
 bool BrowserMainWindow::event(QEvent *event)
 {
     // This is called when pressing the toolbar button in the title bar on OS X.
@@ -1611,4 +1743,111 @@ bool BrowserMainWindow::event(QEvent *event)
         return true;
     }
     return QMainWindow::event(event);
+}
+
+void BrowserMainWindow::editToolBars()
+{
+    if (m_editingToolBars)
+        return;
+
+    m_savedToolBarState.clear();
+    QDataStream state(&m_savedToolBarState, QIODevice::WriteOnly);
+    saveToolBarState(state);
+
+    m_editingToolBars = true;
+
+    foreach (QToolBar *toolBar, findChildren<QToolBar*>()) {
+        if (!toolBar->isVisible()) {
+            toolBar->show();
+            m_toolBarsToHide << toolBar;
+        }
+#if !defined(Q_WS_MAC)
+        toolBar->setMovable(true);
+#endif
+        if (EditToolBar *edit = qobject_cast<EditToolBar*>(toolBar))
+            edit->setEditable(true);
+    }
+
+    m_bookmarksToolbar->setContextMenuPolicy(Qt::NoContextMenu);
+
+    ToolBarDialog *dialog = new ToolBarDialog(this);
+    connect(dialog, SIGNAL(newToolBarRequested(const QString&)),
+            this, SLOT(addToolBar(const QString&)));
+    connect(dialog, SIGNAL(toolButtonStyleChanged(Qt::ToolButtonStyle)),
+            this, SLOT(setToolButtonStyle(Qt::ToolButtonStyle)));
+    connect(dialog, SIGNAL(iconSizeChanged(const QSize&)),
+            this, SLOT(setIconSize(const QSize&)));
+    connect(dialog, SIGNAL(restoreDefaultToolBars()),
+            this, SLOT(restoreDefaultToolBars()));
+    connect(dialog, SIGNAL(finished(int)),
+            this, SLOT(toolBarDialogClosed(int)));
+
+    dialog->setAttribute(Qt::WA_DeleteOnClose);
+    dialog->show();
+
+    dialog->addActions(m_toolBarActions.values());
+}
+
+void BrowserMainWindow::toolBarDialogClosed(int result)
+{
+    m_editingToolBars = false;
+
+    if (result == QDialog::Accepted) {
+        foreach (QToolBar *toolBar, findChildren<QToolBar*>()) {
+            toolBar->setMovable(false);
+            if (EditToolBar *edit = qobject_cast<EditToolBar*>(toolBar))
+                edit->setEditable(false);
+        }
+    } else {
+        foreach (EditToolBar *toolBar, findChildren<EditToolBar*>())
+            delete toolBar;
+        QDataStream in(&m_savedToolBarState, QIODevice::ReadOnly);
+        restoreToolBarState(in);
+    }
+
+    m_savedToolBarState.clear();
+
+    foreach (QPointer<QToolBar> toolBar, m_toolBarsToHide)
+        if (toolBar)
+            toolBar->hide();
+    m_toolBarsToHide.clear();
+
+    m_bookmarksToolbar->setContextMenuPolicy(Qt::CustomContextMenu);
+
+    m_autoSaver->changeOccurred();
+}
+
+void BrowserMainWindow::contextMenuEvent(QContextMenuEvent *event)
+{
+    QWidget *child = childAt(event->pos());
+    for (; child && child != this; child = child->parentWidget()) {
+        if (QToolBar *toolBar = qobject_cast<QToolBar*>(child)) {
+            if (QMenu *menu = createPopupMenu()) {
+#if !defined(Q_WS_MAC)
+                if (m_editingToolBars) {
+                    menu->addSeparator();
+                    if (toolBar->inherits("EditToolBar"))
+                        menu->addAction(tr("Delete Toolbar"), toolBar, SLOT(deleteLater()));
+                }
+#endif
+
+                menu->exec(event->globalPos());
+                delete menu;
+            }
+            return;
+        }
+    }
+
+    QMainWindow::contextMenuEvent(event);
+}
+
+// These just reimplement these as slots
+void BrowserMainWindow::setToolButtonStyle(Qt::ToolButtonStyle style)
+{
+    QMainWindow::setToolButtonStyle(style);
+}
+
+void BrowserMainWindow::setIconSize(const QSize &size)
+{
+    QMainWindow::setIconSize(size);
 }

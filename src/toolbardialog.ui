@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ToolBarDialog</class>
+ <widget class="QDialog" name="ToolBarDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>609</width>
+    <height>451</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Toolbar Editor</string>
+  </property>
+  <layout class="QGridLayout" name="m_gridLayout" rowstretch="1,0,0,0,0">
+   <item row="2" column="0">
+    <widget class="QLabel" name="m_toolButtonModesLabel">
+     <property name="text">
+      <string>Show:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QComboBox" name="m_toolButtonModes"/>
+   </item>
+   <item row="2" column="2">
+    <widget class="QLabel" name="m_iconSizeLabel">
+     <property name="text">
+      <string>Icon Size:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="3">
+    <widget class="QSpinBox" name="m_iconSizes">
+     <property name="suffix">
+      <string> px</string>
+     </property>
+     <property name="minimum">
+      <number>8</number>
+     </property>
+     <property name="maximum">
+      <number>256</number>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="4">
+    <spacer name="m_horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="2" column="5">
+    <widget class="QPushButton" name="m_newToolBarButton">
+     <property name="text">
+      <string>Add Toolbar</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0" colspan="6">
+    <widget class="QDialogButtonBox" name="m_buttonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok|QDialogButtonBox::RestoreDefaults</set>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" colspan="6">
+    <widget class="QScrollArea" name="m_scrollArea">
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="ToolArea" name="m_toolArea">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>587</width>
+        <height>310</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="6">
+    <widget class="QLabel" name="label">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="text">
+      <string>Left click and drag to move objects on the toolbar. Shift+Left Click and drag to reproportion expanding objects. Right click for more options.</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ToolArea</class>
+   <extends>QWidget</extends>
+   <header>toolarea.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

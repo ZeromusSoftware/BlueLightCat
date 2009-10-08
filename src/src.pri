@@ -38,7 +38,8 @@ FORMS += \
     downloaditem.ui \
     downloads.ui \
     searchbanner.ui \
-    settings.ui
+    settings.ui \
+    toolbardialog.ui
 
 HEADERS += \
     aboutdialog.h \
@@ -62,6 +63,7 @@ HEADERS += \
     sourceviewer.h \
     tabbar.h \
     tabwidget.h \
+    toolbardialog.h \
     toolbarsearch.h \
     webactionmapper.h \
     webpage.h \
@@ -90,6 +92,7 @@ SOURCES += \
     sourceviewer.cpp \
     tabbar.cpp \
     tabwidget.cpp \
+    toolbardialog.cpp \
     toolbarsearch.cpp \
     webactionmapper.cpp \
     webpage.cpp \

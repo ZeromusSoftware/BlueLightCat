@@ -1,6 +1,8 @@
 INCLUDEPATH += $$PWD
 DEPENDPATH += $$PWD
 
+include(toolbars/toolbars.pri)
+
 HEADERS += \
     editlistview.h \
     edittableview.h \

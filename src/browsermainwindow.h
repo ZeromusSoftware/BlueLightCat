@@ -64,6 +64,7 @@
 #define BROWSERMAINWINDOW_H
 
 #include <qmainwindow.h>
+#include <qhash.h>
 
 class AutoSaver;
 class BookmarksToolBar;
@@ -71,10 +72,10 @@ class QWebFrame;
 class TabWidget;
 class ToolbarSearch;
 class WebView;
-class QSplitter;
 class QFrame;
 class HistoryMenu;
 class BookmarksMenuBarMenu;
+template<class T> class QPointer;
 
 /*!
     The MainWindow of the Browser Application.
@@ -90,16 +91,21 @@ public:
     ~BrowserMainWindow();
     QSize sizeHint() const;
 
+    QMenu *createPopupMenu();
+
 public:
     static BrowserMainWindow *parentWindow(QWidget *widget);
 
     TabWidget *tabWidget() const;
     WebView *currentTab() const;
     ToolbarSearch *toolbarSearch() const;
-    QByteArray saveState(bool withTabs = true) const;
-    bool restoreState(const QByteArray &state);
     QAction *showMenuBarAction() const;
     QAction *searchManagerAction() const { return m_toolsSearchManagerAction; }
+
+    void saveToolBarState(QDataStream &) const;
+    QByteArray saveState(bool withTabs = true) const;
+    void restoreToolBarState(QDataStream &, int version = 0);
+    bool restoreState(const QByteArray &state);
 
     void addToolBar(QToolBar *);
 
@@ -107,12 +113,17 @@ public slots:
     void goHome();
     void privacyChanged(bool isPrivate);
     void zoomTextOnlyChanged(bool textOnly);
+    void addToolBar(const QString &name);
+
+    void setToolButtonStyle(Qt::ToolButtonStyle);
+    void setIconSize(const QSize &);
 
 protected:
     void closeEvent(QCloseEvent *event);
     void keyPressEvent(QKeyEvent *event);
     void mousePressEvent(QMouseEvent *event);
     void changeEvent(QEvent *event);
+    void contextMenuEvent(QContextMenuEvent *event);
     bool event(QEvent *event);
 
 private slots:
@@ -168,6 +179,11 @@ private slots:
     void printRequested(QWebFrame *frame);
     void geometryChangeRequested(const QRect &geometry);
 
+    void editToolBars();
+    void toolBarDialogClosed(int result);
+
+    void restoreDefaultToolBars();
+
 private:
     void retranslate();
     void loadDefaultState();
@@ -203,6 +219,7 @@ private:
 
     QMenu *m_viewMenu;
     QAction *m_toolBarMenuAction;
+    QAction *m_viewEditToolBarsAction;
     QAction *m_viewShowMenuBarAction;
     QAction *m_viewStatusbarAction;
     QAction *m_viewStopAction;
@@ -243,15 +260,17 @@ private:
     QAction *m_helpAboutApplicationAction;
 
     // Toolbar
-    QToolBar *m_navigationBar;
     QMenu *m_historyBackMenu;
     QMenu *m_historyForwardMenu;
     QAction *m_stopReloadAction;
     QIcon m_reloadIcon;
     QIcon m_stopIcon;
-    QSplitter *m_navigationSplitter;
     ToolbarSearch *m_toolbarSearch;
     BookmarksToolBar *m_bookmarksToolbar;
+    bool m_editingToolBars;
+    QList<QPointer<QToolBar> > m_toolBarsToHide;
+    QHash<QString, QAction*> m_toolBarActions;
+    QByteArray m_savedToolBarState;
 
     TabWidget *m_tabWidget;
 
