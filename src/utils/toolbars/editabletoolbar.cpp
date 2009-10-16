@@ -26,7 +26,7 @@
  * SUCH DAMAGE.
  */
 
-#include "edittoolbar.h"
+#include "editabletoolbar.h"
 
 #include "animatedspacer.h"
 
@@ -39,9 +39,9 @@
 #include <qapplication.h>
 #endif
 
-#define DRAG_MIMETYPE QLatin1String("application/x-arora-tool")
+#define DRAG_MIMETYPE QLatin1String("application/x-editable-toolbar")
 
-EditToolBar::EditToolBar(const QString &name, QWidget *parent)
+EditableToolBar::EditableToolBar(const QString &name, QWidget *parent)
     : QToolBar(name, parent)
     , m_currentSpacer(0)
     , m_currentSpacerLocation(0)
@@ -50,14 +50,53 @@ EditToolBar::EditToolBar(const QString &name, QWidget *parent)
 {
 }
 
-EditToolBar::~EditToolBar()
+
+EditableToolBar::EditableToolBar(QWidget *parent)
+    : QToolBar(parent)
+    , m_currentSpacer(0)
+    , m_currentSpacerLocation(0)
+    , m_editable(false)
+    , m_resizing(0)
+{
+}
+
+EditableToolBar::~EditableToolBar()
 {
     if (m_editable)
         foreach (QWidget *widget, findChildren<QWidget*>())
             widget->setAttribute(Qt::WA_TransparentForMouseEvents, false);
 }
 
-void EditToolBar::setEditable(bool editable)
+void EditableToolBar::setPossibleActions(const QList<QAction*> &actions)
+{
+    m_possibleActions = actions;
+}
+
+QList<QAction*> EditableToolBar::possibleActions() const
+{
+    return m_possibleActions;
+}
+
+void EditableToolBar::setDefaultActions(const QStringList &actions)
+{
+    m_defaultActions = actions;
+    clear();
+    foreach (const QString &name, m_defaultActions) {
+        foreach (QAction *action, m_possibleActions) {
+            if (action->objectName() == name) {
+                addAction(action);
+                break;
+            }
+        }
+    }
+}
+
+QStringList EditableToolBar::defaultActions() const
+{
+    return m_defaultActions;
+}
+
+void EditableToolBar::setEditable(bool editable)
 {
     if (editable == m_editable)
         return;
@@ -66,11 +105,11 @@ void EditToolBar::setEditable(bool editable)
 
     setAcceptDrops(editable);
 
-    foreach (QWidget *widget, findChildren<QWidget*>())
-        widget->setAttribute(Qt::WA_TransparentForMouseEvents, editable);
+    //foreach (QWidget *widget, findChildren<QWidget*>())
+    //    widget->setAttribute(Qt::WA_TransparentForMouseEvents, editable);
 }
 
-void EditToolBar::actionEvent(QActionEvent *event)
+void EditableToolBar::actionEvent(QActionEvent *event)
 {
     QToolBar::actionEvent(event);
     if (m_editable && event->type() == QEvent::ActionAdded)
@@ -78,7 +117,7 @@ void EditToolBar::actionEvent(QActionEvent *event)
             widget->setAttribute(Qt::WA_TransparentForMouseEvents);
 }
 
-void EditToolBar::removeCurrentSpacer()
+void EditableToolBar::removeCurrentSpacer()
 {
     if (m_currentSpacer) {
         if (!m_spacerTimer.isActive())
@@ -89,7 +128,7 @@ void EditToolBar::removeCurrentSpacer()
     }
 }
 
-void EditToolBar::dragEnterEvent(QDragEnterEvent *event)
+void EditableToolBar::dragEnterEvent(QDragEnterEvent *event)
 {
     if (m_editable && event->source() && event->mimeData()->hasFormat(DRAG_MIMETYPE)) {
         event->setDropAction(Qt::MoveAction);
@@ -99,7 +138,7 @@ void EditToolBar::dragEnterEvent(QDragEnterEvent *event)
     }
 }
 
-QAction *EditToolBar::nearestActionAt(const QPoint &pos) const
+QAction *EditableToolBar::nearestActionAt(const QPoint &pos) const
 {
     QAction *nearest = 0;
 
@@ -166,23 +205,24 @@ QAction *EditToolBar::nearestActionAt(const QPoint &pos) const
     return nearest;
 }
 
-bool EditToolBar::eventDragMove(QDragMoveEvent *event)
+bool EditableToolBar::eventDragMove(QDragMoveEvent *event)
 {
     if (m_editable && event->source() && event->mimeData()->hasFormat(DRAG_MIMETYPE)) {
         event->setDropAction(Qt::MoveAction);
         event->accept();
         QAction *location = nearestActionAt(event->pos());
         if (!m_currentSpacer || location != m_currentSpacerLocation) {
+            QSize endSize = QSize(32, 32);
+/*
             QByteArray data = event->mimeData()->data(DRAG_MIMETYPE);
             QDataStream in(&data, QIODevice::ReadOnly);
-            QSize endSize;
             in >> endSize;
 
             if (!endSize.isValid()) {
                 event->ignore();
                 return false;
             }
-
+*/
             layout()->setEnabled(false);
 
             AnimatedSpacer *currentSpacer = m_currentSpacer;
@@ -221,7 +261,7 @@ bool EditToolBar::eventDragMove(QDragMoveEvent *event)
     }
 }
 
-void EditToolBar::dragLeaveEvent(QDragLeaveEvent *event)
+void EditableToolBar::dragLeaveEvent(QDragLeaveEvent *event)
 {
     Q_UNUSED(event);
     if (m_editable) {
@@ -238,27 +278,20 @@ void EditToolBar::dragLeaveEvent(QDragLeaveEvent *event)
     }
 }
 
-void EditToolBar::dropEvent(QDropEvent *event)
+void EditableToolBar::dropEvent(QDropEvent *event)
 {
     if (m_editable && event->source() && event->mimeData()->hasFormat(DRAG_MIMETYPE)) {
         QByteArray data = event->mimeData()->data(DRAG_MIMETYPE);
-        QDataStream in(&data, QIODevice::ReadOnly);
-        QSize size;
-        quintptr ptr;
-        in >> size;
-        in >> ptr;
-
-        QAction *action;
-        if (ptr && (action = reinterpret_cast<QAction*>(ptr))) {
-            // We have to steal the widget from another toolbar if it is already
-            // on a toolbar and was dragged from the toolbar dialog.
-            if (QWidgetAction *widgetAction = qobject_cast<QWidgetAction*>(action))
-                if (QWidget *widget = widgetAction->defaultWidget())
-                    if (QToolBar *toolBar = qobject_cast<QToolBar*>(widget->parent()))
-                        toolBar->removeAction(action);
-
+        QString objectName = QString::fromUtf8(data);
+        QAction *action = 0;
+        foreach (QAction *a, m_possibleActions) {
+            if (a->objectName() == objectName) {
+                action = a;
+                break;
+            }
+        }
+        if (action) {
             insertAction(m_currentSpacerLocation, action);
-
             delete m_currentSpacer;
             m_currentSpacer = 0;
             m_currentSpacerLocation = 0;
@@ -273,7 +306,7 @@ void EditToolBar::dropEvent(QDropEvent *event)
     }
 }
 
-void EditToolBar::timerEvent(QTimerEvent *event)
+void EditableToolBar::timerEvent(QTimerEvent *event)
 {
     if (event->timerId() == m_spacerTimer.timerId()) {
         layout()->setEnabled(false);
@@ -290,7 +323,7 @@ void EditToolBar::timerEvent(QTimerEvent *event)
     }
 }
 
-bool EditToolBar::eventMousePress(QMouseEvent *event)
+bool EditableToolBar::eventMousePress(QMouseEvent *event)
 {
     if (m_editable && event->button() == Qt::LeftButton) {
         QList<QAction*> tools = actions();
@@ -379,7 +412,7 @@ bool EditToolBar::eventMousePress(QMouseEvent *event)
     return false;
 }
 
-bool EditToolBar::eventMouseMove(QMouseEvent *event)
+bool EditableToolBar::eventMouseMove(QMouseEvent *event)
 {
     if (m_resizing) {
         bool horizontal = orientation() == Qt::Horizontal;
@@ -409,10 +442,10 @@ bool EditToolBar::eventMouseMove(QMouseEvent *event)
     return false;
 }
 
-bool EditToolBar::eventMouseRelease(QMouseEvent *event)
+bool EditableToolBar::eventMouseRelease(QMouseEvent *event)
 {
     if (m_resizing && event->button() == Qt::LeftButton) {
-        Qt::Orientation orientation = EditToolBar::orientation();
+        Qt::Orientation orientation = EditableToolBar::orientation();
         int totalSize = 0;
         foreach (QObject *child, children())
             if (QWidget *widget = qobject_cast<QWidget*>(child))
@@ -441,7 +474,7 @@ bool EditToolBar::eventMouseRelease(QMouseEvent *event)
     return false;
 }
 
-bool EditToolBar::event(QEvent *event)
+bool EditableToolBar::event(QEvent *event)
 {
     switch (event->type()) {
     case QEvent::DragMove:
@@ -467,15 +500,15 @@ bool EditToolBar::event(QEvent *event)
     return QToolBar::event(event);
 }
 
-static const qint32 EditToolBarMagic = 0x9f;
+static const qint32 EditableToolBarMagic = 0x9f;
 
-QByteArray EditToolBar::saveState() const
+QByteArray EditableToolBar::saveState() const
 {
     QByteArray data;
     QDataStream out(&data, QIODevice::WriteOnly);
 
     static const int version = 1;
-    out << EditToolBarMagic;
+    out << EditableToolBarMagic;
     out << qint32(version);
 
     out << windowTitle();
@@ -500,7 +533,12 @@ QByteArray EditToolBar::saveState() const
     return data;
 }
 
-bool EditToolBar::restoreState(const QHash<QString, QAction*> &actionMap, const QByteArray &data)
+bool EditableToolBar::restoreState(const QByteArray &data)
+{
+    return false;
+}
+
+bool EditableToolBar::restoreState(const QHash<QString, QAction*> &actionMap, const QByteArray &data)
 {
     QDataStream in(const_cast<QByteArray*>(&data), QIODevice::ReadOnly);
 
@@ -510,7 +548,7 @@ bool EditToolBar::restoreState(const QHash<QString, QAction*> &actionMap, const 
     in >> magic;
     in >> version;
 
-    if (magic != EditToolBarMagic || version != 1)
+    if (magic != EditableToolBarMagic || version != 1)
         return false;
 
     QString title;

@@ -32,28 +32,38 @@
 #include <qdialog.h>
 #include "ui_toolbardialog.h"
 
-class BrowserMainWindow;
-
+class EditableToolBar;
 class ToolBarDialog : public QDialog, Ui_ToolBarDialog
 {
     Q_OBJECT
 
-signals:
-    void newToolBarRequested(const QString &name);
-    void toolButtonStyleChanged(Qt::ToolButtonStyle);
-    void iconSizeChanged(const QSize &);
-    void restoreDefaultToolBars();
-
 public:
-    ToolBarDialog(BrowserMainWindow *parent);
-
-    void addActions(const QList<QAction*> &actions);
+    ToolBarDialog(EditableToolBar *parent);
+    ~ToolBarDialog();
 
 private slots:
-    void addToolBar();
     void changeToolButtonStyle(int);
     void changeIconSize(int);
-    void dialogButtonClicked(QAbstractButton *);
+
+private:
+    EditableToolBar *toolBar;
 };
+
+#include <QAbstractListModel>
+
+class ActionModel : public QAbstractListModel
+{
+    Q_OBJECT
+
+public:
+    ActionModel(QObject *parent = 0);
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const;
+    Qt::ItemFlags flags(const QModelIndex &index) const;
+    QStringList mimeTypes() const;
+    QMimeData *mimeData(const QModelIndexList &indexes) const;
+    QList<QAction*> actions;
+};
+
 
 #endif

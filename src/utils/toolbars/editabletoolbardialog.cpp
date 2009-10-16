@@ -26,18 +26,86 @@
  * SUCH DAMAGE.
  */
 
-#include "toolbardialog.h"
+#include "editabletoolbardialog.h"
 
-#include "browsermainwindow.h"
+#include "editabletoolbar.h"
 
+#include <qmainwindow.h>
 #include <qinputdialog.h>
+#include <qmimedata.h>
+#include <qwidgetaction.h>
 
-ToolBarDialog::ToolBarDialog(BrowserMainWindow *parent)
+ActionModel::ActionModel(QObject *parent)
+    : QAbstractListModel(parent)
+{
+}
+
+QVariant ActionModel::data(const QModelIndex &index, int role) const
+{
+    int row = index.row();
+    if (row < 0 || row > rowCount())
+        return QVariant();
+
+    switch (role) {
+    case Qt::DisplayRole:
+        return actions[row]->text();
+        break;
+    case Qt::DecorationRole: {
+        QIcon icon = actions[row]->icon();
+        if (icon.availableSizes().count() == 1)
+            return icon.pixmap(icon.availableSizes().at(0));
+        return icon;
+        break;
+    }
+    default:
+        break;
+    }
+    return QVariant();
+}
+
+int ActionModel::rowCount(const QModelIndex &parent) const
+{
+    return parent.isValid() ? 0 : actions.count();
+}
+
+Qt::ItemFlags ActionModel::flags(const QModelIndex &index) const
+{
+    Qt::ItemFlags defaultFlags = QAbstractListModel::flags(index);
+    if (index.isValid())
+        return Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled | defaultFlags;
+    return defaultFlags;
+}
+
+QStringList ActionModel::mimeTypes() const
+{
+    QStringList types;
+    types << "application/x-editable-toolbar";
+    return types;
+}
+
+QMimeData *ActionModel::mimeData(const QModelIndexList &indexes) const
+{
+    if (indexes.count() != 1)
+        return 0;
+
+    QMimeData *mimeData = new QMimeData();
+    QModelIndex index = indexes.first();
+    QString objectName = actions[index.row()]->objectName();
+    mimeData->setData(mimeTypes().first(), objectName.toUtf8());
+    return mimeData;
+}
+
+ToolBarDialog::ToolBarDialog(EditableToolBar *parent)
     : QDialog(parent)
+    , toolBar(parent)
 {
     setupUi(this);
 
-    m_toolArea->setIconSize(parent->iconSize());
+    ActionModel *actionModel = new ActionModel(this);
+    actionModel->actions = toolBar->possibleActions();
+    listView->setModel(actionModel);
+    listView->setDragEnabled(true);
+    listView->setIconSize(QSize(24, 24));
 
     m_toolButtonModes->addItem(tr("Icons"));
     m_toolButtonModes->addItem(tr("Text"));
@@ -54,62 +122,25 @@ ToolBarDialog::ToolBarDialog(BrowserMainWindow *parent)
             this, SLOT(changeToolButtonStyle(int)));
     connect(m_iconSizes, SIGNAL(valueChanged(int)),
             this, SLOT(changeIconSize(int)));
-    connect(m_newToolBarButton, SIGNAL(clicked()),
-            this, SLOT(addToolBar()));
-    connect(m_buttonBox, SIGNAL(clicked(QAbstractButton*)),
-            this, SLOT(dialogButtonClicked(QAbstractButton*)));
-    connect(this, SIGNAL(iconSizeChanged(QSize)),
-            m_toolArea, SLOT(setIconSize(QSize)));
-    connect(this, SIGNAL(toolButtonStyleChanged(Qt::ToolButtonStyle)),
-            m_toolArea, SLOT(setToolButtonStyle(Qt::ToolButtonStyle)));
 
 #if defined(Q_WS_MAC)
     m_newToolBarButton->hide();
 #endif
+    toolBar->setEditable(true);
+}
+
+ToolBarDialog::~ToolBarDialog()
+{
+    toolBar->setEditable(false);
 }
 
 void ToolBarDialog::changeToolButtonStyle(int i)
 {
-    emit toolButtonStyleChanged(Qt::ToolButtonStyle(i));
+    toolBar->setToolButtonStyle(Qt::ToolButtonStyle((i)));
 }
 
 void ToolBarDialog::changeIconSize(int size)
 {
-    emit iconSizeChanged(QSize(size, size));
+    toolBar->setIconSize(QSize(size, size));
 }
 
-void ToolBarDialog::addActions(const QList<QAction*> &actions)
-{
-    m_toolArea->addActions(actions);
-}
-
-void ToolBarDialog::addToolBar()
-{
-    bool ok;
-    QString text = QInputDialog::getText(this, tr("Add ToolBar"),
-            tr("Enter a name for the new toolbar:"), QLineEdit::Normal,
-            QString(), &ok);
-    if (ok && !text.isEmpty())
-        emit newToolBarRequested(text);
-}
-
-void ToolBarDialog::dialogButtonClicked(QAbstractButton *button)
-{
-    switch (m_buttonBox->buttonRole(button)) {
-    case QDialogButtonBox::ResetRole: {
-        emit restoreDefaultToolBars();
-        BrowserMainWindow *parent = qobject_cast<BrowserMainWindow*>(ToolBarDialog::parent());
-        m_toolButtonModes->setCurrentIndex(parent->toolButtonStyle());
-        m_iconSizes->setValue(parent->iconSize().width());
-        break;
-    }
-    case QDialogButtonBox::AcceptRole:
-        accept();
-        break;
-    case QDialogButtonBox::RejectRole:
-        reject();
-        break;
-    default:
-        break;
-    }
-}

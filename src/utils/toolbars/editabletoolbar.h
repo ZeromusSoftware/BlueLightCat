@@ -26,31 +26,68 @@
  * SUCH DAMAGE.
  */
 
-#ifndef TOOLAREA_H
-#define TOOLAREA_H
+#ifndef EDITABLETOOLBAR_H
+#define EDITABLETOOLBAR_H
 
-#include <qwidget.h>
+#include <qbasictimer.h>
+#include <qtoolbar.h>
 
-class ToolArea : public QWidget
+class AnimatedSpacer;
+template<class K, class V> class QHash;
+
+class EditableToolBar : public QToolBar
 {
     Q_OBJECT
+    Q_PROPERTY(bool editable READ isEditable WRITE setEditable)
 
 public:
-    ToolArea(QWidget *parent = 0);
+    EditableToolBar(const QString &name, QWidget *parent = 0);
+    EditableToolBar(QWidget *parent = 0);
+    ~EditableToolBar();
 
-    void addActions(const QList<QAction*> &);
+    bool isEditable() const { return m_editable; }
+    void setEditable(bool editable);
 
-public slots:
-    void setIconSize(const QSize &);
-    void setToolButtonStyle(Qt::ToolButtonStyle);
+    QByteArray saveState() const;
+    bool restoreState(const QByteArray &state);
+
+    bool restoreState(const QHash<QString, QAction*> &actionMap, const QByteArray &state);
+    QAction *nearestActionAt(const QPoint &pos) const;
+
+    void setPossibleActions(const QList<QAction*> &actions);
+    QList<QAction*> possibleActions() const;
+
+    void setDefaultActions(const QStringList &actions);
+    QStringList defaultActions() const;
 
 protected:
-    void mousePressEvent(QMouseEvent *);
+    void actionEvent(QActionEvent *);
     void dragEnterEvent(QDragEnterEvent *);
+    void dragLeaveEvent(QDragLeaveEvent *);
     void dropEvent(QDropEvent *);
+    void timerEvent(QTimerEvent *);
+
+    bool event(QEvent *);
 
 private:
-    QSize m_iconSize;
+    QList<QAction*> m_possibleActions;
+    QStringList m_defaultActions;
+    bool eventDragMove(QDragMoveEvent *);
+    bool eventMouseMove(QMouseEvent *);
+    bool eventMousePress(QMouseEvent *);
+    bool eventMouseRelease(QMouseEvent *);
+
+    void removeCurrentSpacer();
+
+    AnimatedSpacer *m_currentSpacer;
+    QAction *m_currentSpacerLocation;
+    QBasicTimer m_spacerTimer;
+    bool m_editable;
+    QWidget *m_resizing;
+    int m_resizeFrom;
+    int m_resizeMin;
+    int m_resizeMax;
+    int m_resizeDirection;
 };
 
 #endif

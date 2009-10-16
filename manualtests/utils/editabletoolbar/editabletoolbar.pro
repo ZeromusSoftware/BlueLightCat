@@ -6,6 +6,8 @@ INCLUDEPATH += .
 include(../../manualtests.pri)
 
 # Input
-SOURCES += main_edittoolbar.cpp
-HEADERS +=
+SOURCES = main_editabletoolbar.cpp
+HEADERS =
+FORMS =
 
+include(../../../src/utils/utils.pri)

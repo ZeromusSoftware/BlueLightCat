@@ -3,12 +3,12 @@ DEPENDPATH += $$PWD
 
 HEADERS += \
     animatedspacer.h \
-    edittoolbar.h \
-    flowlayout.h \
-    toolarea.h
+    editabletoolbar.h \
+    editabletoolbardialog.h
 
 SOURCES += \
     animatedspacer.cpp \
-    edittoolbar.cpp \
-    flowlayout.cpp \
-    toolarea.cpp
+    editabletoolbar.cpp \
+    editabletoolbardialog.cpp
+
+FORMS += editabletoolbardialog.ui
