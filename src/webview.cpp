@@ -73,6 +73,7 @@
 #include "browserapplication.h"
 #include "browsermainwindow.h"
 #include "downloadmanager.h"
+#include "locationbar.h"
 #include "opensearchengine.h"
 #include "opensearchengineaction.h"
 #include "opensearchmanager.h"
@@ -219,10 +220,10 @@ void WebView::contextMenuEvent(QContextMenuEvent *event)
     QWebHitTestResult r = page()->mainFrame()->hitTestContent(event->pos());
 
     if (!r.linkUrl().isEmpty()) {
-        QAction *newWindowAction = menu->addAction(tr("Open in New &Window"), this, SLOT(openActionUrlInNewWindow()));
-        newWindowAction->setData(r.linkUrl());
         QAction *newTabAction = menu->addAction(tr("Open in New &Tab"), this, SLOT(openActionUrlInNewTab()));
         newTabAction->setData(r.linkUrl());
+        QAction *newWindowAction = menu->addAction(tr("Open in New &Window"), this, SLOT(openActionUrlInNewWindow()));
+        newWindowAction->setData(r.linkUrl());
         menu->addSeparator();
         menu->addAction(tr("Save Lin&k"), this, SLOT(downloadLinkToDisk()));
         menu->addAction(tr("&Bookmark This Link"), this, SLOT(bookmarkLink()))->setData(r.linkUrl());
@@ -235,10 +236,10 @@ void WebView::contextMenuEvent(QContextMenuEvent *event)
     if (!r.imageUrl().isEmpty()) {
         if (!menu->isEmpty())
             menu->addSeparator();
-        QAction *newWindowAction = menu->addAction(tr("Open Image in New &Window"), this, SLOT(openActionUrlInNewWindow()));
-        newWindowAction->setData(r.imageUrl());
         QAction *newTabAction = menu->addAction(tr("Open Image in New &Tab"), this, SLOT(openActionUrlInNewTab()));
         newTabAction->setData(r.imageUrl());
+        QAction *newWindowAction = menu->addAction(tr("Open Image in New &Window"), this, SLOT(openActionUrlInNewWindow()));
+        newWindowAction->setData(r.imageUrl());
         menu->addSeparator();
         menu->addAction(tr("&Save Image"), this, SLOT(downloadImageToDisk()));
         menu->addAction(tr("&Copy Image"), this, SLOT(copyImageToClipboard()));
@@ -610,7 +611,7 @@ void WebView::mousePressEvent(QMouseEvent *event)
 {
     BrowserApplication::instance()->setEventMouseButtons(event->buttons());
     BrowserApplication::instance()->setEventKeyboardModifiers(event->modifiers());
-
+    LocationBar::resetFirstSelectAll();
     switch (event->button()) {
     case Qt::XButton1:
         pageAction(WebPage::Back)->trigger();

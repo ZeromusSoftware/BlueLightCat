@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>240</width>
-    <height>179</height>
+    <width>295</width>
+    <height>180</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -28,13 +28,97 @@
     </widget>
    </item>
    <item>
-    <widget class="LineEdit" name="name"/>
+    <widget class="LineEdit" name="name">
+     <property name="styleSheet">
+      <string notr="true">QLineEdit {
+    border: 1px solid lightgrey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(230, 230, 230));
+}
+
+QLineEdit:hover {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(240, 240, 240));
+}
+
+QLineEdit:pressed { 
+    background:white;
+}</string>
+     </property>
+    </widget>
    </item>
    <item>
-    <widget class="LineEdit" name="address"/>
+    <widget class="LineEdit" name="address">
+     <property name="styleSheet">
+      <string notr="true">QLineEdit {
+    border: 1px solid lightgrey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(230, 230, 230));
+}
+
+QLineEdit:hover {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(240, 240, 240));
+}
+
+QLineEdit:pressed { 
+    background:white;
+}</string>
+     </property>
+    </widget>
    </item>
    <item>
-    <widget class="QComboBox" name="location"/>
+    <widget class="QComboBox" name="location">
+     <property name="styleSheet">
+      <string notr="true">QComboBox {
+    border: 1px solid grey;
+    border-right: 2px solid transparent;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QComboBox:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                                            stop: 0 white,
+                                                            stop: 0.49 rgb(210, 210, 210),
+                                                            stop: .5 rgb(200, 200, 200),
+                                                            stop: 1.0 rgb(180, 180, 180));
+}
+
+QComboBox:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+     </property>
+    </widget>
    </item>
    <item>
     <spacer name="verticalSpacer">
@@ -51,6 +135,39 @@
    </item>
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    border: 1px solid grey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                                            stop: 0 white,
+                                                            stop: 0.49 rgb(210, 210, 210),
+                                                            stop: .5 rgb(200, 200, 200),
+                                                            stop: 1.0 rgb(180, 180, 180));
+}
+
+QPushButton:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+     </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>

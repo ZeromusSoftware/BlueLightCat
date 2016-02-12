@@ -18,8 +18,8 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Copyright © 2007-2009 Benjamin C. Meyer &amp;lt;&lt;a href=&quot;mailto:ben@meyerhome.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;ben@meyerhome.net&lt;/span&gt;&lt;/a&gt;&amp;gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</source>
-        <translation>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</translation>
+        <source>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</source>
+        <translation>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Authors</source>
@@ -282,8 +282,8 @@ p, li { white-space: pre-wrap; }
         <translation>Ferramenta htmlToXBel necessária</translation>
     </message>
     <message>
-        <source>htmlToXBel tool, which is shipped with Arora and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
-        <translation>A ferramenta htmlToXBel, a qual é disponibilizada juntamente com o Arora e é necessária para importar favoritos HTML, não está instalada ou não está disponível nos caminhos de busca.</translation>
+        <source>htmlToXBel tool, which is shipped with zBrowser and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
+        <translation>A ferramenta htmlToXBel, a qual é disponibilizada juntamente com o zBrowser e é necessária para importar favoritos HTML, não está instalada ou não está disponível nos caminhos de busca.</translation>
     </message>
     <message>
         <source>Loading Bookmark</source>
@@ -388,8 +388,8 @@ Deseja sair mesmo assim?</translation>
         <translation>Restauro falhado</translation>
     </message>
     <message>
-        <source>Arora crashed while trying to restore this session.  Should I try again?</source>
-        <translation>O Arora crashou enquanto tentava restaurar esta sessão.(sp)(sp)Devo tentar de novo?</translation>
+        <source>zBrowser crashed while trying to restore this session.  Should I try again?</source>
+        <translation>O zBrowser crashou enquanto tentava restaurar esta sessão.(sp)(sp)Devo tentar de novo?</translation>
     </message>
 </context>
 <context>
@@ -674,9 +674,9 @@ Deseja sair mesmo assim?</translation>
         <translation>Navegação</translation>
     </message>
     <message>
-        <source>%1 - Arora</source>
+        <source>%1 - zBrowser</source>
         <comment>Page title and Browser name</comment>
-        <translation>%1 - Arora</translation>
+        <translation>%1 - zBrowser</translation>
     </message>
     <message>
         <source>Open Web Resource</source>
@@ -1177,14 +1177,14 @@ Deseja sair mesmo assim?</translation>
     </message>
 </context>
 <context>
-    <name>JavaScriptAroraObject</name>
+    <name>JavaScriptzBrowserObject</name>
     <message>
-        <source>Welcome to Arora!</source>
-        <translation>Bem vindo ao Arora!</translation>
+        <source>Welcome to zBrowser!</source>
+        <translation>Bem vindo ao zBrowser!</translation>
     </message>
     <message>
-        <source>Arora Start</source>
-        <translation>Inicio do Arora</translation>
+        <source>zBrowser Start</source>
+        <translation>Inicio do zBrowser</translation>
     </message>
     <message>
         <source>Search!</source>
@@ -1195,8 +1195,8 @@ Deseja sair mesmo assim?</translation>
         <translation>Resultados de pesquisa disponibilizados por</translation>
     </message>
     <message>
-        <source>About Arora</source>
-        <translation>Acerca do Arora</translation>
+        <source>About zBrowser</source>
+        <translation>Acerca do zBrowser</translation>
     </message>
 </context>
 <context>
@@ -1932,8 +1932,8 @@ Deseja mesmo fechar esta página?</translation>
         <translation>Ao efectuar ligação a: %1.</translation>
     </message>
     <message>
-        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.arora-browser.org instead of &lt;b&gt;www&lt;/b&gt;.arora-browser.org</source>
-        <translation>Verifique o endereço por erros como &lt;b&gt;ww&lt;/b&gt;.arora-browser.org em vez de &lt;b&gt;www&lt;/b&gt;.arora-browser.org</translation>
+        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 instead of &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</source>
+        <translation>Verifique o endereço por erros como &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 em vez de &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</translation>
     </message>
     <message>
         <source>If the address is correct, try checking the network connection.</source>

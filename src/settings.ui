@@ -6,30 +6,107 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>677</width>
-    <height>442</height>
+    <width>600</width>
+    <height>413</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Preferences</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="2" column="0">
+   <item row="0" column="0">
     <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    border: 1px solid grey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                                            stop: 0 white,
+                                                            stop: 0.49 rgb(210, 210, 210),
+                                                            stop: .5 rgb(200, 200, 200),
+                                                            stop: 1.0 rgb(180, 180, 180));
+}
+
+QPushButton:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+     </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons">
       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
      </property>
+     <property name="centerButtons">
+      <bool>true</bool>
+     </property>
     </widget>
    </item>
-   <item row="0" column="0">
+   <item row="1" column="0">
     <widget class="QTabWidget" name="tabWidget">
-     <property name="currentIndex">
-      <number>2</number>
+     <property name="styleSheet">
+      <string notr="true">                        QTabBar::tab {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                                            stop: 0 white,
+                                                            stop: 0.49 rgb(230, 240, 240),
+                                                            stop: .5 rgb(220, 230, 230),
+                                                            stop: 1.0 rgb(215, 215, 215));
+                                border-bottom: 1px solid rgb(190, 190, 190);
+                                border-bottom-left-radius: 20px;
+                                border-bottom-right-radius: 20px;
+                                border-left: 1px solid rgb(190, 190, 190);
+                                border-right: 1px solid rgb(190, 190, 190);
+                                height: 20px;
+                                margin-left: 1px;
+                                margin-right: 1px;
+                                padding-bottom: 2px;
+                                padding-left: 15px auto;
+                                padding-right: 15px auto;
+                                padding-top: 2px;
+                                min-width: 50px;
+                                }
+                        QTabBar::tab:hover {
+                                border-bottom: 1px solid rgb(160, 160, 160);
+                                border-left: 1px solid rgb(170, 170, 170);
+                                border-right: 1px solid rgb(150, 150, 150);
+                        }
+                        QTabBar::tab:selected {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                                            stop: 0 white,
+                                                            stop: 0.49 rgb(210, 210, 210),
+                                                            stop: .5 rgb(200, 200, 200),
+                                                            stop: 1.0 rgb(180, 180, 180));
+                                height: 25px;
+                                }</string>
      </property>
-     <widget class="QWidget" name="tab">
+     <property name="tabPosition">
+      <enum>QTabWidget::South</enum>
+     </property>
+     <property name="currentIndex">
+      <number>4</number>
+     </property>
+     <property name="documentMode">
+      <bool>false</bool>
+     </property>
+     <property name="tabsClosable">
+      <bool>false</bool>
+     </property>
+     <widget class="QWidget" name="tab_1">
       <attribute name="title">
        <string>General</string>
       </attribute>
@@ -42,25 +119,6 @@
          <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
-        </widget>
-       </item>
-       <item row="0" column="1" colspan="2">
-        <widget class="QComboBox" name="startupBehavior">
-         <item>
-          <property name="text">
-           <string>Show my home page</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Show a blank page</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Restore windows and tabs from last time</string>
-          </property>
-         </item>
         </widget>
        </item>
        <item row="1" column="0">
@@ -78,27 +136,70 @@
          <property name="layoutDirection">
           <enum>Qt::LeftToRight</enum>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+    border: 1px solid lightgrey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(230, 230, 230));
+}
+
+QLineEdit:hover {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(240, 240, 240));
+}
+
+QLineEdit:pressed { 
+    background:white;
+}</string>
+         </property>
         </widget>
        </item>
        <item row="2" column="1">
         <widget class="QPushButton" name="setHomeToCurrentPageButton">
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    border: 1px solid grey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                                            stop: 0 white,
+                                                            stop: 0.49 rgb(210, 210, 210),
+                                                            stop: .5 rgb(200, 200, 200),
+                                                            stop: 1.0 rgb(180, 180, 180));
+}
+
+QPushButton:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+         </property>
          <property name="text">
           <string>Set to current page</string>
          </property>
         </widget>
-       </item>
-       <item row="2" column="2">
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>280</width>
-           <height>18</height>
-          </size>
-         </property>
-        </spacer>
        </item>
        <item row="3" column="0">
         <widget class="QLabel" name="label_4">
@@ -112,6 +213,35 @@
        </item>
        <item row="3" column="1">
         <widget class="QComboBox" name="expireHistory">
+         <property name="styleSheet">
+          <string notr="true">QComboBox {
+    border: 1px solid grey;
+    border-right: none;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QComboBox:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                                            stop: 0 white,
+                                                            stop: 0.49 rgb(210, 210, 210),
+                                                            stop: .5 rgb(200, 200, 200),
+                                                            stop: 1.0 rgb(180, 180, 180));
+}
+
+QComboBox:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+         </property>
          <item>
           <property name="text">
            <string>After one day</string>
@@ -150,23 +280,13 @@
         </widget>
        </item>
        <item row="4" column="0" colspan="3">
-        <widget class="QCheckBox" name="searchEngineFallback">
-         <property name="text">
-          <string>Use the default search engine as fallback when the URL given by the user is invalid</string>
-         </property>
-         <property name="checked">
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0" colspan="3">
         <widget class="QCheckBox" name="enableAccessKeys">
          <property name="text">
           <string>Enable access keys</string>
          </property>
         </widget>
        </item>
-       <item row="6" column="0" colspan="3">
+       <item row="5" column="0" colspan="3">
         <widget class="QGroupBox" name="groupBox_2">
          <property name="title">
           <string>Downloads</string>
@@ -196,10 +316,66 @@
               <property name="layoutDirection">
                <enum>Qt::LeftToRight</enum>
               </property>
+              <property name="styleSheet">
+               <string notr="true">QLineEdit {
+    border: 1px solid lightgrey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(230, 230, 230));
+}
+
+QLineEdit:hover {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(240, 240, 240));
+}
+
+QLineEdit:pressed { 
+    background:white;
+}</string>
+              </property>
              </widget>
             </item>
             <item>
              <widget class="QPushButton" name="downloadDirectoryButton">
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+    border: 1px solid grey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                                            stop: 0 white,
+                                                            stop: 0.49 rgb(210, 210, 210),
+                                                            stop: .5 rgb(200, 200, 200),
+                                                            stop: 1.0 rgb(180, 180, 180));
+}
+
+QPushButton:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+              </property>
               <property name="text">
                <string>Choose Directory...</string>
               </property>
@@ -217,10 +393,67 @@
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="externalDownloadPath"/>
+             <widget class="QLineEdit" name="externalDownloadPath">
+              <property name="styleSheet">
+               <string notr="true">QLineEdit {
+    border: 1px solid lightgrey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(230, 230, 230));
+}
+
+QLineEdit:hover {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(240, 240, 240));
+}
+
+QLineEdit:pressed { 
+    background:white;
+}</string>
+              </property>
+             </widget>
             </item>
             <item>
              <widget class="QPushButton" name="externalDownloadBrowse">
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+    border: 1px solid grey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                                            stop: 0 white,
+                                                            stop: 0.49 rgb(210, 210, 210),
+                                                            stop: .5 rgb(200, 200, 200),
+                                                            stop: 1.0 rgb(180, 180, 180));
+}
+
+QPushButton:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+              </property>
               <property name="text">
                <string>Choose Program...</string>
               </property>
@@ -228,165 +461,129 @@
             </item>
            </layout>
           </item>
-          <item>
-           <spacer>
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>608</width>
-              <height>15</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
          </layout>
+        </widget>
+       </item>
+       <item row="0" column="1" colspan="2">
+        <widget class="QComboBox" name="startupBehavior">
+         <property name="styleSheet">
+          <string notr="true">QComboBox {
+    border: 1px solid grey;
+    border-right: none;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QComboBox:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                                            stop: 0 white,
+                                                            stop: 0.49 rgb(210, 210, 210),
+                                                            stop: .5 rgb(200, 200, 200),
+                                                            stop: 1.0 rgb(180, 180, 180));
+}
+
+QComboBox:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>Show my home page</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Show a blank page</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Restore windows and tabs from last time</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QuickView</string>
+          </property>
+         </item>
         </widget>
        </item>
       </layout>
      </widget>
      <widget class="QWidget" name="tab_3">
       <attribute name="title">
-       <string>Appearance</string>
-      </attribute>
-      <layout class="QGridLayout" name="gridLayout_3">
-       <item row="0" column="0">
-        <widget class="QLabel" name="label_5">
-         <property name="text">
-          <string>Standard font:</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1" colspan="2">
-        <widget class="QLabel" name="standardLabel">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="text">
-          <string notr="true">Times 16</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="4">
-        <widget class="QPushButton" name="standardFontButton">
-         <property name="text">
-          <string>Select...</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="label_6">
-         <property name="text">
-          <string>Fixed-width font:</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1" colspan="2">
-        <widget class="QLabel" name="fixedLabel">
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="text">
-          <string notr="true">Courier 13</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="4">
-        <widget class="QPushButton" name="fixedFontButton">
-         <property name="text">
-          <string>Select...</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0" colspan="3">
-        <widget class="QLabel" name="label_8">
-         <property name="text">
-          <string>Preferred languages for viewing webpages in:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="4">
-        <widget class="QPushButton" name="languageButton">
-         <property name="text">
-          <string>Select...</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0">
-        <widget class="QCheckBox" name="minimFontSizeCheckBox">
-         <property name="text">
-          <string>Minimum Font size:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="3">
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>93</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="3" column="1">
-        <widget class="QSpinBox" name="minimumFontSizeSpinBox">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="minimum">
-          <number>1</number>
-         </property>
-         <property name="value">
-          <number>9</number>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="tab_2">
-      <attribute name="title">
        <string>Privacy</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_3">
-       <item>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_16">
+         <property name="text">
+          <string>AutoFill web forms:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QCheckBox" name="autoFillPasswordFormsCheckBox">
+         <property name="text">
+          <string>User names and passwords</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QPushButton" name="editAutoFillUserButton">
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    border: 1px solid grey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                                            stop: 0 white,
+                                                            stop: 0.49 rgb(210, 210, 210),
+                                                            stop: .5 rgb(200, 200, 200),
+                                                            stop: 1.0 rgb(180, 180, 180));
+}
+
+QPushButton:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+         </property>
+         <property name="text">
+          <string>Edit...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0" colspan="3">
         <widget class="QGroupBox" name="groupBox">
          <property name="title">
           <string>Web Content</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_5">
-          <item row="0" column="0" colspan="2">
-           <widget class="QCheckBox" name="blockPopupWindows">
-            <property name="text">
-             <string>Block Popup Windows</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
           <item row="1" column="0" colspan="2">
            <widget class="QCheckBox" name="enablePlugins">
             <property name="text">
@@ -452,10 +649,10 @@
             </property>
            </widget>
           </item>
-          <item row="5" column="0" colspan="2">
-           <widget class="QCheckBox" name="enableLocalStorage">
+          <item row="0" column="0" colspan="2">
+           <widget class="QCheckBox" name="blockPopupWindows">
             <property name="text">
-             <string>Persistent Data Storage</string>
+             <string>Block Popup Windows</string>
             </property>
             <property name="checked">
              <bool>true</bool>
@@ -465,7 +662,7 @@
          </layout>
         </widget>
        </item>
-       <item>
+       <item row="2" column="0" colspan="3">
         <widget class="QGroupBox" name="cookiesGroupBox">
          <property name="title">
           <string>Cookies</string>
@@ -483,6 +680,35 @@
           </item>
           <item row="0" column="1">
            <widget class="QComboBox" name="acceptCombo">
+            <property name="styleSheet">
+             <string notr="true">QComboBox {
+    border: 1px solid grey;
+    border-right: none;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QComboBox:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                                            stop: 0 white,
+                                                            stop: 0.49 rgb(210, 210, 210),
+                                                            stop: .5 rgb(200, 200, 200),
+                                                            stop: 1.0 rgb(180, 180, 180));
+}
+
+QComboBox:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+            </property>
             <item>
              <property name="text">
               <string>Always</string>
@@ -502,6 +728,36 @@
           </item>
           <item row="0" column="2">
            <widget class="QPushButton" name="exceptionsButton">
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    border: 1px solid grey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                                            stop: 0 white,
+                                                            stop: 0.49 rgb(210, 210, 210),
+                                                            stop: .5 rgb(200, 200, 200),
+                                                            stop: 1.0 rgb(180, 180, 180));
+}
+
+QPushButton:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+            </property>
             <property name="text">
              <string>Exceptions...</string>
             </property>
@@ -519,6 +775,35 @@
           </item>
           <item row="1" column="1">
            <widget class="QComboBox" name="keepUntilCombo">
+            <property name="styleSheet">
+             <string notr="true">QComboBox {
+    border: 1px solid grey;
+    border-right: none;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QComboBox:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                                            stop: 0 white,
+                                                            stop: 0.49 rgb(210, 210, 210),
+                                                            stop: .5 rgb(200, 200, 200),
+                                                            stop: 1.0 rgb(180, 180, 180));
+}
+
+QComboBox:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+            </property>
             <item>
              <property name="text">
               <string>They expire</string>
@@ -538,23 +823,40 @@
           </item>
           <item row="1" column="2">
            <widget class="QPushButton" name="cookiesButton">
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    border: 1px solid grey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                                            stop: 0 white,
+                                                            stop: 0.49 rgb(210, 210, 210),
+                                                            stop: .5 rgb(200, 200, 200),
+                                                            stop: 1.0 rgb(180, 180, 180));
+}
+
+QPushButton:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+            </property>
             <property name="text">
              <string>Cookies...</string>
             </property>
            </widget>
-          </item>
-          <item row="3" column="0">
-           <spacer name="horizontalSpacer_4">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
           </item>
           <item row="3" column="1">
            <widget class="QCheckBox" name="filterTrackingCookiesCheckbox">
@@ -575,6 +877,35 @@
           </item>
           <item row="2" column="1">
            <widget class="QComboBox" name="cookieSessionCombo">
+            <property name="styleSheet">
+             <string notr="true">QComboBox {
+    border: 1px solid grey;
+    border-right: none;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QComboBox:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                                            stop: 0 white,
+                                                            stop: 0.49 rgb(210, 210, 210),
+                                                            stop: .5 rgb(200, 200, 200),
+                                                            stop: 1.0 rgb(180, 180, 180));
+}
+
+QComboBox:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+            </property>
             <item>
              <property name="text">
               <string>When I exit the application</string>
@@ -610,22 +941,342 @@
          </layout>
         </widget>
        </item>
-       <item>
-        <spacer>
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="title">
+       <string>Appearance</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>Standard font:</string>
          </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>371</width>
-           <height>177</height>
-          </size>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
-        </spacer>
+        </widget>
+       </item>
+       <item row="2" column="1" colspan="2">
+        <widget class="QLabel" name="standardLabel">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    border: 1px solid grey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                                            stop: 0 white,
+                                                            stop: 0.49 rgb(210, 210, 210),
+                                                            stop: .5 rgb(200, 200, 200),
+                                                            stop: 1.0 rgb(180, 180, 180));
+}
+
+QPushButton:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="text">
+          <string notr="true">Times 16</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="3">
+        <widget class="QPushButton" name="standardFontButton">
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    border: 1px solid grey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                                            stop: 0 white,
+                                                            stop: 0.49 rgb(210, 210, 210),
+                                                            stop: .5 rgb(200, 200, 200),
+                                                            stop: 1.0 rgb(180, 180, 180));
+}
+
+QPushButton:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+         </property>
+         <property name="text">
+          <string>Select...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_6">
+         <property name="text">
+          <string>Fixed-width font:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1" colspan="2">
+        <widget class="QLabel" name="fixedLabel">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="text">
+          <string notr="true">Courier 13</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="3">
+        <widget class="QPushButton" name="fixedFontButton">
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    border: 1px solid grey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                                            stop: 0 white,
+                                                            stop: 0.49 rgb(210, 210, 210),
+                                                            stop: .5 rgb(200, 200, 200),
+                                                            stop: 1.0 rgb(180, 180, 180));
+}
+
+QPushButton:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+         </property>
+         <property name="text">
+          <string>Select...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0" colspan="3">
+        <widget class="QLabel" name="label_8">
+         <property name="text">
+          <string>Preferred languages for viewing webpages in:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="3">
+        <widget class="QPushButton" name="languageButton">
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    border: 1px solid grey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                                            stop: 0 white,
+                                                            stop: 0.49 rgb(210, 210, 210),
+                                                            stop: .5 rgb(200, 200, 200),
+                                                            stop: 1.0 rgb(180, 180, 180));
+}
+
+QPushButton:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+         </property>
+         <property name="text">
+          <string>Select...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QCheckBox" name="minimFontSizeCheckBox">
+         <property name="text">
+          <string>Minimum Font size:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QSpinBox" name="minimumFontSizeSpinBox">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QSpinBox {
+    border: 1px solid grey;
+    border-right: 2px solid transparent;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QSpinBox:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                                            stop: 0 white,
+                                                            stop: 0.49 rgb(210, 210, 210),
+                                                            stop: .5 rgb(200, 200, 200),
+                                                            stop: 1.0 rgb(180, 180, 180));
+}
+
+QSpinBox:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+         </property>
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="value">
+          <number>9</number>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="userStyleSheet">
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+    border: 1px solid lightgrey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(230, 230, 230));
+}
+
+QLineEdit:hover {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(240, 240, 240));
+}
+
+QLineEdit:pressed { 
+    background:white;
+}</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QPushButton" name="styleSheetBrowseButton">
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    border: 1px solid grey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                                            stop: 0 white,
+                                                            stop: 0.49 rgb(210, 210, 210),
+                                                            stop: .5 rgb(200, 200, 200),
+                                                            stop: 1.0 rgb(180, 180, 180));
+}
+
+QPushButton:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+         </property>
+         <property name="text">
+          <string>Browse...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_14">
+         <property name="text">
+          <string>Style Sheet:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tab_6">
+     <widget class="QWidget" name="tab_4">
       <attribute name="title">
        <string>Tabs</string>
       </attribute>
@@ -685,6 +1336,35 @@
           </item>
           <item row="1" column="1" colspan="2">
            <widget class="QComboBox" name="openTargetBlankLinksIn">
+            <property name="styleSheet">
+             <string notr="true">QComboBox {
+    border: 1px solid grey;
+    border-right: none;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QComboBox:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                                            stop: 0 white,
+                                                            stop: 0.49 rgb(210, 210, 210),
+                                                            stop: .5 rgb(200, 200, 200),
+                                                            stop: 1.0 rgb(180, 180, 180));
+}
+
+QComboBox:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+            </property>
             <item>
              <property name="text">
               <string>In a new window</string>
@@ -719,6 +1399,35 @@
           </item>
           <item row="0" column="1" colspan="2">
            <widget class="QComboBox" name="openLinksFromAppsIn">
+            <property name="styleSheet">
+             <string notr="true">QComboBox {
+    border: 1px solid grey;
+    border-right: none;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QComboBox:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                                            stop: 0 white,
+                                                            stop: 0.49 rgb(210, 210, 210),
+                                                            stop: .5 rgb(200, 200, 200),
+                                                            stop: 1.0 rgb(180, 180, 180));
+}
+
+QComboBox:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+            </property>
             <item>
              <property name="text">
               <string>In a new window</string>
@@ -744,22 +1453,9 @@
          </layout>
         </widget>
        </item>
-       <item>
-        <spacer name="verticalSpacer_4">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>182</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tab_4">
+     <widget class="QWidget" name="tab_5">
       <attribute name="title">
        <string>Proxy</string>
       </attribute>
@@ -785,6 +1481,35 @@
           </item>
           <item row="0" column="1" colspan="2">
            <widget class="QComboBox" name="proxyType">
+            <property name="styleSheet">
+             <string notr="true">QComboBox {
+    border: 1px solid grey;
+    border-right: none;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QComboBox:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                                            stop: 0 white,
+                                                            stop: 0.49 rgb(210, 210, 210),
+                                                            stop: .5 rgb(200, 200, 200),
+                                                            stop: 1.0 rgb(180, 180, 180));
+}
+
+QComboBox:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+            </property>
             <item>
              <property name="text">
               <string>Socks5</string>
@@ -817,6 +1542,32 @@
             <property name="layoutDirection">
              <enum>Qt::LeftToRight</enum>
             </property>
+            <property name="styleSheet">
+             <string notr="true">QLineEdit {
+    border: 1px solid lightgrey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(230, 230, 230));
+}
+
+QLineEdit:hover {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(240, 240, 240));
+}
+
+QLineEdit:pressed { 
+    background:white;
+}</string>
+            </property>
            </widget>
           </item>
           <item row="2" column="0">
@@ -831,6 +1582,35 @@
           </item>
           <item row="2" column="1">
            <widget class="QSpinBox" name="proxyPort">
+            <property name="styleSheet">
+             <string notr="true">QSpinBox {
+    border: 1px solid grey;
+    border-right: 2px solid transparent;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QSpinBox:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                                            stop: 0 white,
+                                                            stop: 0.49 rgb(210, 210, 210),
+                                                            stop: .5 rgb(200, 200, 200),
+                                                            stop: 1.0 rgb(180, 180, 180));
+}
+
+QSpinBox:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+            </property>
             <property name="maximum">
              <number>65535</number>
             </property>
@@ -838,19 +1618,6 @@
              <number>1080</number>
             </property>
            </widget>
-          </item>
-          <item row="2" column="2">
-           <spacer name="horizontalSpacer_2">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>293</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
           </item>
           <item row="3" column="0">
            <widget class="QLabel" name="label_12">
@@ -866,6 +1633,32 @@
            <widget class="QLineEdit" name="proxyUserName">
             <property name="layoutDirection">
              <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLineEdit {
+    border: 1px solid lightgrey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(230, 230, 230));
+}
+
+QLineEdit:hover {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(240, 240, 240));
+}
+
+QLineEdit:pressed { 
+    background:white;
+}</string>
             </property>
            </widget>
           </item>
@@ -884,125 +1677,44 @@
             <property name="layoutDirection">
              <enum>Qt::LeftToRight</enum>
             </property>
+            <property name="styleSheet">
+             <string notr="true">QLineEdit {
+    border: 1px solid lightgrey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(230, 230, 230));
+}
+
+QLineEdit:hover {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(240, 240, 240));
+}
+
+QLineEdit:pressed { 
+    background:white;
+}</string>
+            </property>
             <property name="echoMode">
              <enum>QLineEdit::Password</enum>
             </property>
            </widget>
           </item>
-          <item row="5" column="0">
-           <spacer name="verticalSpacer_2">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>8</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
          </layout>
         </widget>
        </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="tab_7">
-      <attribute name="title">
-       <string>AutoFill</string>
-      </attribute>
-      <layout class="QGridLayout" name="gridLayout_8">
-       <item row="0" column="0">
-        <widget class="QLabel" name="label_16">
-         <property name="text">
-          <string>AutoFill web forms:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QCheckBox" name="autoFillPasswordFormsCheckBox">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>User names and passwords</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="2">
-        <widget class="QPushButton" name="editAutoFillUserButton">
-         <property name="text">
-          <string>Edit...</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <spacer name="verticalSpacer_5">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>244</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="1" column="3">
-        <spacer name="horizontalSpacer_6">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="tab_5">
-      <attribute name="title">
-       <string>Advanced</string>
-      </attribute>
-      <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="0">
-        <widget class="QLabel" name="label_14">
-         <property name="text">
-          <string>Style Sheet:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="2">
-        <widget class="QLineEdit" name="userStyleSheet">
-         <property name="layoutDirection">
-          <enum>Qt::LeftToRight</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="3">
-        <widget class="QPushButton" name="styleSheetBrowseButton">
-         <property name="text">
-          <string>Browse...</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0" colspan="4">
+       <item>
         <widget class="QGroupBox" name="networkCache">
          <property name="title">
-          <string>Enable network cache</string>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
+          <string>Network cache</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_7">
           <item row="0" column="0">
@@ -1010,49 +1722,46 @@
             <property name="text">
              <string>Maximum Size:</string>
             </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
            </widget>
           </item>
           <item row="0" column="1">
            <widget class="QSpinBox" name="networkCacheMaximumSizeSpinBox">
-            <property name="suffix">
-             <string> MB</string>
-            </property>
-            <property name="minimum">
-             <number>0</number>
-            </property>
-            <property name="maximum">
-             <number>9999999</number>
+            <property name="styleSheet">
+             <string notr="true">QSpinBox {
+    border: 1px solid grey;
+    border-right: 2px solid transparent;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QSpinBox:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                                            stop: 0 white,
+                                                            stop: 0.49 rgb(210, 210, 210),
+                                                            stop: .5 rgb(200, 200, 200),
+                                                            stop: 1.0 rgb(180, 180, 180));
+}
+
+QSpinBox:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
             </property>
            </widget>
           </item>
-          <item row="0" column="2">
-           <spacer name="horizontalSpacer_5">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
          </layout>
         </widget>
-       </item>
-       <item row="2" column="2">
-        <spacer name="verticalSpacer_3">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>176</height>
-          </size>
-         </property>
-        </spacer>
        </item>
       </layout>
      </widget>
@@ -1065,7 +1774,6 @@
   <tabstop>homeLineEdit</tabstop>
   <tabstop>setHomeToCurrentPageButton</tabstop>
   <tabstop>expireHistory</tabstop>
-  <tabstop>searchEngineFallback</tabstop>
   <tabstop>downloadAsk</tabstop>
   <tabstop>downloadDestination</tabstop>
   <tabstop>downloadDirectoryButton</tabstop>
@@ -1094,10 +1802,6 @@
   <tabstop>proxyPort</tabstop>
   <tabstop>proxyUserName</tabstop>
   <tabstop>proxyPassword</tabstop>
-  <tabstop>userStyleSheet</tabstop>
-  <tabstop>networkCache</tabstop>
-  <tabstop>networkCacheMaximumSizeSpinBox</tabstop>
-  <tabstop>buttonBox</tabstop>
  </tabstops>
  <resources/>
  <connections>
@@ -1108,8 +1812,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>269</x>
-     <y>447</y>
+     <x>273</x>
+     <y>437</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -1124,8 +1828,8 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>337</x>
-     <y>447</y>
+     <x>341</x>
+     <y>437</y>
     </hint>
     <hint type="destinationlabel">
      <x>286</x>
@@ -1140,12 +1844,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>79</x>
-     <y>289</y>
+     <x>95</x>
+     <y>240</y>
     </hint>
     <hint type="destinationlabel">
-     <x>280</x>
-     <y>291</y>
+     <x>438</x>
+     <y>240</y>
     </hint>
    </hints>
   </connection>
@@ -1156,44 +1860,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>104</x>
-     <y>125</y>
+     <x>119</x>
+     <y>106</y>
     </hint>
     <hint type="destinationlabel">
-     <x>162</x>
-     <y>154</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>minimFontSizeCheckBox</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>minimumFontSizeSpinBox</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>31</x>
-     <y>153</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>189</x>
-     <y>151</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>downloadDestination</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>downloadDirectoryButton</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>182</x>
-     <y>282</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>620</x>
-     <y>292</y>
+     <x>201</x>
+     <y>131</y>
     </hint>
    </hints>
   </connection>
@@ -1204,12 +1876,44 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>161</x>
-     <y>315</y>
+     <x>177</x>
+     <y>269</y>
     </hint>
     <hint type="destinationlabel">
-     <x>388</x>
-     <y>315</y>
+     <x>551</x>
+     <y>269</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>minimFontSizeCheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>minimumFontSizeSpinBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>39</x>
+     <y>133</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>281</x>
+     <y>134</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>downloadDestination</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>downloadDirectoryButton</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>157</x>
+     <y>240</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>685</x>
+     <y>241</y>
     </hint>
    </hints>
   </connection>
@@ -1220,44 +1924,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>161</x>
-     <y>315</y>
+     <x>177</x>
+     <y>269</y>
     </hint>
     <hint type="destinationlabel">
-     <x>554</x>
-     <y>315</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>externalDownloadButton</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>downloadAsk</receiver>
-   <slot>setDisabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>102</x>
-     <y>311</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>105</x>
-     <y>252</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>externalDownloadButton</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>downloadsLocation</receiver>
-   <slot>setDisabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>198</x>
-     <y>315</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>386</x>
-     <y>279</y>
+     <x>685</x>
+     <y>270</y>
     </hint>
    </hints>
   </connection>
@@ -1268,12 +1940,12 @@
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>170</x>
-     <y>313</y>
+     <x>186</x>
+     <y>269</y>
     </hint>
     <hint type="destinationlabel">
-     <x>169</x>
-     <y>285</y>
+     <x>157</x>
+     <y>240</y>
     </hint>
    </hints>
   </connection>
@@ -1284,12 +1956,44 @@
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>194</x>
-     <y>311</y>
+     <x>210</x>
+     <y>269</y>
     </hint>
     <hint type="destinationlabel">
-     <x>569</x>
-     <y>276</y>
+     <x>685</x>
+     <y>241</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>externalDownloadButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>downloadAsk</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>118</x>
+     <y>269</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>120</x>
+     <y>213</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>externalDownloadButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>downloadsLocation</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>214</x>
+     <y>269</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>544</x>
+     <y>240</y>
     </hint>
    </hints>
   </connection>

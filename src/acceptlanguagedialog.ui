@@ -29,6 +29,32 @@
      <property name="enabled">
       <bool>false</bool>
      </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    border: 1px solid grey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QPushButton:hover {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(215, 215, 215), stop: 1.0 rgb(155, 155, 155));
+}
+
+QPushButton:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+     </property>
      <property name="text">
       <string>Move &amp;Up</string>
      </property>
@@ -39,6 +65,32 @@
      <property name="enabled">
       <bool>false</bool>
      </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    border: 1px solid grey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QPushButton:hover {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(215, 215, 215), stop: 1.0 rgb(155, 155, 155));
+}
+
+QPushButton:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+     </property>
      <property name="text">
       <string>Move &amp;Down</string>
      </property>
@@ -48,6 +100,32 @@
     <widget class="QPushButton" name="removeButton">
      <property name="enabled">
       <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    border: 1px solid grey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QPushButton:hover {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(215, 215, 215), stop: 1.0 rgb(155, 155, 155));
+}
+
+QPushButton:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
      </property>
      <property name="text">
       <string>&amp;Remove</string>
@@ -68,17 +146,76 @@
     </spacer>
    </item>
    <item row="5" column="0">
-    <widget class="QComboBox" name="addComboBox"/>
+    <widget class="QComboBox" name="addComboBox">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+    </widget>
    </item>
    <item row="5" column="1">
     <widget class="QPushButton" name="addButton">
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    border: 1px solid grey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QPushButton:hover {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(215, 215, 215), stop: 1.0 rgb(155, 155, 155));
+}
+
+QPushButton:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+     </property>
      <property name="text">
       <string>Add...</string>
      </property>
     </widget>
    </item>
+   <item row="1" column="0" rowspan="4">
+    <widget class="QListView" name="listView"/>
+   </item>
    <item row="6" column="0" colspan="2">
     <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    border: 1px solid grey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QPushButton:hover {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(215, 215, 215), stop: 1.0 rgb(155, 155, 155));
+}
+
+QPushButton:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+     </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
@@ -86,9 +223,6 @@
       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
      </property>
     </widget>
-   </item>
-   <item row="1" column="0" rowspan="4">
-    <widget class="QListView" name="listView"/>
    </item>
   </layout>
  </widget>

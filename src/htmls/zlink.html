@@ -1,0 +1,162 @@
+<?xml encoding="UTF-8" version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>QuickView</title>
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "DejaVu Sans";
+}
+
+body {
+height: 100%;
+background-repeat: repeat-x;
+background-attachment: fixed;
+
+background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#dae4e5), to(#a8afb0));
+background-image: -webkit-linear-gradient(to top, #dae4e5, #a8afb0);
+background-image: -moz-linear-gradient(to top, #dae4e5, #a8afb0);
+background-image: -o-linear-gradient(to top, #dae4e5, #a8afb0);
+background-image: linear-gradient(to top, #dae4e5, #a8afb0);
+}
+
+    #header {
+    text-align: center;
+    margin-top: 3%;
+    display: block;
+    }
+
+    #logo {
+        margin: 50px auto;
+        text-align: center;
+        }
+
+    #logo a {
+        color: #555;
+        text-decoration: none;
+        }
+
+    #logo a:hover {
+        border-radius: 10px;
+        color:#c351fa;
+        background-color:rgba(255,255,255,.4);
+        transition:background-color .3s ease .4s;
+        }
+
+hr {
+  color: lightblue;
+  width: 100%;
+}
+
+#box {
+border-radius: 10px;
+background-color:rgba(255,255,255,.4);
+transition:background-color .3s ease .4s;
+  width: 300px;
+  padding: 25px;
+  margin: 10px auto;
+}
+
+h {
+  font-size: 100%;
+  font-weight: normal;
+  border-bottom: 1px solid lightgray;
+  margin-left: 48px;
+}
+table {
+  font-size: 80%;
+  padding-left: 48px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin: 5px 0;
+  width: 100%;
+}
+.modified {
+  text-align: left;
+  vertical-align: top;
+  white-space: nowrap;
+}
+.size {
+  text-align: right;
+  vertical-align: top;
+  white-space: nowrap;
+  padding-right: 8px;
+}
+.name {
+  text-align: left;
+  vertical-align: top;
+  white-space: pre-wrap;
+  width: 100%
+}
+
+#reloadButton {
+  padding-left: 48px;
+}
+body:not(.showDotFiles) .hidden {
+  display: none;
+}
+.showHide{
+  font-size: 80%;
+  padding-left: 48px;
+}
+
+a, a:hover, a:visited {
+	color:blue;
+	text-decoration: underline;
+}
+
+    #secret {
+    color: grey;
+    background-color:rgba(255,255,255,.4);
+    border-bottom-right-radius: 20px;
+    padding: 20px;
+    font-size: 300%;
+    text-align: center;
+    opacity: 0;
+    width: 400px;
+    }
+
+    #secret a {
+    color: grey;
+    text-decoration: none;
+    }
+
+    #secret:hover {
+    opacity: .8;
+    }
+
+</style>
+</head>
+<body>
+<div id="secret"><a href="qrc:/42.html">Secret password</a></div>
+<div id="header">
+    <img src="qrc:/title.png"/>
+    </div>
+<div id="logo">
+<a href="http://google.com">
+            <img src="qrc:/space.png"/>
+            <img src="qrc:/google.png"/>
+            <img src="qrc:/space.png"/></a>
+<a href="http://mail.google.com">
+            <img src="qrc:/space.png"/>
+            <img src="qrc:/gmail.png"/>
+            <img src="qrc:/space.png"/></a>
+<a href="http://armeedunet.com">
+            <img src="qrc:/space.png"/>
+            <img src="qrc:/adn.png"/>
+            <img src="qrc:/space.png"/></a>
+<a href="http://www.youtube.com/user/ArmeeDuNet">
+            <img src="qrc:/space.png"/>
+            <img src="qrc:/youtube.png"/>
+            <img src="qrc:/space.png"/></a>
+<a href="http://armeedunet.com/BlueLightCat/about">
+            <img src="qrc:/space.png"/>
+            <img src="qrc:/about.png"/>
+            <img src="qrc:/space.png"/>
+    </a>
+</div>
+  <div id="box"> %1 </div>
+</body>
+</html>

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>340</width>
-    <height>233</height>
+    <width>600</width>
+    <height>400</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,25 +20,42 @@
    <property name="spacing">
     <number>0</number>
    </property>
-   <item row="0" column="0" colspan="3">
-    <widget class="EditTableView" name="downloadsView">
-     <property name="frameShape">
-      <enum>QFrame::NoFrame</enum>
-     </property>
-     <property name="dragEnabled">
-      <bool>true</bool>
-     </property>
-     <property name="dragDropMode">
-      <enum>QAbstractItemView::DragOnly</enum>
-     </property>
-    </widget>
-   </item>
    <item row="1" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QPushButton" name="cleanupButton">
        <property name="enabled">
         <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    border: 1px solid grey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                                            stop: 0 white,
+                                                            stop: 0.49 rgb(210, 210, 210),
+                                                            stop: .5 rgb(200, 200, 200),
+                                                            stop: 1.0 rgb(180, 180, 180));
+}
+
+QPushButton:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
        </property>
        <property name="text">
         <string>Clean up</string>
@@ -84,12 +101,55 @@
      </item>
      <item>
       <widget class="QDialogButtonBox" name="buttonBox">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    border: 1px solid grey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                                            stop: 0 white,
+                                                            stop: 0.49 rgb(210, 210, 210),
+                                                            stop: .5 rgb(200, 200, 200),
+                                                            stop: 1.0 rgb(180, 180, 180));
+}
+
+QPushButton:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+       </property>
        <property name="standardButtons">
         <set>QDialogButtonBox::Close</set>
        </property>
       </widget>
      </item>
     </layout>
+   </item>
+   <item row="0" column="0" colspan="3">
+    <widget class="EditTableView" name="downloadsView">
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="dragEnabled">
+      <bool>true</bool>
+     </property>
+     <property name="dragDropMode">
+      <enum>QAbstractItemView::DragOnly</enum>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

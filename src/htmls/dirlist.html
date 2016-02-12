@@ -3,24 +3,40 @@
 <head>
 <title>%1</title>
 <style>
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "DejaVu Sans";
+}
+
 body {
-  padding: 1em 0em;
-  background: #eeeeee;
+    background: -webkit-gradient(linear, left top, left bottom, from(#55E3FF), to(#fff), color-stop(0.95, #fff));
+    background-repeat: repeat-x;
 }
-hr {
-  color: lightgray;
-  width: 100%;
-}
+
 img {
   float: left;
   opacity: .8;
 }
+
+#header {
+   background: -webkit-gradient(linear, left top, left bottom, from(#228), to(#668), color-stop(0.9, #66a));  
+   text-align: center;
+   color: #fff;
+   font-size: 1.7em;
+   font-weight: bold;
+   height: 30px;
+   padding: 15px;
+   border-bottom-right-radius: 5em;
+   border-bottom-left-radius: 5em; 
+}
+
 #box {
-  background: white;
-  border: 1px solid lightgray;
-  width: 600px;
-  padding: 30px;
-  margin: auto;
+  background: -webkit-gradient(linear, left top, right bottom, from(#cdf), to(#cdf), color-stop(0.5, #eff));
+  width: 500px;
+  padding: 25px;
+  margin: 10px auto;
+  -webkit-border-radius: 1.5em;
 }
 h1 {
   font-size: 130%;
@@ -70,6 +86,7 @@ body:not(.showDotFiles) .hidden {
   font-size: 80%;
   padding-left: 48px;
 }
+
 </style>
 <script type="text/javascript">
 function showHide()
@@ -82,6 +99,7 @@ function showHide()
 </script>
 </head>
 <body>
+  <div id="header">BlueLightCat</div>
   <div id="box">
     <h1>%2</h1>
     <div class='showHide'>

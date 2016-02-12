@@ -95,6 +95,7 @@ include(history/history.pri)
 include(locationbar/locationbar.pri)
 include(network/network.pri)
 include(opensearch/opensearch.pri)
+include(zlink/zlink.pri)
 include(qwebplugins/qwebplugins.pri)
 include(utils/utils.pri)
 include(useragent/useragent.pri)
@@ -107,6 +108,7 @@ RESOURCES += \
 
 DISTFILES += ../AUTHORS \
     ../ChangeLog \
+    ../CONTRIBUTORS \
     ../LICENSE.GPL2 \
     ../LICENSE.GPL3 \
     ../README
@@ -128,7 +130,7 @@ mac {
 include(../webkittrunk.pri)
 
 unix {
-    PKGDATADIR = $$DATADIR/arora
+    PKGDATADIR = $$DATADIR/zbrowser
     DEFINES += DATADIR=\\\"$$DATADIR\\\" PKGDATADIR=\\\"$$PKGDATADIR\\\"
 }
 

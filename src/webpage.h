@@ -50,14 +50,14 @@ public slots:
     void AddSearchProvider(const QString &url);
 };
 
-class JavaScriptAroraObject : public QObject
+class JavaScriptzBrowserObject : public QObject
 {
     Q_OBJECT
 
     Q_PROPERTY(QObject *currentEngine READ currentEngine)
 
 public:
-    JavaScriptAroraObject(QObject *parent = 0);
+    JavaScriptzBrowserObject(QObject *parent = 0);
 
 public slots:
     QString translate(const QString &string);
@@ -102,7 +102,7 @@ protected:
     TabWidget::OpenUrlIn m_openTargetBlankLinksIn;
     QUrl m_requestedUrl;
     JavaScriptExternalObject *m_javaScriptExternalObject;
-    JavaScriptAroraObject *m_javaScriptAroraObject;
+    JavaScriptzBrowserObject *m_javaScriptzBrowserObject;
 
 private:
     QNetworkRequest lastRequest;

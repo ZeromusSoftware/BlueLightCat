@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE default-apps SYSTEM "gnome-da-list.dtd">
+<default-apps>
+  <web-browsers>
+    <web-browser>
+      <name>zBrowser</name>
+      <executable>zbrowser</executable>
+      <command>zbrowser %s</command>
+      <icon-name>zbrowser</icon-name>
+      <run-in-terminal>false</run-in-terminal>
+      <netscape-remote>false</netscape-remote>
+    </web-browser>
+  </web-browsers>
+</default-apps>

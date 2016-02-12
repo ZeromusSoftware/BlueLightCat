@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2014 Benjamin C. Meyer <ben@meyerhome.net>
+ * Copyright 2008-2009 Benjamin C. Meyer <ben@meyerhome.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -75,13 +75,12 @@ BookmarkNode::~BookmarkNode()
 {
     if (m_parent)
         m_parent->remove(this);
-    for (int i = m_children.count() -1; i >= 0; --i)
-        delete m_children[i];
+    qDeleteAll(m_children);
     m_parent = 0;
     m_type = BookmarkNode::Root;
 }
 
-bool BookmarkNode::operator==(const BookmarkNode &other) const
+bool BookmarkNode::operator==(const BookmarkNode &other)
 {
     if (url != other.url
         || title != other.title
@@ -119,10 +118,6 @@ BookmarkNode *BookmarkNode::parent() const
 
 void BookmarkNode::add(BookmarkNode *child, int offset)
 {
-    if (!child)
-        return;
-    if (m_type == BookmarkNode::Bookmark)
-        return;
     Q_ASSERT(child->m_type != Root);
     if (child->m_parent)
         child->m_parent->remove(child);
@@ -134,8 +129,6 @@ void BookmarkNode::add(BookmarkNode *child, int offset)
 
 void BookmarkNode::remove(BookmarkNode *child)
 {
-    if (!child)
-        return;
     child->m_parent = 0;
     m_children.removeAll(child);
 }

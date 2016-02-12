@@ -20,8 +20,8 @@
         <translation>Jednoduchý webový prehliadač založený na WebKite</translation>
     </message>
     <message>
-        <source>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</source>
-        <translation>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</translation>
+        <source>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</source>
+        <translation>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Close</source>
@@ -340,7 +340,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>htmlToXBel tool, which is shipped with Arora and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
+        <source>htmlToXBel tool, which is shipped with zBrowser and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -415,15 +415,15 @@ Chcete ich všetky uzavrieť?</translation>
         <translation>Obnovenie zlyhalo</translation>
     </message>
     <message>
-        <source>The saved session will not be restored because Arora crashed while trying to restore this session.</source>
-        <translation type="obsolete">Uložená relácia nebude obnovená, pretože Arora spadla pri pokuse o jej obnovenie.</translation>
+        <source>The saved session will not be restored because zBrowser crashed while trying to restore this session.</source>
+        <translation type="obsolete">Uložená relácia nebude obnovená, pretože zBrowser spadla pri pokuse o jej obnovenie.</translation>
     </message>
     <message>
         <source> (Change: %1 %2)</source>
         <translation type="obsolete">(Zmena: %1 %2)</translation>
     </message>
     <message>
-        <source>Arora crashed while trying to restore this session.  Should I try again?</source>
+        <source>zBrowser crashed while trying to restore this session.  Should I try again?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -599,7 +599,7 @@ Chcete ich všetky uzavrieť?</translation>
         <translation>O &amp;Qt</translation>
     </message>
     <message>
-        <source>About &amp;Arora</source>
+        <source>About &amp;zBrowser</source>
         <translation type="obsolete">O &amp;Arore</translation>
     </message>
     <message>
@@ -623,13 +623,13 @@ Chcete ich všetky uzavrieť?</translation>
         <translation>Skryť panel nástrojov</translation>
     </message>
     <message>
-        <source>Arora</source>
-        <translation type="obsolete">Arora</translation>
+        <source>zBrowser</source>
+        <translation type="obsolete">zBrowser</translation>
     </message>
     <message>
-        <source>%1 - Arora</source>
+        <source>%1 - zBrowser</source>
         <comment>Page title and Browser name</comment>
-        <translation>%1 - Arora</translation>
+        <translation>%1 - zBrowser</translation>
     </message>
     <message>
         <source>Open Web Resource</source>
@@ -1308,13 +1308,13 @@ Do you want to quit anyway?</source>
     </message>
 </context>
 <context>
-    <name>JavaScriptAroraObject</name>
+    <name>JavaScriptzBrowserObject</name>
     <message>
-        <source>Welcome to Arora!</source>
+        <source>Welcome to zBrowser!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Arora Start</source>
+        <source>zBrowser Start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1326,7 +1326,7 @@ Do you want to quit anyway?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>About Arora</source>
+        <source>About zBrowser</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2151,7 +2151,7 @@ Ste si istý, že chcete zavrieť túto stránku?
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.arora-browser.org instead of &lt;b&gt;www&lt;/b&gt;.arora-browser.org</source>
+        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 instead of &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

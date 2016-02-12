@@ -2,24 +2,39 @@
 <head>
 <title>%1</title>
 <style>
-body {
-  padding: 3em 0em;
-  background: #eeeeee;
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "DejaVu Sans";
 }
-hr {
-  color: lightgray;
-  width: 100%;
+
+body {
+    background: -webkit-gradient(linear, left top, left bottom, from(#55E3FF), to(#fff), color-stop(0.95, #fff));
+    background-repeat: repeat-x;
 }
 img {
   float: left;
   opacity: .8;
 }
+
+#header {
+   background: -webkit-gradient(linear, left top, left bottom, from(#228), to(#668), color-stop(0.9, #66a));  
+   text-align: center;
+   color: #fff;
+   font-size: 1.7em;
+   font-weight: bold;
+   height: 30px;
+   padding: 15px;
+   border-bottom-right-radius: 5em;
+   border-bottom-left-radius: 5em; 
+}
+
 #box {
-  background: white;
-  border: 1px solid lightgray;
-  width: 600px;
-  padding: 60px;
-  margin: auto;
+  background: -webkit-gradient(linear, left top, right bottom, from(#cdf), to(#cdf), color-stop(0.5, #eff));
+  width: 500px;
+  padding: 25px;
+  margin: 10px auto;
+  -webkit-border-radius: 1.5em;
 }
 h1 {
   font-size: 130%;
@@ -41,9 +56,11 @@ ul {
 #reloadButton {
   padding-left: 48px;
 }
+
 </style>
 </head>
 <body>
+  <div id="header">BlueLightCat</div>
   <div id="box">
     <img src="data:image/png;base64,IMAGE_BINARY_DATA_HERE" width="32" height="32"/>
     <h1>%2</h1>

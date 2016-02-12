@@ -1,74 +1,80 @@
-* {
+    * {
+    font-family: "DejaVu Sans";
     margin: 0;
     padding: 0;
-    font-family: "DejaVu Sans";
-}
+    }
 
-body {
-    background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#fff), color-stop(0.5, #fff));
-    background-repeat: repeat-x;
-    margin-top: 100px;
-}
+    body {
+    background-image: url("noise.png");
+    background-repeat: repeat;
+    height: 100%;
+    }
 
-#header, #search, #footer {
-    width: 500px;
-    margin: 10px auto;
-}
-
-#header, #search {
-    -webkit-border-radius: 0.8em;
-    padding: 25px;
-}
-
-#header {
-    background: -webkit-gradient(linear, left top, left bottom, from(#228), to(#668), color-stop(0.9, #66a));
-    height: 20px;
-}
-
-#header h1 {
-    display: inline;
-    font-size: 1.7em;
-    color: #fff;
-    font-weight: bold;
-}
-
-#header img {
-    display: inline;
+    #secret {
+    background-image: url("noise_dark.png");
+    background-repeat: repeat;
+    border: 2px solid grey;
+    border-bottom-left-radius: 20px;
     float: right;
-    height: 150px;
-    margin-top: -80px;
-}
-
-#search {
-    background: -webkit-gradient(linear, left top, right top, from(#cdf), to(#cdf), color-stop(0.5, #eff));
-    height: 50px;
-    color: #000;
+    font-size: 130%;
+    opacity: .8;
+    padding: 20px;
     text-align: center;
-    padding-top: 40px !important;
-}
+    }
 
-#search fieldset {
-    border: 0;
-}
-
-#search input[type=text] {
-    width: 65%;
-}
-
-#search input[type=submit] {
-    width: 25%;
-}
-
-#footer {
-    text-align: center;
-    color: #999;
-}
-
-#footer a {
-    color: #555;
+    #secret a {
+    color: white;
     text-decoration: none;
-}
+    }
 
-#footer a:hover {
-    text-decoration: underline;
-}
+    #secret:hover {
+    opacity: 1;
+    }
+
+    #update {
+    background-image: url("noise_dark.png");
+    background-repeat: repeat;
+    border: 2px solid grey;
+    border-bottom-right-radius: 20px;
+    font-size: 130%;
+    opacity: .8;
+    padding: 20px;
+    text-align: center;
+    width: 40px;
+    }
+
+    #update a {
+    color: white;
+    text-decoration: none;
+    }
+
+    #update:hover {
+    opacity: 1;
+    }
+
+    #header {
+    display: block;
+    margin-top: 6%;
+    text-align: center;
+    }
+
+    #logo {
+    margin: 50px auto;
+    text-align: center;
+    }
+
+    #logo a {
+    opacity: .8;
+    }
+
+    #logo a:hover {
+    opacity: 1;
+    }
+
+    #password {
+    font-size: 300%;
+    }
+
+    #password a {
+    color: transparent;
+    }

@@ -16,7 +16,7 @@
         <translation>Lekka przeglądarka internetowa bazująca na silniku WebKit</translation>
     </message>
     <message>
-        <source>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</source>
+        <source>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</source>
         <translation></translation>
     </message>
     <message>
@@ -322,7 +322,7 @@ p, li { white-space: pre-wrap; }
         <translation>Narzędzie htmlToXBel</translation>
     </message>
     <message>
-        <source>htmlToXBel tool, which is shipped with Arora and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
+        <source>htmlToXBel tool, which is shipped with zBrowser and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
         <translation>Narzędzie htmlToXBel, które jest dostarczane z Arorą i wymagane do zaimportowania zakładek HTML, nie jest zainstalowane bądź nie jest dostępne w systemowych ścieżkach przeszukiwania.</translation>
     </message>
     <message>
@@ -394,12 +394,12 @@ Czy mimo to chcesz zakończyć?</translation>
         <translation>Przywracanie nie powiodło się</translation>
     </message>
     <message>
-        <source>The saved session will not be restored because Arora crashed while trying to restore this session.</source>
-        <translation type="obsolete">Zapisana sesja nie mogła zostać przywrócona ponieważ Arora wysypała się.</translation>
+        <source>The saved session will not be restored because zBrowser crashed while trying to restore this session.</source>
+        <translation type="obsolete">Zapisana sesja nie mogła zostać przywrócona ponieważ zBrowser wysypała się.</translation>
     </message>
     <message>
-        <source>Arora crashed while trying to restore this session.  Should I try again?</source>
-        <translation>Arora wywalila się w trakcie odzyskiwania sesji. Spróbować jeszcze raz?</translation>
+        <source>zBrowser crashed while trying to restore this session.  Should I try again?</source>
+        <translation>zBrowser wywalila się w trakcie odzyskiwania sesji. Spróbować jeszcze raz?</translation>
     </message>
 </context>
 <context>
@@ -595,9 +595,9 @@ Czy mimo to chcesz zakończyć?</translation>
         <translation>Schowaj pasek narzędziowy</translation>
     </message>
     <message>
-        <source>%1 - Arora</source>
+        <source>%1 - zBrowser</source>
         <comment>Page title and Browser name</comment>
-        <translation>%1 - Arora</translation>
+        <translation>%1 - zBrowser</translation>
     </message>
     <message>
         <source>Open Web Resource</source>
@@ -1199,14 +1199,14 @@ Czy mimo to chcesz zakończyć?</translation>
     </message>
 </context>
 <context>
-    <name>JavaScriptAroraObject</name>
+    <name>JavaScriptzBrowserObject</name>
     <message>
-        <source>Welcome to Arora!</source>
+        <source>Welcome to zBrowser!</source>
         <translation>Witaj w Arorze!</translation>
     </message>
     <message>
-        <source>Arora Start</source>
-        <translation>Arora Start</translation>
+        <source>zBrowser Start</source>
+        <translation>zBrowser Start</translation>
     </message>
     <message>
         <source>Search!</source>
@@ -1217,8 +1217,8 @@ Czy mimo to chcesz zakończyć?</translation>
         <translation>Wyniki wyszukiwania pochodzą z</translation>
     </message>
     <message>
-        <source>About Arora</source>
-        <translation>O programie Arora</translation>
+        <source>About zBrowser</source>
+        <translation>O programie zBrowser</translation>
     </message>
 </context>
 <context>
@@ -1956,8 +1956,8 @@ Czy na pewno chcesz zamknąć tę stronę?
         <translation>Podczas łączenia z: %1.</translation>
     </message>
     <message>
-        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.arora-browser.org instead of &lt;b&gt;www&lt;/b&gt;.arora-browser.org</source>
-        <translation>Sprawdź adres pod kątem błędów takich jak &lt;b&gt;ww&lt;/b&gt;.arora-browser.org zamiast &lt;b&gt;www&lt;/b&gt;.arora-browser.org</translation>
+        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 instead of &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</source>
+        <translation>Sprawdź adres pod kątem błędów takich jak &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 zamiast &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</translation>
     </message>
     <message>
         <source>If the address is correct, try checking the network connection.</source>

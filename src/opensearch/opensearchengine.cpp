@@ -90,7 +90,7 @@ OpenSearchEngine::OpenSearchEngine(QObject *parent)
     , m_scriptEngine(0)
     , m_delegate(0)
 {
-    m_requestMethods.insert(QLatin1String("get"), QNetworkAccessManager::GetOperation);
+    m_requestMethods.insert(QLatin1String("GET"), QNetworkAccessManager::GetOperation);
     m_requestMethods.insert(QLatin1String("post"), QNetworkAccessManager::PostOperation);
 }
 

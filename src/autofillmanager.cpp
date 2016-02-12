@@ -32,7 +32,6 @@
 #include "browserapplication.h"
 #include "browsermainwindow.h"
 #include "networkaccessmanagerproxy.h"
-#include "webpageproxy.h"
 #include "webview.h"
 
 #include <qdesktopservices.h>
@@ -146,7 +145,7 @@ void AutoFillManager::post(const QNetworkRequest &request, const QByteArray &out
         return;
 
     // Check the request type
-    QVariant typeVariant = request.attribute((QNetworkRequest::Attribute)(WebPageProxy::pageAttributeId() + 1));
+    QVariant typeVariant = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 101));
     QWebPage::NavigationType type = (QWebPage::NavigationType)typeVariant.toInt();
     if (typeVariant.isValid() && type != QWebPage::NavigationTypeFormSubmitted) {
         // XXX Does this occur normally?
@@ -156,7 +155,7 @@ void AutoFillManager::post(const QNetworkRequest &request, const QByteArray &out
     }
 
     // Determine the QWebView
-    QVariant v = request.attribute((QNetworkRequest::Attribute)(WebPageProxy::pageAttributeId()));
+    QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
     QWebPage *webPage = (QWebPage*)(v.value<void*>());
     if (!webPage) {
         qWarning() << "AutoFillManager:" << "QWebPage is not set in QNetworkRequest.";
@@ -201,8 +200,7 @@ void AutoFillManager::post(const QNetworkRequest &request, const QByteArray &out
         messageBox.addButton(tr("Not now"), QMessageBox::RejectRole);
         messageBox.addButton(QMessageBox::Yes);
         messageBox.setDefaultButton(QMessageBox::Yes);
-        messageBox.exec();
-        switch (messageBox.buttonRole(messageBox.clickedButton())) {
+        switch (messageBox.exec()) {
         case QMessageBox::DestructiveRole:
             m_never.append(url);
             return;

@@ -20,8 +20,8 @@
         <translation>Легкий браузер на WebKit</translation>
     </message>
     <message>
-        <source>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</source>
-        <translation>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</translation>
+        <source>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</source>
+        <translation>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Close</source>
@@ -351,8 +351,8 @@ p, li { white-space: pre-wrap; }
         <translation>Требуется функция htmlToXBel</translation>
     </message>
     <message>
-        <source>htmlToXBel tool, which is shipped with Arora and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
-        <translation>Функция htmlToXBel, которая включена в Arora и нужна для импорта закладок на HTML, не установлена или не доступна в путях поиска.</translation>
+        <source>htmlToXBel tool, which is shipped with zBrowser and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
+        <translation>Функция htmlToXBel, которая включена в zBrowser и нужна для импорта закладок на HTML, не установлена или не доступна в путях поиска.</translation>
     </message>
     <message>
         <source>Loading Bookmark</source>
@@ -427,19 +427,19 @@ Do you want to quit anyway?</source>
         <translation>Восстановление не удалось</translation>
     </message>
     <message>
-        <source>The saved session will not being restored because last time it was restored Arora crashed.</source>
-        <translation type="obsolete">Сохраненная сессия не будет восстановлена потому что во время последнего восстановления Arora упал.</translation>
+        <source>The saved session will not being restored because last time it was restored zBrowser crashed.</source>
+        <translation type="obsolete">Сохраненная сессия не будет восстановлена потому что во время последнего восстановления zBrowser упал.</translation>
     </message>
     <message>
         <source> (Change: %1 %2)</source>
         <translation type="obsolete"> (Change: %1 %2)</translation>
     </message>
     <message>
-        <source>The saved session will not be restored because Arora crashed while trying to restore this session.</source>
-        <translation type="obsolete">Сохранённая сессия не будет восстановлена, так как Arora упала при попытке восстановления этой сессии.</translation>
+        <source>The saved session will not be restored because zBrowser crashed while trying to restore this session.</source>
+        <translation type="obsolete">Сохранённая сессия не будет восстановлена, так как zBrowser упала при попытке восстановления этой сессии.</translation>
     </message>
     <message>
-        <source>Arora crashed while trying to restore this session.  Should I try again?</source>
+        <source>zBrowser crashed while trying to restore this session.  Should I try again?</source>
         <translation>Произошла ошибка при восстановлении сеанса. Попытаться снова?</translation>
     </message>
 </context>
@@ -616,8 +616,8 @@ Do you want to quit anyway?</source>
         <translation>О &amp;Qt</translation>
     </message>
     <message>
-        <source>About &amp;Arora</source>
-        <translation type="obsolete">О программе &amp;Arora</translation>
+        <source>About &amp;zBrowser</source>
+        <translation type="obsolete">О программе &amp;zBrowser</translation>
     </message>
     <message>
         <source>Navigation</source>
@@ -640,14 +640,14 @@ Do you want to quit anyway?</source>
         <translation>Скрыть панель инструментов</translation>
     </message>
     <message>
-        <source>Arora</source>
-        <translation type="obsolete">Arora</translation>
+        <source>zBrowser</source>
+        <translation type="obsolete">zBrowser</translation>
     </message>
     <message>
-        <source>%1 - Arora</source>
+        <source>%1 - zBrowser</source>
         <comment>Page title and Browser name</comment>
         <translatorcomment>Заголовок страницы и имя браузера</translatorcomment>
-        <translation>%1 - Arora</translation>
+        <translation>%1 - zBrowser</translation>
     </message>
     <message>
         <source>Open Web Resource</source>
@@ -1359,14 +1359,14 @@ Do you want to quit anyway?</source>
     </message>
 </context>
 <context>
-    <name>JavaScriptAroraObject</name>
+    <name>JavaScriptzBrowserObject</name>
     <message>
-        <source>Welcome to Arora!</source>
-        <translation>Добро пожаловать в Arora!</translation>
+        <source>Welcome to zBrowser!</source>
+        <translation>Добро пожаловать в zBrowser!</translation>
     </message>
     <message>
-        <source>Arora Start</source>
-        <translation>Запуск Arora</translation>
+        <source>zBrowser Start</source>
+        <translation>Запуск zBrowser</translation>
     </message>
     <message>
         <source>Search!</source>
@@ -1377,8 +1377,8 @@ Do you want to quit anyway?</source>
         <translation>Результаты поика предоставлены</translation>
     </message>
     <message>
-        <source>About Arora</source>
-        <translation>О Arora</translation>
+        <source>About zBrowser</source>
+        <translation>О zBrowser</translation>
     </message>
 </context>
 <context>
@@ -2292,8 +2292,8 @@ Do you really want to close this page?
         <translation>При подключении к: %1.</translation>
     </message>
     <message>
-        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.arora-browser.org instead of &lt;b&gt;www&lt;/b&gt;.arora-browser.org</source>
-        <translation>Проверьте адрес на ошибки вроде &lt;b&gt;ww&lt;/b&gt;.arora-browser.org вместо &lt;b&gt;www&lt;/b&gt;.arora-browser.org</translation>
+        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 instead of &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</source>
+        <translation>Проверьте адрес на ошибки вроде &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 вместо &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</translation>
     </message>
     <message>
         <source>If your computer or network is protected by a firewall or proxy, make sure that the browser is permitted to access the network.</source>

@@ -16,8 +16,8 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;￼&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;￼p, li { white-space: pre-wrap; }￼&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;￼&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Copyright © 2007-2008 Benjamin C. Meyer &amp;lt;&lt;a href=&quot;mailto:ben@meyerhome.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;ben@meyerhome.net&lt;/span&gt;&lt;/a&gt;&amp;gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</source>
-        <translation>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</translation>
+        <source>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</source>
+        <translation>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Authors</source>
@@ -368,8 +368,8 @@ p, li { white-space: pre-wrap; }
         <translation>htmlToXBel aracı gerekli</translation>
     </message>
     <message>
-        <source>htmlToXBel tool, which is shipped with Arora and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
-        <translation>HTML yerimlerini içe aktarmak için Arora ile dağıtılan gerekli htmlToXBel aracı yüklü değil ya da bulunamadı.</translation>
+        <source>htmlToXBel tool, which is shipped with zBrowser and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
+        <translation>HTML yerimlerini içe aktarmak için zBrowser ile dağıtılan gerekli htmlToXBel aracı yüklü değil ya da bulunamadı.</translation>
     </message>
     <message>
         <source>Loading Bookmark</source>
@@ -444,16 +444,16 @@ Yinede çıkmak istiyor musunuz?</translation>
         <translation>Geri yükleme başarısız</translation>
     </message>
     <message>
-        <source>The saved session will not be restored because Arora crashed while trying to restore this session.</source>
-        <translation type="obsolete">Kaydolan oturum geri yüklenemeyecek çünkü Arora oturumu geri yüklerken çöktü.</translation>
+        <source>The saved session will not be restored because zBrowser crashed while trying to restore this session.</source>
+        <translation type="obsolete">Kaydolan oturum geri yüklenemeyecek çünkü zBrowser oturumu geri yüklerken çöktü.</translation>
     </message>
     <message>
         <source> (Change: %1 %2)</source>
         <translation type="obsolete">(Değişim: %1 %2)</translation>
     </message>
     <message>
-        <source>Arora crashed while trying to restore this session.  Should I try again?</source>
-        <translation>Arora bu oturumu kurtarmaya çalışırken çöktü.  Tekrar denensin mi?</translation>
+        <source>zBrowser crashed while trying to restore this session.  Should I try again?</source>
+        <translation>zBrowser bu oturumu kurtarmaya çalışırken çöktü.  Tekrar denensin mi?</translation>
     </message>
 </context>
 <context>
@@ -665,8 +665,8 @@ Yinede çıkmak istiyor musunuz?</translation>
         <translation>&amp;Qt Hakkında</translation>
     </message>
     <message>
-        <source>About &amp;Arora</source>
-        <translation type="obsolete">&amp;Arora Hakkında</translation>
+        <source>About &amp;zBrowser</source>
+        <translation type="obsolete">&amp;zBrowser Hakkında</translation>
     </message>
     <message>
         <source>Navigation</source>
@@ -697,13 +697,13 @@ Yinede çıkmak istiyor musunuz?</translation>
         <translation>Yerimi Araç Çubuğunu Gizle</translation>
     </message>
     <message>
-        <source>Arora</source>
-        <translation type="obsolete">Arora</translation>
+        <source>zBrowser</source>
+        <translation type="obsolete">zBrowser</translation>
     </message>
     <message>
-        <source>%1 - Arora</source>
+        <source>%1 - zBrowser</source>
         <comment>Page title and Browser name</comment>
-        <translation>%1 - Arora</translation>
+        <translation>%1 - zBrowser</translation>
     </message>
     <message>
         <source>Open Web Resource</source>
@@ -1346,14 +1346,14 @@ Yine de çıkmak istiyor musunuz?</translation>
     </message>
 </context>
 <context>
-    <name>JavaScriptAroraObject</name>
+    <name>JavaScriptzBrowserObject</name>
     <message>
-        <source>Welcome to Arora!</source>
-        <translation>Arora&apos;ya Hoş Geldiniz!</translation>
+        <source>Welcome to zBrowser!</source>
+        <translation>zBrowser&apos;ya Hoş Geldiniz!</translation>
     </message>
     <message>
-        <source>Arora Start</source>
-        <translation>Arora Başlangıç</translation>
+        <source>zBrowser Start</source>
+        <translation>zBrowser Başlangıç</translation>
     </message>
     <message>
         <source>Search!</source>
@@ -1364,8 +1364,8 @@ Yine de çıkmak istiyor musunuz?</translation>
         <translation>Arama sonuçlarını sağlayan</translation>
     </message>
     <message>
-        <source>About Arora</source>
-        <translation>Arora Hakkında</translation>
+        <source>About zBrowser</source>
+        <translation>zBrowser Hakkında</translation>
     </message>
 </context>
 <context>
@@ -2259,8 +2259,8 @@ Bu sayfayı gerçekten kapatmayı istiyor musunuz?
         <translation>Bağlanırken: %1.</translation>
     </message>
     <message>
-        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.arora-browser.org instead of &lt;b&gt;www&lt;/b&gt;.arora-browser.org</source>
-        <translation>&lt;b&gt;www&lt;/b&gt;.arora-browser.org yerine &lt;b&gt;ww&lt;/b&gt;.arora-browser.org şeklindeki adres hatalarını kontrol edin</translation>
+        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 instead of &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</source>
+        <translation>&lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 yerine &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 şeklindeki adres hatalarını kontrol edin</translation>
     </message>
     <message>
         <source>If your computer or network is protected by a firewall or proxy, make sure that the browser is permitted to access the network.</source>

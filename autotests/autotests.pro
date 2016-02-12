@@ -3,7 +3,6 @@ SUBDIRS  = \
     adblock \
     addbookmarkdialog \
     autosaver \
-    bookmarknode \
     cookiejar \
     historyfiltermodel \
     historymanager \
@@ -18,6 +17,7 @@ SUBDIRS  = \
     utils \
     webactionmapper \
     webpage \
-    xbel
+    xbel \
+    zlink
 
 CONFIG += ordered

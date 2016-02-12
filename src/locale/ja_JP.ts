@@ -20,8 +20,8 @@
         <translation>WebKit ベースの軽いブラウザ</translation>
     </message>
     <message>
-        <source>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</source>
-        <translation>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</translation>
+        <source>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</source>
+        <translation>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Close</source>
@@ -364,8 +364,8 @@ p, li { white-space: pre-wrap; }
         <translation>htmlToXBel ツールが必要です</translation>
     </message>
     <message>
-        <source>htmlToXBel tool, which is shipped with Arora and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
-        <translation>HTML ブックマークをインポートするのに必要な Arora に搭載されている htmlToXBel ツールがインストールされていないかパスが通っていません。</translation>
+        <source>htmlToXBel tool, which is shipped with zBrowser and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
+        <translation>HTML ブックマークをインポートするのに必要な zBrowser に搭載されている htmlToXBel ツールがインストールされていないかパスが通っていません。</translation>
     </message>
     <message>
         <source>Loading Bookmark</source>
@@ -444,12 +444,12 @@ Do you want to quit anyway?</source>
         <translation type="obsolete"> (Change: %1 %2)</translation>
     </message>
     <message>
-        <source>The saved session will not be restored because Arora crashed while trying to restore this session.</source>
-        <translation type="obsolete">このセッションを復元を試みて Arora がクラッシュした為、保存されたセッションは復元されない可能性があります。</translation>
+        <source>The saved session will not be restored because zBrowser crashed while trying to restore this session.</source>
+        <translation type="obsolete">このセッションを復元を試みて zBrowser がクラッシュした為、保存されたセッションは復元されない可能性があります。</translation>
     </message>
     <message>
-        <source>Arora crashed while trying to restore this session.  Should I try again?</source>
-        <translation>Arora は、セッションの復元を試みている時にクラッシュしました。再度復元を試みますか?</translation>
+        <source>zBrowser crashed while trying to restore this session.  Should I try again?</source>
+        <translation>zBrowser は、セッションの復元を試みている時にクラッシュしました。再度復元を試みますか?</translation>
     </message>
 </context>
 <context>
@@ -669,8 +669,8 @@ Do you want to quit anyway?</source>
         <translation>Qt について(&amp;Q)</translation>
     </message>
     <message>
-        <source>About &amp;Arora</source>
-        <translation type="obsolete">Arora について(&amp;A)</translation>
+        <source>About &amp;zBrowser</source>
+        <translation type="obsolete">zBrowser について(&amp;A)</translation>
     </message>
     <message>
         <source>Navigation</source>
@@ -701,13 +701,13 @@ Do you want to quit anyway?</source>
         <translation>ブックマーク バーを隠す</translation>
     </message>
     <message>
-        <source>Arora</source>
-        <translation type="obsolete">Arora</translation>
+        <source>zBrowser</source>
+        <translation type="obsolete">zBrowser</translation>
     </message>
     <message>
-        <source>%1 - Arora</source>
+        <source>%1 - zBrower</source>
         <comment>Page title and Browser name</comment>
-        <translation>%1 - Arora</translation>
+        <translation>%1 - zBrowser</translation>
     </message>
     <message>
         <source>Open Web Resource</source>
@@ -1338,14 +1338,14 @@ Do you want to quit anyway?</source>
     </message>
 </context>
 <context>
-    <name>JavaScriptAroraObject</name>
+    <name>JavaScriptzBrowserObject</name>
     <message>
-        <source>Welcome to Arora!</source>
-        <translation>Arora にようこそ!</translation>
+        <source>Welcome to zBrowser!</source>
+        <translation>zBrowser にようこそ!</translation>
     </message>
     <message>
-        <source>Arora Start</source>
-        <translation>Arora スタート</translation>
+        <source>zBrowser Start</source>
+        <translation>zBrowser スタート</translation>
     </message>
     <message>
         <source>Search!</source>
@@ -1356,8 +1356,8 @@ Do you want to quit anyway?</source>
         <translation>検索結果の提供 </translation>
     </message>
     <message>
-        <source>About Arora</source>
-        <translation>Arora について</translation>
+        <source>About zBrowser</source>
+        <translation>zBrowser について</translation>
     </message>
 </context>
 <context>
@@ -1842,7 +1842,7 @@ Do you want to ignore these errors?&lt;/qt&gt;</source>
     </message>
     <message>
         <source>I exit the application</source>
-        <translation>arora が終了するまで</translation>
+        <translation>zBrowser が終了するまで</translation>
     </message>
     <message>
         <source>At most 90 days</source>
@@ -2246,8 +2246,8 @@ Do you really want to close this page?
         <translation>%1 への接続中にエラーが発生しました。</translation>
     </message>
     <message>
-        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.arora-browser.org instead of &lt;b&gt;www&lt;/b&gt;.arora-browser.org</source>
-        <translation>&lt;b&gt;www&lt;/b&gt;.arora-browser.org ではなく &lt;b&gt;ww&lt;/b&gt;.arora-browser.org のような、URL誤りがないか確認してください</translation>
+        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 instead of &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</source>
+        <translation>&lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 ではなく &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 のような、URL誤りがないか確認してください</translation>
     </message>
     <message>
         <source>If the address is correct, try to check the network connection.</source>
@@ -2255,7 +2255,7 @@ Do you really want to close this page?
     </message>
     <message>
         <source>If your computer or network is protected by a firewall or proxy, make sure that the browser is permitted to access the network.</source>
-        <translation>あなたのコンピュータやネットワークがファイアウォールやプロキシによって保護されている場合、Arora ブラウザにネットワークへのアクセスを許可してください。</translation>
+        <translation>あなたのコンピュータやネットワークがファイアウォールやプロキシによって保護されている場合、zBrowser ブラウザにネットワークへのアクセスを許可してください。</translation>
     </message>
     <message>
         <source>If the address is correct, try checking the network connection.</source>

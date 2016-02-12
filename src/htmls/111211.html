@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title>Last save point</title>
+    <style>
+
+    * {
+    color: grey;
+    font-family: "DejaVu Sans";
+    margin: 0;
+    padding: 0;
+    }
+
+    body {
+    background-image: url("noise.png");
+    background-repeat: repeat;
+    height: 100%;
+    }
+
+    #level {
+    background-image: url("noise_dark.png");
+    background-repeat: repeat;
+    border: 2px solid grey;
+    border-bottom-left-radius: 20px;
+    float: right;
+    font-size: 130%;
+    opacity: .8;
+    padding: 20px;
+    text-align: center;
+    }
+
+    #level a {
+    color: white;
+    text-decoration: none;
+    }
+
+    #level:hover {
+    opacity: 1;
+    }
+
+    #back {
+    background-image: url("noise_dark.png");
+    background-repeat: repeat;
+    border: 2px solid grey;
+    border-bottom-right-radius: 20px;
+    font-size: 130%;
+    opacity: .8;
+    padding: 20px;
+    text-align: center;
+    width: 40px;
+    }
+
+    #back a {
+    color: white;
+    text-decoration: none;
+    }
+
+    #back:hover {
+    opacity: 1;
+    }
+
+    #header {
+    display: block;
+    font-size: 300%;
+    margin-top: 6%;
+    text-align: center;
+    }
+
+    #gift {
+    display: block;
+    font-size: 200%;
+    margin-top: 20px;
+    text-align: center;
+    }
+
+    #gates {
+    margin: 50px auto;
+    text-align: center;
+    }
+
+    #gates a {
+    opacity: .8;
+    }
+
+    #gates a:hover {
+    opacity: 1;
+    }
+
+    </style>
+
+</head>
+<body onload="update();">
+    <div id="level">
+    <a href="qrc:/end.html">Continue</a>
+    </div>
+    <div id="back">
+    <a href="qrc:/secret.html">Back</a>
+    </div>
+    <div id="header">My last save point</div>
+    <div id="gift">"I give you the secret of my world", BlueLightCat.</div>
+    <div id="gates">
+    <a href="qrc:/world.html">
+    <img src="qrc:/space.png"/>
+    <img src="qrc:/silver.png"/>
+    <img src="qrc:/space.png"/>
+    </a>
+    </div>
+</body>
+</html>

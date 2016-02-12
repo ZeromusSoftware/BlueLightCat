@@ -20,7 +20,7 @@
         <translation>Kevyt WebKit-pohjainen verkkoselain</translation>
     </message>
     <message>
-        <source>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</source>
+        <source>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</source>
         <translation></translation>
     </message>
     <message>
@@ -335,7 +335,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>htmlToXBel tool, which is shipped with Arora and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
+        <source>htmlToXBel tool, which is shipped with zBrowser and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -414,11 +414,11 @@ Haluatko lopettaa siitä huolimatta?</translation>
         <translation>Palautus epäonnistui</translation>
     </message>
     <message>
-        <source>The saved session will not be restored because Arora crashed while trying to restore this session.</source>
-        <translation type="obsolete">Tallennettua istuntoa ei palautettu koska Arora kaatui yrittäessään palauttaa tätä istuntoa.</translation>
+        <source>The saved session will not be restored because zBrowser crashed while trying to restore this session.</source>
+        <translation type="obsolete">Tallennettua istuntoa ei palautettu koska zBrowser kaatui yrittäessään palauttaa tätä istuntoa.</translation>
     </message>
     <message>
-        <source>Arora crashed while trying to restore this session.  Should I try again?</source>
+        <source>zBrowser crashed while trying to restore this session.  Should I try again?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -684,7 +684,7 @@ Haluatko lopettaa siitä huolimatta?</translation>
         <translation>Piilota kirjanmerkkipalkki</translation>
     </message>
     <message>
-        <source>%1 - Arora</source>
+        <source>%1 - zBrowser</source>
         <comment>Page title and Browser name</comment>
         <translation></translation>
     </message>
@@ -1265,13 +1265,13 @@ Haluatko lopettaa siitä huolimatta?</translation>
     </message>
 </context>
 <context>
-    <name>JavaScriptAroraObject</name>
+    <name>JavaScriptzBrowserObject</name>
     <message>
-        <source>Welcome to Arora!</source>
+        <source>Welcome to zBrowser!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Arora Start</source>
+        <source>zBrowser Start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1283,7 +1283,7 @@ Haluatko lopettaa siitä huolimatta?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>About Arora</source>
+        <source>About zBrowser</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2110,8 +2110,8 @@ Haluatko varmasti sulkea tämän sivun?
         <translation>Yhdistettäessä: %1.</translation>
     </message>
     <message>
-        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.arora-browser.org instead of &lt;b&gt;www&lt;/b&gt;.arora-browser.org</source>
-        <translation>Tarkista osoite virheiden varalta, esim. &quot;&lt;b&gt;ww&lt;/b&gt;.arora-browser.org&quot; oikean muodon sijaan &quot;&lt;b&gt;www&lt;/b&gt;.arora-browser.org&quot;</translation>
+        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 instead of &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</source>
+        <translation>Tarkista osoite virheiden varalta, esim. &quot;&lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01&quot; oikean muodon sijaan &quot;&lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01&quot;</translation>
     </message>
     <message>
         <source>If the address is correct, try checking the network connection.</source>

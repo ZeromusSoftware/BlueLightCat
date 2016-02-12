@@ -40,8 +40,8 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</source>
-        <translation>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</translation>
+        <source>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</source>
+        <translation>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Close</source>
@@ -351,7 +351,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>htmlToXBel tool, which is shipped with Arora and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
+        <source>htmlToXBel tool, which is shipped with zBrowser and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -430,11 +430,11 @@ Do you want to quit anyway?</source>
         <translation>Η επαναφορά απέτυχε</translation>
     </message>
     <message>
-        <source>The saved session will not be restored because Arora crashed while trying to restore this session.</source>
-        <translation type="obsolete">Δεν μπορεί να γίνει επαναφορά της αποθηκευμένης συνεδρίας επειδή το Arora τερμάτισε απρόσμενα κατά τη διάρκεια της επαναφοράς.</translation>
+        <source>The saved session will not be restored because zBrowser crashed while trying to restore this session.</source>
+        <translation type="obsolete">Δεν μπορεί να γίνει επαναφορά της αποθηκευμένης συνεδρίας επειδή το zBrowser τερμάτισε απρόσμενα κατά τη διάρκεια της επαναφοράς.</translation>
     </message>
     <message>
-        <source>Arora crashed while trying to restore this session.  Should I try again?</source>
+        <source>zBrowser crashed while trying to restore this session.  Should I try again?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -659,8 +659,8 @@ Do you want to quit anyway?</source>
         <translation>Σχετικά με το &amp;Qt</translation>
     </message>
     <message>
-        <source>About &amp;Arora</source>
-        <translation type="obsolete">Σχετικά με το &amp;Arora</translation>
+        <source>About &amp;zBrowser</source>
+        <translation type="obsolete">Σχετικά με το &amp;zBrowser</translation>
     </message>
     <message>
         <source>Navigation</source>
@@ -691,13 +691,13 @@ Do you want to quit anyway?</source>
         <translation>Απόκρυψη Γραμμής Σελιδοδεικτών</translation>
     </message>
     <message>
-        <source>Arora</source>
-        <translation type="obsolete">Arora</translation>
+        <source>zBrowser</source>
+        <translation type="obsolete">zBrowser</translation>
     </message>
     <message>
-        <source>%1 - Arora</source>
+        <source>%1 - zBrowser</source>
         <comment>Page title and Browser name</comment>
-        <translation>%1 - Arora</translation>
+        <translation>%1 - zBrowser</translation>
     </message>
     <message>
         <source>Open Web Resource</source>
@@ -1322,13 +1322,13 @@ Do you want to quit anyway?</source>
     </message>
 </context>
 <context>
-    <name>JavaScriptAroraObject</name>
+    <name>JavaScriptzBrowserObject</name>
     <message>
-        <source>Welcome to Arora!</source>
+        <source>Welcome to zBrowser!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Arora Start</source>
+        <source>zBrowser Start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1340,7 +1340,7 @@ Do you want to quit anyway?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>About Arora</source>
+        <source>About zBrowser</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1690,7 +1690,7 @@ Do you want to ignore these errors?&lt;/qt&gt;</source>
     </message>
     <message>
         <source>On startup:</source>
-        <translation>Στην εκκίνηση του Arora:</translation>
+        <translation>Στην εκκίνηση του zBrowser:</translation>
     </message>
     <message>
         <source>Show my home page</source>
@@ -2231,8 +2231,8 @@ Do you really want to close this page?
         <translation>Κατά τη σύνδεση στο: %1.</translation>
     </message>
     <message>
-        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.arora-browser.org instead of &lt;b&gt;www&lt;/b&gt;.arora-browser.org</source>
-        <translation>Έλεγξε την διεύθυνση για λάθη όπως &lt;b&gt;ww&lt;/b&gt;.arora-browser.org αντί για &lt;b&gt;www&lt;/b&gt;.arora-browser.org</translation>
+        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 instead of &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</source>
+        <translation>Έλεγξε την διεύθυνση για λάθη όπως &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 αντί για &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</translation>
     </message>
     <message>
         <source>If the address is correct, try to check the network connection.</source>

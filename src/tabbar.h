@@ -84,12 +84,15 @@ signals:
     void loadUrl(const QUrl &url, TabWidget::OpenUrlIn tab);
 
 public:
+   enum	TabShape { Rounded, Triangular };
+
     TabBar(QWidget *parent = 0);
 
     bool showTabBarWhenOneTab() const;
     void setShowTabBarWhenOneTab(bool enabled);
     QAction *viewTabBarAction() const;
     QTabBar::ButtonPosition freeSide();
+
 
 protected:
     void mouseDoubleClickEvent(QMouseEvent *event);

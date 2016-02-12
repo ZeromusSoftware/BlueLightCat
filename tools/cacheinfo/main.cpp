@@ -31,15 +31,15 @@ public:
 int main(int argc, char **argv)
 {
     QCoreApplication application(argc, argv);
-    QCoreApplication::setOrganizationDomain(QLatin1String("arora-browser.org"));
-    QCoreApplication::setApplicationName(QLatin1String("Arora"));
+    QCoreApplication::setOrganizationDomain(QLatin1String("sites.google.com/site/zeromusparadoxe01"));
+    QCoreApplication::setApplicationName(QLatin1String("zBrowser"));
 
     QStringList args = application.arguments();
     args.takeFirst();
     if (args.isEmpty()) {
         QTextStream stream(stdout);
-        stream << "arora-cacheinfo is a tool for viewing and extracting information out of Arora cache files." << endl;
-        stream << "arora-cacheinfo [-o cachefile] [file | url]" << endl;
+        stream << "zbrowser-cacheinfo is a tool for viewing and extracting information out of zBrowser cache files." << endl;
+        stream << "zbrowser-cacheinfo [-o cachefile] [file | url]" << endl;
         return 0;
     }
 

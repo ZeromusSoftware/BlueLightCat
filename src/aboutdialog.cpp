@@ -37,8 +37,7 @@ AboutDialog::AboutDialog(QWidget *parent)
     setupUi(this);
     setWindowTitle(tr("About %1").arg(qApp->applicationName()));
     logo->setPixmap(qApp->windowIcon().pixmap(128, 128));
-    name->setText(qApp->applicationName());
-    version->setText(qApp->applicationVersion());
+    name->setText((tr("%1").arg(qApp->applicationName()))+tr(" ")+tr("%1").arg(qApp->applicationVersion()));
 #if QT_VERSION >= 0x040600 || defined(WEBKIT_TRUNK)
     webkitVersion->setText(tr("WebKit version: %1").arg(qWebKitVersion()));
 #else
@@ -46,8 +45,11 @@ AboutDialog::AboutDialog(QWidget *parent)
 #endif
     connect(authorsButton, SIGNAL(clicked()),
             this, SLOT(authorsButtonClicked()));
+    connect(contributorsButton, SIGNAL(clicked()),
+	    this, SLOT(contributorsButtonClicked()));
     connect(licenseButton, SIGNAL(clicked()),
             this, SLOT(licenseButtonClicked()));
+
 }
 
 void AboutDialog::displayFile(const QString &fileName, const QString &title)
@@ -88,8 +90,12 @@ void AboutDialog::authorsButtonClicked()
     displayFile(QLatin1String(":AUTHORS"), tr("Authors"));
 }
 
+void AboutDialog::contributorsButtonClicked()
+{
+  displayFile(QLatin1String(":CONTRIBUTORS"), tr("Contributors"));
+}
+
 void AboutDialog::licenseButtonClicked()
 {
     displayFile(QLatin1String(":LICENSE.GPL2"), tr("License"));
 }
-

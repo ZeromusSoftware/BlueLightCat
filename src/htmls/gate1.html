@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title>The new world</title>
+    <style>
+
+    * {
+    color: grey;
+    font-family: "DejaVu Sans";
+    margin: 0;
+    padding: 0;
+    }
+
+    body {
+    background-image: url("noise.png");
+    background-repeat: repeat;
+    height: 100%;
+    }
+
+    #level {
+    background-color:transparent;
+    border: 2px solid grey;
+    border-bottom-left-radius: 20px;
+    float: right;
+    font-size: 130%;
+    opacity: .8;
+    padding: 20px;
+    text-align: center;
+    }
+
+    #level:hover {
+    opacity: 1;
+    }
+
+    #back {
+    background-image: url("noise_dark.png");
+    background-repeat: repeat;
+    border: 2px solid grey;
+    border-bottom-right-radius: 20px;
+    font-size: 130%;
+    opacity: .8;
+    padding: 20px;
+    text-align: center;
+    width: 40px;
+    }
+
+    #back a {
+    color: white;
+    text-decoration: none;
+    }
+
+    #back:hover {
+    opacity: 1;
+    }
+
+    #header {
+    display: block;
+    font-size: 200%;
+    margin-top: 6%;
+    text-align: center;
+    }
+
+    #gates {
+    margin: 50px auto;
+    text-align: center;
+    }
+
+    #gates a {
+    opacity: .8
+    }
+
+    #gates a:hover {
+    opacity: 1;
+    }
+
+    #need {
+    background-image: url("noise_dark.png");
+    background-repeat: repeat;
+    border: 2px solid grey;
+    color: white;
+    display: block;
+    font-size: 200%;
+    margin-top: 5px;
+    padding: 2%;
+    text-align: center;
+    }
+
+    </style>
+
+</head>
+<body>
+    <div id="level">
+    1/5
+    </div>
+    <div id="back">
+    <a href="qrc:/game1.html">Back</a>
+    </div>
+    <div id="header">1 + 1 = 3</div>
+    <div id="gates">
+    <a href="qrc:/gate2.html">
+    <img src="qrc:/red.png"/>
+    </a>
+    <a href="qrc:/game1.html">
+    <img src="qrc:/green.png"/>
+    </a>
+    </div>
+    <div id="need">Help: Red portal = false | Green portal = true
+    </div>
+</body>
+</html>

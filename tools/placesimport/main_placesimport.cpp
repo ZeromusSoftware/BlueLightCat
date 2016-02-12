@@ -42,11 +42,11 @@ static HistoryEntry formatEntry(QByteArray url, QByteArray title, qlonglong prda
 int main(int argc, char **argv)
 {
     SingleApplication application(argc, argv);
-    QCoreApplication::setOrganizationDomain(QLatin1String("arora-browser.org"));
-    QCoreApplication::setApplicationName(QLatin1String("Arora"));
+    QCoreApplication::setOrganizationDomain(QLatin1String("sites.google.com/site/zeromusparadoxe01"));
+    QCoreApplication::setApplicationName(QLatin1String("zBrowser"));
 
     if (application.sendMessage(QByteArray())) {
-        qWarning() << "To prevent the loss of any history please exit Arora while this is tool is being run";
+        qWarning() << "To prevent the loss of any history please exit zBrowser while this is tool is being run";
         return 1;
     }
 
@@ -54,8 +54,8 @@ int main(int argc, char **argv)
     args.takeFirst();
     if (args.isEmpty()) {
         QTextStream stream(stdout);
-        stream << "arora-placesimport is a tool for importing browser history from Firefox 3 and up" << endl;
-        stream << "arora-placesinfo ~/.mozilla/firefox/[profile-dir]/places.sqlite" << endl;
+        stream << "zbrowser-placesimport is a tool for importing browser history from Firefox 3 and up" << endl;
+        stream << "zbrowser-placesinfo ~/.mozilla/firefox/[profile-dir]/places.sqlite" << endl;
         return 0;
     }
 

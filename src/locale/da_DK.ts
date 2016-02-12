@@ -24,8 +24,8 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;￼&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;￼p, li { white-space: pre-wrap; }￼&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;￼&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Ophavsret © 2007-2008 Benjamin C. Meyer &amp;lt;&lt;a href=&quot;mailto:ben@meyerhome.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;ben@meyerhome.net&lt;/span&gt;&lt;/a&gt;&amp;gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</source>
-        <translation>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</translation>
+        <source>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</source>
+        <translation>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</translation>
     </message>
     <message>
         <source>About %1</source>
@@ -341,7 +341,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>htmlToXBel tool, which is shipped with Arora and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
+        <source>htmlToXBel tool, which is shipped with zBrowser and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -416,7 +416,7 @@ Do you want to quit anyway?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Arora crashed while trying to restore this session.  Should I try again?</source>
+        <source>zBrowser crashed while trying to restore this session.  Should I try again?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -679,8 +679,8 @@ Do you want to quit anyway?</source>
         <translation>Om &amp;Qt</translation>
     </message>
     <message>
-        <source>About &amp;Arora</source>
-        <translation type="obsolete">Om &amp;Arora</translation>
+        <source>About &amp;zBrowser</source>
+        <translation type="obsolete">Om &amp;zBrowser</translation>
     </message>
     <message>
         <source>Navigation</source>
@@ -711,13 +711,13 @@ Do you want to quit anyway?</source>
         <translation type="obsolete">Skjul bogmærkelinje</translation>
     </message>
     <message>
-        <source>Arora</source>
-        <translation type="obsolete">Arora</translation>
+        <source>zBrowser</source>
+        <translation type="obsolete">zBrowser</translation>
     </message>
     <message>
-        <source>%1 - Arora</source>
+        <source>%1 - zBrowser</source>
         <comment>Page title and Browser name</comment>
-        <translation>%1 - Arora</translation>
+        <translation>%1 - zBrowser</translation>
     </message>
     <message>
         <source>Open Web Resource</source>
@@ -1337,13 +1337,13 @@ Do you want to quit anyway?</source>
     </message>
 </context>
 <context>
-    <name>JavaScriptAroraObject</name>
+    <name>JavaScriptzBrowserObject</name>
     <message>
-        <source>Welcome to Arora!</source>
+        <source>Welcome to zBrowser!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Arora Start</source>
+        <source>zBrowser Start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1355,7 +1355,7 @@ Do you want to quit anyway?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>About Arora</source>
+        <source>About zBrowser</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2204,7 +2204,7 @@ Er du sikker på du vil lukke siden?
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.arora-browser.org instead of &lt;b&gt;www&lt;/b&gt;.arora-browser.org</source>
+        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 instead of &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

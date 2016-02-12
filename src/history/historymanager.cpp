@@ -97,11 +97,15 @@ HistoryManager::HistoryManager(QObject *parent)
     , m_daysToExpire(30)
     , m_historyModel(0)
     , m_historyFilterModel(0)
+    , m_zlinkFilterModel(0)
     , m_historyTreeModel(0)
 {
     m_expiredTimer.setSingleShot(true);
     connect(&m_expiredTimer, SIGNAL(timeout()),
             this, SLOT(checkForExpired()));
+    m_frecencyTimer.setSingleShot(true);
+    connect(&m_frecencyTimer, SIGNAL(timeout()),
+            this, SLOT(refreshFrecencies()));
     connect(this, SIGNAL(entryAdded(const HistoryEntry &)),
             m_saveTimer, SLOT(changeOccurred()));
     connect(this, SIGNAL(entryRemoved(const HistoryEntry &)),
@@ -110,10 +114,11 @@ HistoryManager::HistoryManager(QObject *parent)
 
     m_historyModel = new HistoryModel(this, this);
     m_historyFilterModel = new HistoryFilterModel(m_historyModel, this);
+    m_zlinkFilterModel = new zLinkFilterModel(m_historyModel, this);
     m_historyTreeModel = new HistoryTreeModel(m_historyFilterModel, this);
-
     // QWebHistoryInterface will delete the history manager
     QWebHistoryInterface::setDefaultInterface(this);
+    startFrecencyTimer();
 }
 
 HistoryManager::~HistoryManager()
@@ -140,7 +145,7 @@ void HistoryManager::addHistoryEntry(const QString &url)
     cleanUrl.setPassword(QString());
     cleanUrl.setHost(cleanUrl.host().toLower());
     HistoryEntry item(atomicString(cleanUrl.toString()), QDateTime::currentDateTime());
-    prependHistoryEntry(item);
+    addHistoryEntry(item);
 }
 
 void HistoryManager::setHistory(const QList<HistoryEntry> &history, bool loadedAndSorted)
@@ -170,6 +175,11 @@ HistoryModel *HistoryManager::historyModel() const
 HistoryFilterModel *HistoryManager::historyFilterModel() const
 {
     return m_historyFilterModel;
+}
+
+zLinkFilterModel *HistoryManager::zlinkFilterModel() const
+{
+    return m_zlinkFilterModel;
 }
 
 HistoryTreeModel *HistoryManager::historyTreeModel() const
@@ -206,7 +216,7 @@ void HistoryManager::checkForExpired()
         m_expiredTimer.start(nextTimeout * 1000);
 }
 
-void HistoryManager::prependHistoryEntry(const HistoryEntry &item)
+void HistoryManager::addHistoryEntry(const HistoryEntry &item)
 {
     QWebSettings *globalSettings = QWebSettings::globalSettings();
     if (globalSettings->testAttribute(QWebSettings::PrivateBrowsingEnabled))
@@ -413,4 +423,18 @@ void HistoryManager::save()
             qWarning() << "History: error moving new history over old." << tempFile.errorString() << historyFile.fileName();
     }
     m_lastSavedUrl = m_history.value(0).url;
+}
+
+void HistoryManager::refreshFrecencies()
+{
+    m_historyFilterModel->recalculateFrecencies();
+    m_zlinkFilterModel->recalculateFrecencies();
+    startFrecencyTimer();
+}
+
+void HistoryManager::startFrecencyTimer()
+{
+    // schedule us to recalculate the frecencies once per day, at 3:00 am (aka 03h00)
+    QDateTime tomorrow(QDate::currentDate().addDays(1), QTime(3, 00));
+    m_frecencyTimer.start(QDateTime::currentDateTime().secsTo(tomorrow)*1000);
 }

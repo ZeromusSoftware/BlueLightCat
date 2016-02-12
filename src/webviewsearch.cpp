@@ -27,6 +27,12 @@
 #include <qwebview.h>
 
 #include <qdebug.h>
+#include <QSettings>
+
+#include <zlink.h>
+#include <browserapplication.h>
+#include <qbuffer.h>
+#include <qfile.h>
 
 WebViewSearch::WebViewSearch(QWebView *webView, QWidget *parent)
     : SearchBar(parent)
@@ -83,6 +89,16 @@ WebViewWithSearch::WebViewWithSearch(WebView *webView, QWidget *parent)
 {
     m_webView->setParent(this);
     QVBoxLayout *layout = new QVBoxLayout;
+
+    QSettings settings;
+    settings.beginGroup(QLatin1String("MainWindow"));
+    int startup = settings.value(QLatin1String("startupBehavior")).toInt();
+
+    if(startup == 3){
+        zLink* zlink = BrowserApplication::zlink();
+        m_webView->setContent(zlink->render());
+    }
+
     layout->setSpacing(0);
     layout->setContentsMargins(0, 0, 0, 0);
     m_webViewSearch = new WebViewSearch(m_webView, this);
@@ -90,4 +106,3 @@ WebViewWithSearch::WebViewWithSearch(WebView *webView, QWidget *parent)
     layout->addWidget(m_webView);
     setLayout(layout);
 }
-

@@ -36,7 +36,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Autorská práva vyhrazena © 2007-2009 Benjamin C. Meyer &amp;lt;&lt;a href=&quot;mailto:ben@meyerhome.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;ben@meyerhome.net&lt;/span&gt;&lt;/a&gt;&amp;gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</source>
+        <source>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</source>
         <translation></translation>
     </message>
     <message>
@@ -347,7 +347,7 @@ p, li { white-space: pre-wrap; }
         <translation>je vyžadován nástroj htmlToXBel</translation>
     </message>
     <message>
-        <source>htmlToXBel tool, which is shipped with Arora and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
+        <source>htmlToXBel tool, which is shipped with zBrowser and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
         <translation>Nástroj htmlToXBel, který je dodáván s Arorou a je nutný k importu HTML záložek, není nainstalován nebo není dostupný v hledaných cestách.</translation>
     </message>
     <message>
@@ -423,16 +423,16 @@ Přesto ukončit?</translation>
         <translation>Obnovení selhalo</translation>
     </message>
     <message>
-        <source>The saved session will not be restored because Arora crashed while trying to restore this session.</source>
-        <translation type="obsolete">Uložená relace nebude obnovena, protože Arora spadla při pokusu o její obnovení.</translation>
+        <source>The saved session will not be restored because zBrowser crashed while trying to restore this session.</source>
+        <translation type="obsolete">Uložená relace nebude obnovena, protože zBrowser spadla při pokusu o její obnovení.</translation>
     </message>
     <message>
         <source> (Change: %1 %2)</source>
         <translation type="obsolete">(Revize: %1 %2)</translation>
     </message>
     <message>
-        <source>Arora crashed while trying to restore this session.  Should I try again?</source>
-        <translation>Arora spadla při pokusu o obnovu této relace. Zkusit znovu?</translation>
+        <source>zBrowser crashed while trying to restore this session.  Should I try again?</source>
+        <translation>zBrowser spadla při pokusu o obnovu této relace. Zkusit znovu?</translation>
     </message>
 </context>
 <context>
@@ -661,8 +661,8 @@ Přesto ukončit?</translation>
         <translation>O &amp;Qt</translation>
     </message>
     <message>
-        <source>About &amp;Arora</source>
-        <translation type="obsolete">O &amp;Arora</translation>
+        <source>About &amp;zBrowser</source>
+        <translation type="obsolete">O &amp;zBrowser</translation>
     </message>
     <message>
         <source>Navigation</source>
@@ -693,13 +693,13 @@ Přesto ukončit?</translation>
         <translation type="obsolete">Skrýt panel záložek</translation>
     </message>
     <message>
-        <source>Arora</source>
-        <translation type="obsolete">Arora</translation>
+        <source>zBrowser</source>
+        <translation type="obsolete">zBrowser</translation>
     </message>
     <message>
-        <source>%1 - Arora</source>
+        <source>%1 - zBrowser</source>
         <comment>Page title and Browser name</comment>
-        <translation>%1 - Arora</translation>
+        <translation>%1 - zBrowser</translation>
     </message>
     <message>
         <source>About</source>
@@ -1405,13 +1405,13 @@ Přesto ukončit?</translation>
     </message>
 </context>
 <context>
-    <name>JavaScriptAroraObject</name>
+    <name>JavaScriptzBrowserObject</name>
     <message>
-        <source>Welcome to Arora!</source>
+        <source>Welcome to zBrowser!</source>
         <translation>Vítejte v Aroře!</translation>
     </message>
     <message>
-        <source>Arora Start</source>
+        <source>zBrowser Start</source>
         <translation></translation>
     </message>
     <message>
@@ -1423,8 +1423,8 @@ Přesto ukončit?</translation>
         <translation>Výsledky vyhledávání poskytovány</translation>
     </message>
     <message>
-        <source>About Arora</source>
-        <translation>O Aroře</translation>
+        <source>About zBrowser</source>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -1443,7 +1443,7 @@ Přesto ukončit?</translation>
     </message>
     <message>
         <source>&lt;p&gt;You can run with a different language than&lt;br&gt;the operating system default.&lt;/p&gt;&lt;p&gt;Please choose the language which should be used&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Arora může používat jiný jazyk, než&lt;br&gt;je výchozí jazyk operačního systému.&lt;/p&gt;&lt;p&gt;Prosím vyberte, který jazyk má být použit&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;zBrowser může používat jiný jazyk, než&lt;br&gt;je výchozí jazyk operačního systému.&lt;/p&gt;&lt;p&gt;Prosím vyberte, který jazyk má být použit&lt;/p&gt;</translation>
     </message>
     <message>
         <source>No translation files are installed at %1.</source>
@@ -2338,8 +2338,8 @@ Opravdu chcete zavřít tuto stránku?
         <translation>Pokud je váš počítač nebo vaše síť chráněna firewallem nebo proxy, ujistěte se, že je prohlížeči povolen přístup k síti.</translation>
     </message>
     <message>
-        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.arora-browser.org instead of &lt;b&gt;www&lt;/b&gt;.arora-browser.org</source>
-        <translation>Zkontrolujte adresu kvůli chybách jako &lt;b&gt;ww&lt;/b&gt;.arora-browser.org namísto &lt;b&gt;www&lt;/b&gt;.arora-browser.org</translation>
+        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 instead of &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</source>
+        <translation>Zkontrolujte adresu kvůli chybách jako &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 namísto &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</translation>
     </message>
     <message>
         <source>If the address is correct, try checking the network connection.</source>

@@ -32,8 +32,8 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;כל הזכויות שמורות © 2007-2008 Benjamin C. Meyer &amp;lt;‏&lt;a href=&quot;mailto:ben@meyerhome.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;ben@meyerhome.net&lt;/span&gt;&lt;/a&gt;&amp;gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</source>
-        <translation>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</translation>
+        <source>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</source>
+        <translation>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Close</source>
@@ -350,8 +350,8 @@ p, li { white-space: pre-wrap; }
         <translation>נדרש הכלי htmlToXBell </translation>
     </message>
     <message>
-        <source>htmlToXBel tool, which is shipped with Arora and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
-        <translation>הכלי htmlToXBel המופץ עם הדפדפן Arora נדרש בכדי לייבא סימניות HTML, ונראה כי הוא לא מותקן או לא זמין בנתיב החיפוש PATH.</translation>
+        <source>htmlToXBel tool, which is shipped with zBrowser and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
+        <translation>הכלי htmlToXBel המופץ עם הדפדפן zBrowser נדרש בכדי לייבא סימניות HTML, ונראה כי הוא לא מותקן או לא זמין בנתיב החיפוש PATH.</translation>
     </message>
     <message>
         <source>Loading Bookmark</source>
@@ -429,11 +429,11 @@ Do you want to quit anyway?</source>
         <translation>השחזרור נכשל</translation>
     </message>
     <message>
-        <source>The saved session will not be restored because Arora crashed while trying to restore this session.</source>
-        <translation type="obsolete">אין אפשרות לשחזר את ההפעלה השמורה כיוון ש־Arora קרס בזמן השיחזור של ההפעלה.</translation>
+        <source>The saved session will not be restored because zBrowser crashed while trying to restore this session.</source>
+        <translation type="obsolete">אין אפשרות לשחזר את ההפעלה השמורה כיוון ש־zBrowser קרס בזמן השיחזור של ההפעלה.</translation>
     </message>
     <message>
-        <source>Arora crashed while trying to restore this session.  Should I try again?</source>
+        <source>zBrowser crashed while trying to restore this session.  Should I try again?</source>
         <translation>היישום קרס בעת ניסיון השחזור של ההפעלה. האם לנסות שוב?</translation>
     </message>
 </context>
@@ -650,8 +650,8 @@ Do you want to quit anyway?</source>
         <translation>&amp;אודות Qt</translation>
     </message>
     <message>
-        <source>About &amp;Arora</source>
-        <translation type="obsolete">א&amp;ודות Arora</translation>
+        <source>About &amp;zBrowser</source>
+        <translation type="obsolete">א&amp;ודות zBrowser</translation>
     </message>
     <message>
         <source>Navigation</source>
@@ -682,13 +682,13 @@ Do you want to quit anyway?</source>
         <translation>הסתר סרגל סימניות</translation>
     </message>
     <message>
-        <source>Arora</source>
-        <translation type="obsolete">Arora</translation>
+        <source>zBrowser</source>
+        <translation type="obsolete">zBrowser</translation>
     </message>
     <message>
-        <source>%1 - Arora</source>
+        <source>%1 - zBrowser</source>
         <comment>Page title and Browser name</comment>
-        <translation>‏Arora‏ - %1</translation>
+        <translation>‏zBrowser - %1</translation>
     </message>
     <message>
         <source>Open Web Resource</source>
@@ -1318,17 +1318,17 @@ Do you want to quit anyway?</source>
     </message>
 </context>
 <context>
-    <name>JavaScriptAroraObject</name>
+    <name>JavaScriptzBrowserObject</name>
     <message>
-        <source>Welcome to Arora!</source>
-        <translatorcomment>Please put RLE in the beginning of the translation and RLM+PDF at the end. The PushDirectionFlag is needed because of the Right(to)LftEmbeding at the beginning, and the Right(to)Leftmark is needed, to put the ! and the right of the arora name.
+        <source>Welcome to zBrowser!</source>
+        <translatorcomment>Please put RLE in the beginning of the translation and RLM+PDF at the end. The PushDirectionFlag is needed because of the Right(to)LftEmbeding at the beginning, and the Right(to)Leftmark is needed, to put the ! and the right of the zBrowser name.
 
 Don&apos;t ask why next time, ok? :)</translatorcomment>
-        <translation>‫ברוך בואך אל Arora!‏‬</translation>
+        <translation>‫ברוך בואך אל zBrowser!‏‬</translation>
     </message>
     <message>
-        <source>Arora Start</source>
-        <translation>דף ההפעלה של Arora</translation>
+        <source>zBrowser Start</source>
+        <translation>דף ההפעלה של zBrowser</translation>
     </message>
     <message>
         <source>Search!</source>
@@ -1339,8 +1339,8 @@ Don&apos;t ask why next time, ok? :)</translatorcomment>
         <translation>תוצאות החיפוש מסופקות על ידי</translation>
     </message>
     <message>
-        <source>About Arora</source>
-        <translation>אודות Arora</translation>
+        <source>About zBrowser</source>
+        <translation>אודות zBrowser</translation>
     </message>
 </context>
 <context>
@@ -2152,8 +2152,8 @@ Do you really want to close this page?
         <translation>בעת החיבור אל %1.</translation>
     </message>
     <message>
-        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.arora-browser.org instead of &lt;b&gt;www&lt;/b&gt;.arora-browser.org</source>
-        <translation>בדוק האם הכתובת מכילה שגיאות בנוסחח &lt;b&gt;ww&lt;/b&gt;.arora-browse.org במקום &lt;b&gt;www&lt;/b&gt;.arora-browser.org</translation>
+        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 instead of &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</source>
+        <translation>בדוק האם הכתובת מכילה שגיאות בנוסחח &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 במקום &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</translation>
     </message>
     <message>
         <source>If your computer or network is protected by a firewall or proxy, make sure that the browser is permitted to access the network.</source>

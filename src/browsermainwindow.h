@@ -1,5 +1,6 @@
 /*
  * Copyright 2008-2009 Benjamin C. Meyer <ben@meyerhome.net>
+ * Copyright 2012 Bastien Pederencino <zeromus.linux@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -104,6 +105,7 @@ public:
 
 public slots:
     void goHome();
+    void gozLink();
     void privacyChanged(bool isPrivate);
     void zoomTextOnlyChanged(bool textOnly);
 
@@ -119,7 +121,6 @@ private slots:
     void lastTabClosed();
 
     void loadProgress(int);
-    void updateStatusbar(const QString &string);
     void updateWindowTitle(const QString &title = QString());
 
     void preferences();
@@ -139,10 +140,9 @@ private slots:
     void zoomIn();
     void zoomNormal();
     void zoomOut();
-    void viewMenuBar();
+    void viewToolBar();
     void viewToolbar();
     void viewBookmarksBar();
-    void viewStatusbar();
     void viewPageSource();
     void viewFullScreen(bool enable);
     void viewTextEncoding(QAction *action);
@@ -175,19 +175,47 @@ private:
     void updateStopReloadActionText(bool loading);
 
 private:
-    QMenu *m_fileMenu;
+
+    //Navigation toolbar
+    QToolBar *m_navigationBar;
+
+    /*To add action or menu use this form and change from [name] to the true name:
+
+    QAction *[m_buttonAction];
+    QMenu *[m_buttonMenu];
+      */
+
+    QMenu *m_historyBackMenu;
+    
+    HistoryMenu *m_historyMenu;
+    QAction *m_historyBackAction;
+    QAction *m_historyForwardAction;
+    QAction *m_historyRestoreLastSessionAction;
+    QIcon m_reloadIcon;
+    QIcon m_stopIcon;
+    QMenu *m_historyForwardMenu;
+    QAction *m_stopReloadAction;
+    
+    QAction *m_homeAction;
+    QMenu *m_zbrowserMenu;
     QAction *m_fileNewWindowAction;
     QAction *m_fileOpenFileAction;
     QAction *m_fileOpenLocationAction;
     QAction *m_fileSaveAsAction;
+    
     QAction *m_fileImportBookmarksAction;
     QAction *m_fileExportBookmarksAction;
+    
     QAction *m_filePrintPreviewAction;
     QAction *m_filePrintAction;
     QAction *m_filePrivateBrowsingAction;
     QAction *m_fileCloseWindow;
-    QAction *m_fileQuit;
+    QAction *m_fileQuit;    
 
+    QAction *m_zlinkAction;
+    QAction *m_downloadManagerAction;
+    
+    QAction *m_editAction;
     QMenu *m_editMenu;
     QAction *m_editUndoAction;
     QAction *m_editRedoAction;
@@ -197,13 +225,22 @@ private:
     QAction *m_editSelectAllAction;
     QAction *m_editFindAction;
     QAction *m_editFindNextAction;
-    QAction *m_editFindPreviousAction;
-
-    QMenu *m_viewMenu;
-    QAction *m_viewShowMenuBarAction;
+    QAction *m_editFindPreviousAction; 
+ 
+    
+    QSplitter *m_navigationSplitter;
+    
+    QAction *m_bookmarksAddAction;
+    BookmarksMenuBarMenu *m_bookmarksMenu;
+    QAction *m_bookmarksShowAllAction;
+    QAction *m_bookmarksAddFolderAction;   
+    
+    
+    QAction *m_toolsPreferencesAction;
+    QMenu *m_configMenu;
+    QAction *m_viewShowToolBarAction;
     QAction *m_viewToolbarAction;
     QAction *m_viewBookmarkBarAction;
-    QAction *m_viewStatusbarAction;
     QAction *m_viewStopAction;
     QAction *m_viewReloadAction;
     QAction *m_viewZoomInAction;
@@ -213,43 +250,23 @@ private:
     QAction *m_viewSourceAction;
     QAction *m_viewFullScreenAction;
     QAction *m_viewTextEncodingAction;
-    QMenu *m_viewTextEncodingMenu;
+    QMenu *m_viewTextEncodingMenu;   
+    
+    QAction *m_windowsAction;
+    QMenu *m_windowsMenu;
 
-    HistoryMenu *m_historyMenu;
-    QAction *m_historyBackAction;
-    QAction *m_historyForwardAction;
-    QAction *m_historyHomeAction;
-    QAction *m_historyRestoreLastSessionAction;
-
-    BookmarksMenuBarMenu *m_bookmarksMenu;
-    QAction *m_bookmarksShowAllAction;
-    QAction *m_bookmarksAddAction;
-    QAction *m_bookmarksAddFolderAction;
-
-    QMenu *m_windowMenu;
-
-    QMenu *m_toolsMenu;
     QAction *m_toolsWebSearchAction;
     QAction *m_toolsClearPrivateDataAction;
     QAction *m_toolsEnableInspectorAction;
-    QAction *m_toolsPreferencesAction;
     QAction *m_toolsSearchManagerAction;
     UserAgentMenu *m_toolsUserAgentMenu;
-    QAction *m_adBlockDialogAction;
+    QAction *m_adBlockDialogAction;    
 
-    QMenu *m_helpMenu;
     QAction *m_helpChangeLanguageAction;
     QAction *m_helpAboutQtAction;
     QAction *m_helpAboutApplicationAction;
-
-    // Toolbar
-    QToolBar *m_navigationBar;
-    QMenu *m_historyBackMenu;
-    QMenu *m_historyForwardMenu;
-    QAction *m_stopReloadAction;
-    QIcon m_reloadIcon;
-    QIcon m_stopIcon;
-    QSplitter *m_navigationSplitter;
+    
+    
     ToolbarSearch *m_toolbarSearch;
 #if defined(Q_WS_MAC)
     QFrame *m_bookmarksToolbarFrame;
@@ -263,7 +280,6 @@ private:
     // These store if the user requested the menu/status bars visible. They are
     // used to determine if these bars should be reshown when leaving fullscreen.
     bool m_menuBarVisible;
-    bool m_statusBarVisible;
 
     friend class BrowserApplication;
 };

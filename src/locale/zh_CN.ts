@@ -20,7 +20,7 @@
         <translation>轻快的浏览器-基于Webkit</translation>
     </message>
     <message>
-        <source>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</source>
+        <source>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</source>
         <translation></translation>
     </message>
     <message>
@@ -329,7 +329,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>htmlToXBel tool, which is shipped with Arora and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
+        <source>htmlToXBel tool, which is shipped with zBrowser and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -408,11 +408,11 @@ Do you want to quit anyway?</source>
         <translation>恢复失败</translation>
     </message>
     <message>
-        <source>The saved session will not be restored because Arora crashed while trying to restore this session.</source>
-        <translation type="obsolete">保存的会话不会恢复，因为Arora在尝试恢复该会话时已崩溃。</translation>
+        <source>The saved session will not be restored because zBrowser crashed while trying to restore this session.</source>
+        <translation type="obsolete">保存的会话不会恢复，因为zBrowser在尝试恢复该会话时已崩溃。</translation>
     </message>
     <message>
-        <source>Arora crashed while trying to restore this session.  Should I try again?</source>
+        <source>zBrowser crashed while trying to restore this session.  Should I try again?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -629,8 +629,8 @@ Do you want to quit anyway?</source>
         <translation>关于&amp;Qt</translation>
     </message>
     <message>
-        <source>About &amp;Arora</source>
-        <translation type="obsolete">关于&amp;Arora</translation>
+        <source>About &amp;zBrowser</source>
+        <translation type="obsolete">关于&amp;zBrowser</translation>
     </message>
     <message>
         <source>Navigation</source>
@@ -661,9 +661,9 @@ Do you want to quit anyway?</source>
         <translation>隐藏标签栏</translation>
     </message>
     <message>
-        <source>%1 - Arora</source>
+        <source>%1 - zBrowser</source>
         <comment>Page title and Browser name</comment>
-        <translation>%1 - Arora</translation>
+        <translation>%1 - zBrowser</translation>
     </message>
     <message>
         <source>Open Web Resource</source>
@@ -1260,13 +1260,13 @@ Do you want to quit anyway?</source>
     </message>
 </context>
 <context>
-    <name>JavaScriptAroraObject</name>
+    <name>JavaScriptzBrowserObject</name>
     <message>
-        <source>Welcome to Arora!</source>
+        <source>Welcome to zBrowser!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Arora Start</source>
+        <source>zBrowser Start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1278,7 +1278,7 @@ Do you want to quit anyway?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>About Arora</source>
+        <source>About zBrowser</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2087,7 +2087,7 @@ Do you really want to close this page?
         <translation>如果计算机或网络被防火墙或代理所保护，请确认浏览器被允许访问网络。</translation>
     </message>
     <message>
-        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.arora-browser.org instead of &lt;b&gt;www&lt;/b&gt;.arora-browser.org</source>
+        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 instead of &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

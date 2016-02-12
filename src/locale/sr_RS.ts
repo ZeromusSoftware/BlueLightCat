@@ -32,8 +32,8 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Copyright © 2007-2009 Benjamin C. Meyer &amp;lt;&lt;a href=&quot;mailto:ben@meyerhome.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;ben@meyerhome.net&lt;/span&gt;&lt;/a&gt;&amp;gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</source>
-        <translation>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org/&lt;/a&gt;</translation>
+        <source>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</source>
+        <translation>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01/&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Close</source>
@@ -322,7 +322,7 @@ p, li { white-space: pre-wrap; }
         <translation>Неопходна је Хтмл-У-ИксБЕЛ алатка</translation>
     </message>
     <message>
-        <source>htmlToXBel tool, which is shipped with Arora and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
+        <source>htmlToXBel tool, which is shipped with zBrowser and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
         <translation>Хтмл-У-ИксБЕЛ алатка, која се деставља са Арором и неопходна је за увоз ХТМЛ маркера, није инсталирана или се не налази у претраженим путањама.</translation>
     </message>
     <message>
@@ -390,7 +390,7 @@ Do you want to quit anyway?</source>
         <translation>Повраћај није успео</translation>
     </message>
     <message>
-        <source>Arora crashed while trying to restore this session.  Should I try again?</source>
+        <source>zBrowser crashed while trying to restore this session.  Should I try again?</source>
         <translation>Арора се срушила у покушају да поврати сесију. Покушати поново?</translation>
     </message>
 </context>
@@ -648,7 +648,7 @@ Do you want to quit anyway?</source>
         <translation>Сакриј траку маркера</translation>
     </message>
     <message>
-        <source>%1 - Arora</source>
+        <source>%1 - zBrowser</source>
         <comment>Page title and Browser name</comment>
         <translation>%1 - Aрора</translation>
     </message>
@@ -1191,13 +1191,13 @@ Do you want to quit anyway?</source>
     </message>
 </context>
 <context>
-    <name>JavaScriptAroraObject</name>
+    <name>JavaScriptzBrowserObject</name>
     <message>
-        <source>Welcome to Arora!</source>
+        <source>Welcome to zBrowser!</source>
         <translation>Добродошли у Арору !</translation>
     </message>
     <message>
-        <source>Arora Start</source>
+        <source>zBrowser Start</source>
         <translation>Aрорина почетна</translation>
     </message>
     <message>
@@ -1209,7 +1209,7 @@ Do you want to quit anyway?</source>
         <translation>Резултате претраге омогућује</translation>
     </message>
     <message>
-        <source>About Arora</source>
+        <source>About zBrowser</source>
         <translation>О Арори </translation>
     </message>
 </context>
@@ -1938,8 +1938,8 @@ Do you really want to close this page?
         <translation>При повезивању на: %1.</translation>
     </message>
     <message>
-        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.arora-browser.org instead of &lt;b&gt;www&lt;/b&gt;.arora-browser.org</source>
-        <translation>Проверите адресу за грешке попут &lt;b&gt;ww/&lt;/b&gt;.arora-browser.org/ /уместо &lt;b&gt;www/&lt;/b&gt;.arora-browser.org/ </translation>
+        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 instead of &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</source>
+        <translation>Проверите адресу за грешке попут &lt;b&gt;ww/&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01/ /уместо &lt;b&gt;www/&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01/ </translation>
     </message>
     <message>
         <source>If the address is correct, try checking the network connection.</source>

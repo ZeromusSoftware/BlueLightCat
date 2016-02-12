@@ -23,7 +23,7 @@
 #include <QtNetwork/QtNetwork>
 
 #include <webpage.h>
-#include "qtest_arora.h"
+#include "qtest_zbrowser.h"
 
 class tst_WebPage : public QObject
 {
@@ -351,7 +351,7 @@ void tst_WebPage::javaScriptObjects_data()
 {
     QTest::addColumn<QUrl>("url");
     QTest::addColumn<bool>("windowExternal");
-    QTest::addColumn<bool>("windowArora");
+    QTest::addColumn<bool>("windowzBrowser");
 
     QTest::newRow("qrc:/notfound.html") << QUrl("qrc:/notfound.html") << true << false;
     QTest::newRow("qrc:/startpage.html") << QUrl("qrc:/startpage.html") << true << true;
@@ -361,7 +361,7 @@ void tst_WebPage::javaScriptObjects()
 {
     QFETCH(QUrl, url);
     QFETCH(bool, windowExternal);
-    QFETCH(bool, windowArora);
+    QFETCH(bool, windowzBrowser);
 
     SubWebPage page;
     QSignalSpy spy(&page, SIGNAL(loadFinished(bool)));
@@ -369,10 +369,10 @@ void tst_WebPage::javaScriptObjects()
     QTRY_COMPARE(spy.count(), 1);
 
     QVariant windowExternalVariant = page.mainFrame()->evaluateJavaScript(QLatin1String("window.external"));
-    QVariant windowAroraVariant = page.mainFrame()->evaluateJavaScript(QLatin1String("window.arora"));
+    QVariant windowzBrowserVariant = page.mainFrame()->evaluateJavaScript(QLatin1String("window.zbrowser"));
 
     QCOMPARE(windowExternal, !windowExternalVariant.isNull());
-    QCOMPARE(windowArora, !windowAroraVariant.isNull());
+    QCOMPARE(windowzBrowser, !windowzBrowserVariant.isNull());
 }
 
 void tst_WebPage::userAgent()

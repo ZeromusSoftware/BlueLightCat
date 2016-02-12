@@ -30,8 +30,8 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
-    QCoreApplication::setApplicationName(QLatin1String("arora"));
-    QCoreApplication::setApplicationVersion(QLatin1String("0.1"));
+    QCoreApplication::setApplicationName(QLatin1String("zbrowser"));
+    QCoreApplication::setApplicationVersion(QLatin1String("0.0.1"));
 
     new ModelTest(BrowserApplication::bookmarksManager()->bookmarksModel());
     BookmarksDialog *dialog = new BookmarksDialog;

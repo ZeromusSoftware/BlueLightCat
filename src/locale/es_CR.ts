@@ -28,8 +28,8 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;font-size:9pt;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Copyright © 2007-2008 Benjamin C. Meyer &amp;lt;&lt;a href=&quot;mailto:ben@meyerhome.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;ben@meyerhome.net&lt;/span&gt;&lt;/a&gt;&amp;gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</source>
-        <translation>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</translation>
+        <source>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</source>
+        <translation>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Close</source>
@@ -341,8 +341,8 @@ p, li { white-space: pre-wrap; }
         <translation>Herramienta htmlToXBel requerida</translation>
     </message>
     <message>
-        <source>htmlToXBel tool, which is shipped with Arora and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
-        <translation>Herramienta htmlToXBel, la cual viene incluida con Arora y es necesaria para importar marcadores HTML, no está instalado o disponible en las rutas de búsqueda.</translation>
+        <source>htmlToXBel tool, which is shipped with zBrowser and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
+        <translation>Herramienta htmlToXBel, la cual viene incluida con zBrowser y es necesaria para importar marcadores HTML, no está instalado o disponible en las rutas de búsqueda.</translation>
     </message>
     <message>
         <source>Loading Bookmark</source>
@@ -421,11 +421,11 @@ Do you want to quit anyway?</source>
         <translation>Restauración fallida</translation>
     </message>
     <message>
-        <source>The saved session will not be restored because Arora crashed while trying to restore this session.</source>
-        <translation type="obsolete">La sesión guardada no pudo ser restaurada porque Arora se bloqueó mientras intentaba restaurar esta sesión.</translation>
+        <source>The saved session will not be restored because zBrowser crashed while trying to restore this session.</source>
+        <translation type="obsolete">La sesión guardada no pudo ser restaurada porque zBrowser se bloqueó mientras intentaba restaurar esta sesión.</translation>
     </message>
     <message>
-        <source>Arora crashed while trying to restore this session.  Should I try again?</source>
+        <source>zBrowser crashed while trying to restore this session.  Should I try again?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -642,8 +642,8 @@ Do you want to quit anyway?</source>
         <translation>Acerca de &amp;QT</translation>
     </message>
     <message>
-        <source>About &amp;Arora</source>
-        <translation type="obsolete">Acerca de &amp;Arora</translation>
+        <source>About &amp;zBrowser</source>
+        <translation type="obsolete">Acerca de &amp;zBrowser</translation>
     </message>
     <message>
         <source>Navigation</source>
@@ -674,13 +674,13 @@ Do you want to quit anyway?</source>
         <translation>Esconder  barra de marcadores</translation>
     </message>
     <message>
-        <source>Arora</source>
-        <translation type="obsolete">Arora</translation>
+        <source>zBrowser</source>
+        <translation type="obsolete">zBrowser</translation>
     </message>
     <message>
-        <source>%1 - Arora</source>
+        <source>%1 - zBrowser</source>
         <comment>Page title and Browser name</comment>
-        <translation>%1 - Arora</translation>
+        <translation>%1 - zBrowser</translation>
     </message>
     <message>
         <source>Open Web Resource</source>
@@ -1313,14 +1313,14 @@ Do you want to quit anyway?</source>
     </message>
 </context>
 <context>
-    <name>JavaScriptAroraObject</name>
+    <name>JavaScriptzBrowserObject</name>
     <message>
-        <source>Welcome to Arora!</source>
-        <translation>¡Bienvenido a Arora!</translation>
+        <source>Welcome to zBrowser!</source>
+        <translation>¡Bienvenido a zBrowser!</translation>
     </message>
     <message>
-        <source>Arora Start</source>
-        <translation>Iniciar Arora</translation>
+        <source>zBrowser Start</source>
+        <translation>Iniciar zBrowser</translation>
     </message>
     <message>
         <source>Search!</source>
@@ -1331,8 +1331,8 @@ Do you want to quit anyway?</source>
         <translation>Resultados de la búsqueda proveídos por</translation>
     </message>
     <message>
-        <source>About Arora</source>
-        <translation>Acerca de Arora</translation>
+        <source>About zBrowser</source>
+        <translation>Acerca de zBrowser</translation>
     </message>
 </context>
 <context>
@@ -2160,8 +2160,8 @@ Do you really want to close this page?
         <translation>Cuando se conecta a: %1</translation>
     </message>
     <message>
-        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.arora-browser.org instead of &lt;b&gt;www&lt;/b&gt;.arora-browser.org</source>
-        <translation>Verifica errores en la dirección como &lt;b&gt;ww&lt;/b&gt;.arora-browser.org en lugar de &lt;b&gt;www&lt;/b&gt;.arora-browser.org</translation>
+        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 instead of &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</source>
+        <translation>Verifica errores en la dirección como &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 en lugar de &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</translation>
     </message>
     <message>
         <source>If your computer or network is protected by a firewall or proxy, make sure that the browser is permitted to access the network.</source>

@@ -299,7 +299,7 @@ void BookmarksManager::importBookmarks()
         if (process.error() != QProcess::UnknownError) {
             if (process.error() == QProcess::FailedToStart) {
                 QMessageBox::warning(0, tr("htmlToXBel tool required"),
-                    tr("htmlToXBel tool, which is shipped with Arora and is needed to import HTML bookmarks, "
+                    tr("htmlToXBel tool, which is shipped with zBrowser and is needed to import HTML bookmarks, "
                        "is not installed or not available in the search paths."));
             } else {
                 QMessageBox::warning(0, tr("Loading Bookmark"),

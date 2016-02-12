@@ -57,22 +57,22 @@ void JavaScriptExternalObject::AddSearchProvider(const QString &url)
 }
 
 Q_DECLARE_METATYPE(OpenSearchEngine*)
-JavaScriptAroraObject::JavaScriptAroraObject(QObject *parent)
+JavaScriptzBrowserObject::JavaScriptzBrowserObject(QObject *parent)
     : QObject(parent)
 {
     static const char *translations[] = {
-        QT_TR_NOOP("Welcome to Arora!"),
-        QT_TR_NOOP("Arora Start"),
+        QT_TR_NOOP("Welcome to zBrowser!"),
+        QT_TR_NOOP("zBrowser Start"),
         QT_TR_NOOP("Search!"),
         QT_TR_NOOP("Search results provided by"),
-        QT_TR_NOOP("About Arora")
+        QT_TR_NOOP("About zBrowser")
     };
     Q_UNUSED(translations);
 
     qRegisterMetaType<OpenSearchEngine*>("OpenSearchEngine*");
 }
 
-QString JavaScriptAroraObject::translate(const QString &string)
+QString JavaScriptzBrowserObject::translate(const QString &string)
 {
     QString translatedString = trUtf8(string.toUtf8().constData());
 
@@ -85,12 +85,12 @@ QString JavaScriptAroraObject::translate(const QString &string)
         return qApp->trUtf8(string.toUtf8().constData());
 }
 
-QObject *JavaScriptAroraObject::currentEngine() const
+QObject *JavaScriptzBrowserObject::currentEngine() const
 {
     return ToolbarSearch::openSearchManager()->currentEngine();
 }
 
-QString JavaScriptAroraObject::searchUrl(const QString &string) const
+QString JavaScriptzBrowserObject::searchUrl(const QString &string) const
 {
     return QString::fromUtf8(ToolbarSearch::openSearchManager()->currentEngine()->searchUrl(string).toEncoded());
 }
@@ -99,7 +99,7 @@ WebPage::WebPage(QObject *parent)
     : WebPageProxy(parent)
     , m_openTargetBlankLinksIn(TabWidget::NewWindow)
     , m_javaScriptExternalObject(0)
-    , m_javaScriptAroraObject(0)
+    , m_javaScriptzBrowserObject(0)
 {
     setPluginFactory(webPluginFactory());
     NetworkAccessManagerProxy *networkManagerProxy = new NetworkAccessManagerProxy(this);
@@ -213,10 +213,10 @@ void WebPage::addExternalBinding(QWebFrame *frame)
         if (frame->url().scheme() == QLatin1String("qrc")
             && frame->url().path() == QLatin1String("/startpage.html")) {
 
-            if (!m_javaScriptAroraObject)
-                m_javaScriptAroraObject = new JavaScriptAroraObject(this);
+            if (!m_javaScriptzBrowserObject)
+                m_javaScriptzBrowserObject = new JavaScriptzBrowserObject(this);
 
-            frame->addToJavaScriptWindowObject(QLatin1String("arora"), m_javaScriptAroraObject);
+            frame->addToJavaScriptWindowObject(QLatin1String("zbrowser"), m_javaScriptzBrowserObject);
         }
     } else { // called from QWebPage::frameCreated
         connect(frame, SIGNAL(javaScriptWindowObjectCleared()),

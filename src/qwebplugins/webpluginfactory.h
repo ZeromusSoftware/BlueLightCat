@@ -23,7 +23,7 @@
 #include <qwebpluginfactory.h>
 #include <qhash.h>
 
-#include "arorawebplugin.h"
+#include "zbrowserwebplugin.h"
 
 class WebPluginFactory : public QWebPluginFactory
 {
@@ -41,8 +41,8 @@ public:
 private:
     void init() const;
     mutable bool m_loaded;
-    mutable QList<AroraWebPlugin*> m_plugins;
-    mutable QHash<QString, AroraWebPlugin*> m_pluginsCache;
+    mutable QList<zBrowserWebPlugin*> m_plugins;
+    mutable QHash<QString, zBrowserWebPlugin*> m_pluginsCache;
 };
 
 #endif // WEBPLUGINFACTORY_H

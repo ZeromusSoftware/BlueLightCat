@@ -1,12 +1,34 @@
-<!DOCTYPE RCC><RCC version="1.0">
-<qresource>
-    <file>128x128/arora.png</file>
-    <file>128x128/run.png</file>
-    <file>arora.svg</file>
-    <file>defaultbookmarks.xbel</file>
-    <file>fetchLinks.js</file>
-    <file>parseForms.js</file>
-    <file>../../AUTHORS</file>
-    <file>../../LICENSE.GPL2</file>
-</qresource>
+<RCC>
+    <qresource prefix="/">
+        <file>128x128/zbrowser.png</file>
+        <file>128x128/run.png</file>
+        <file>defaultbookmarks.xbel</file>
+        <file>fetchLinks.js</file>
+        <file>parseForms.js</file>
+        <file>../../AUTHORS</file>
+        <file>../../CONTRIBUTORS</file>
+        <file>../../LICENSE.GPL2</file>
+        <file>about.png</file>
+        <file>gmail.png</file>
+        <file>google.png</file>
+        <file>youtube.png</file>
+        <file>adn.png</file>
+        <file>space.png</file>
+        <file>128x128/back.png</file>
+        <file>128x128/download.png</file>
+        <file>128x128/forward.png</file>
+        <file>128x128/home.png</file>
+        <file>128x128/reload.png</file>
+        <file>128x128/setting.png</file>
+        <file>128x128/stop.png</file>
+        <file>title.png</file>
+        <file>red.png</file>
+        <file>blue.png</file>
+        <file>green.png</file>
+        <file>purple.png</file>
+        <file>silver.png</file>
+        <file>game1.png</file>
+        <file>noise.png</file>
+        <file>noise_dark.png</file>
+    </qresource>
 </RCC>

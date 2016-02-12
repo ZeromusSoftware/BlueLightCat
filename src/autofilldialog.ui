@@ -6,32 +6,49 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>529</width>
-    <height>421</height>
+    <width>600</width>
+    <height>400</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form Passwords</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0" colspan="3">
-    <spacer name="spacer">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+   <item row="0" column="0" colspan="5">
+    <widget class="SearchLineEdit" name="search">
+     <property name="styleSheet">
+      <string notr="true">QLineEdit {
+    border: 1px solid grey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QLineEdit:hover {
+    background: white
+}
+
+QPushButton:pressed { 
+    background: white
+}</string>
      </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>252</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="0" column="3" colspan="2">
-    <widget class="SearchLineEdit" name="search"/>
+    </widget>
    </item>
    <item row="1" column="0" colspan="5">
     <widget class="EditTableView" name="tableView">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
      <attribute name="verticalHeaderVisible">
       <bool>false</bool>
      </attribute>
@@ -39,6 +56,32 @@
    </item>
    <item row="2" column="0">
     <widget class="QPushButton" name="removeButton">
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    border: 1px solid grey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QPushButton:hover {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(215, 215, 215), stop: 1.0 rgb(155, 155, 155));
+}
+
+QPushButton:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+     </property>
      <property name="text">
       <string>Remove</string>
      </property>
@@ -46,6 +89,32 @@
    </item>
    <item row="2" column="1">
     <widget class="QPushButton" name="removeAllButton">
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    border: 1px solid grey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QPushButton:hover {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(215, 215, 215), stop: 1.0 rgb(155, 155, 155));
+}
+
+QPushButton:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+     </property>
      <property name="text">
       <string>Remove All</string>
      </property>
@@ -66,6 +135,32 @@
    </item>
    <item row="2" column="4">
     <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    border: 1px solid grey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-width: 75px;
+    min-height: 23px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 white, stop: 1.0 rgb(215, 215, 215));
+}
+
+QPushButton:hover {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(215, 215, 215), stop: 1.0 rgb(155, 155, 155));
+}
+
+QPushButton:pressed { 
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgb(155, 155, 155), stop: 1.0 rgb(215, 215, 215));
+}</string>
+     </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>

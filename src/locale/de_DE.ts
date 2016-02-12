@@ -8,8 +8,8 @@
         <translation type="obsolete">Fehler</translation>
     </message>
     <message>
-        <source>Arora is already running. Exiting.</source>
-        <translation type="obsolete">Arora läuft bereits.</translation>
+        <source>zBrowser is already running. Exiting.</source>
+        <translation type="obsolete">zBrowser läuft bereits.</translation>
     </message>
 </context>
 <context>
@@ -47,8 +47,8 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Copyright © 2007-2009 Benjamin C. Meyer &amp;lt;&lt;a href=&quot;mailto:ben@meyerhome.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;ben@meyerhome.net&lt;/span&gt;&lt;/a&gt;&amp;gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</source>
-        <translation>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</translation>
+        <source>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</source>
+        <translation>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Close</source>
@@ -366,8 +366,8 @@ p, li { white-space: pre-wrap; }
         <translation>htmlToXbel wird benötigt</translation>
     </message>
     <message>
-        <source>htmlToXBel tool, which is shipped with Arora and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
-        <translation>htmlToXBel - welches mit Arora vertrieben wird und nötig ist um HTML Lesezeichen zu importieren - ist nicht installiert oder nicht im Suchpfad verfügbar.</translation>
+        <source>htmlToXBel tool, which is shipped with zBrowser and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
+        <translation>htmlToXBel - welches mit zBrowser vertrieben wird und nötig ist um HTML Lesezeichen zu importieren - ist nicht installiert oder nicht im Suchpfad verfügbar.</translation>
     </message>
     <message>
         <source>Loading Bookmark</source>
@@ -435,27 +435,27 @@ p, li { white-space: pre-wrap; }
         <source>There are %1 windows and %2 tabs open
 Do you want to quit anyway?</source>
         <translation>%1 Fenster und %2 Tabs sind geöffnet
-Arora wirklich beenden?</translation>
+zBrowser wirklich beenden?</translation>
     </message>
     <message>
         <source>Restore failed</source>
         <translation>Wiederherstellung fehlgeschlagen</translation>
     </message>
     <message>
-        <source>The saved session will not being restored because last time it was restored Arora crashed.</source>
-        <translation type="obsolete">Die gespeicherte Sitzung wird nicht wiederhergestellt weil bei der letzten Wiederherstellung Arora abgestürzt ist.</translation>
+        <source>The saved session will not being restored because last time it was restored zBrowser crashed.</source>
+        <translation type="obsolete">Die gespeicherte Sitzung wird nicht wiederhergestellt weil bei der letzten Wiederherstellung zBrowser abgestürzt ist.</translation>
     </message>
     <message>
         <source> (Change: %1 %2)</source>
         <translation type="obsolete">(Änderung: %1 %2)</translation>
     </message>
     <message>
-        <source>The saved session will not be restored because Arora crashed while trying to restore this session.</source>
-        <translation type="obsolete">Die gespeicherte Sitzung wird nicht wiederhergestellt, weil bei der letzten Wiederherstellung Arora abgestürzt ist.</translation>
+        <source>The saved session will not be restored because zBrowser crashed while trying to restore this session.</source>
+        <translation type="obsolete">Die gespeicherte Sitzung wird nicht wiederhergestellt, weil bei der letzten Wiederherstellung zBrowser abgestürzt ist.</translation>
     </message>
     <message>
-        <source>Arora crashed while trying to restore this session.  Should I try again?</source>
-        <translation>Arora ist bei dem Versuch die Sitzung wiederherzustellen abgestürzt. Soll erneut versucht werden, die Sitzung wiederherzustellen?</translation>
+        <source>zBrowser crashed while trying to restore this session.  Should I try again?</source>
+        <translation>zBrowser ist bei dem Versuch die Sitzung wiederherzustellen abgestürzt. Soll erneut versucht werden, die Sitzung wiederherzustellen?</translation>
     </message>
 </context>
 <context>
@@ -681,8 +681,8 @@ Arora wirklich beenden?</translation>
         <translation>Über &amp;Qt</translation>
     </message>
     <message>
-        <source>About &amp;Arora</source>
-        <translation type="obsolete">Über &amp;Arora</translation>
+        <source>About &amp;zBrowser</source>
+        <translation type="obsolete">Über &amp;zBrowser</translation>
     </message>
     <message>
         <source>Navigation</source>
@@ -713,13 +713,13 @@ Arora wirklich beenden?</translation>
         <translation type="obsolete">Lesezeichenleiste verbergen</translation>
     </message>
     <message>
-        <source>Arora</source>
-        <translation type="obsolete">Arora</translation>
+        <source>zBrowser</source>
+        <translation type="obsolete">zBrowser</translation>
     </message>
     <message>
-        <source>%1 - Arora</source>
+        <source>%1 - zBrowser</source>
         <comment>Page title and Browser name</comment>
-        <translation>%1 - Arora</translation>
+        <translation>%1 - zBrowser</translation>
     </message>
     <message>
         <source>Open Web Resource</source>
@@ -1161,7 +1161,7 @@ Sollen alle Seiten neu geladen werden?</translation>
         <translation></translation>
     </message>
     <message>
-        <source>Foo Bar Baz Arora LineEdit Manual Test This is the end</source>
+        <source>Foo Bar Baz zBrowser LineEdit Manual Test This is the end</source>
         <translation></translation>
     </message>
     <message>
@@ -1173,7 +1173,7 @@ Sollen alle Seiten neu geladen werden?</translation>
         <translation></translation>
     </message>
     <message>
-        <source>Foo Bar Baz Arora LineEdit Manual Test</source>
+        <source>Foo Bar Baz zBrower LineEdit Manual Test</source>
         <translation></translation>
     </message>
     <message>
@@ -1502,14 +1502,14 @@ Trotzdem beenden?</translation>
     </message>
 </context>
 <context>
-    <name>JavaScriptAroraObject</name>
+    <name>JavaScriptzBrowserObject</name>
     <message>
-        <source>Welcome to Arora!</source>
-        <translation>Willkommen bei Arora!</translation>
+        <source>Welcome to zBrowser!</source>
+        <translation>Willkommen bei zBrowser!</translation>
     </message>
     <message>
-        <source>Arora Start</source>
-        <translation>Arora Start</translation>
+        <source>zBrowser Start</source>
+        <translation>zBrowser Start</translation>
     </message>
     <message>
         <source>Search!</source>
@@ -1520,8 +1520,8 @@ Trotzdem beenden?</translation>
         <translation>Suchergebnisse werden zur Verfügung gestellt von</translation>
     </message>
     <message>
-        <source>About Arora</source>
-        <translation>Über Arora</translation>
+        <source>About zBrowser</source>
+        <translation>Über zBrowser</translation>
     </message>
 </context>
 <context>
@@ -2482,8 +2482,8 @@ Diese Seite wirklich schließen?</translation>
         <translation>Beim Verbinden zu: %1.</translation>
     </message>
     <message>
-        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.arora-browser.org instead of &lt;b&gt;www&lt;/b&gt;.arora-browser.org</source>
-        <translation>Überprüfen Sie die Adresse auf Fehler wie &lt;b&gt;ww&lt;/b&gt;.arora-browser.org statt &lt;b&gt;www&lt;/b&gt;.arora-browser.org</translation>
+        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 instead of &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</source>
+        <translation>Überprüfen Sie die Adresse auf Fehler wie &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 statt &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</translation>
     </message>
     <message>
         <source>If the address is correct, try to check the network connection.</source>

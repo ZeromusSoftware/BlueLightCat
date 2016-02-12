@@ -271,7 +271,7 @@ void OpenSearchManager::load()
     // get current engine
     QSettings settings;
     settings.beginGroup(QLatin1String("openSearch"));
-    m_current = settings.value(QLatin1String("engine"), QLatin1String("Google")).toString();
+    m_current = settings.value(QLatin1String("engine"), QLatin1String("DuckDuckGo")).toString();
 
     int size = settings.beginReadArray(QLatin1String("keywords"));
     for (int i = 0; i < size; ++i) {

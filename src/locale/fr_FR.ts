@@ -8,6 +8,10 @@
         <translation>Auteurs</translation>
     </message>
     <message>
+        <source>Contributors</source>
+        <translation>Contributeurs</translation>
+    </message>
+    <message>
         <source>License</source>
         <translation>Licence</translation>
     </message>
@@ -16,8 +20,8 @@
         <translation>Navigateur web léger basé sur WebKit</translation>
     </message>
     <message>
-        <source>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</source>
-        <translation>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</translation>
+        <source>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</source>
+        <translation>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Close</source>
@@ -322,8 +326,8 @@ p, li { white-space: pre-wrap; }
         <translation>L&apos;outil htmlToXBel est requis</translation>
     </message>
     <message>
-        <source>htmlToXBel tool, which is shipped with Arora and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
-        <translation>L&apos;outil htmlToXBel, fourni avec Arora et nécessaire à l&apos;importation de marque-pages HTML, n&apos;est pas installé ou non disponible dans les chemins de recherche.</translation>
+        <source>htmlToXBel tool, which is shipped with zBrowser and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
+        <translation>L&apos;outil htmlToXBel, fourni avec zBrowser et nécessaire à l&apos;importation de marque-pages HTML, n&apos;est pas installé ou non disponible dans les chemins de recherche.</translation>
     </message>
     <message>
         <source>Loading Bookmark</source>
@@ -394,12 +398,12 @@ Voulez-vous tout de même quitter?</translation>
         <translation>Échec de la restauration</translation>
     </message>
     <message>
-        <source>The saved session will not be restored because Arora crashed while trying to restore this session.</source>
-        <translation type="obsolete">La session enregistrée ne sera pas restaurée car Arora s&apos;est anormalement arrêté lors de la précedente tentative de restauration.</translation>
+        <source>The saved session will not be restored because zBrowser crashed while trying to restore this session.</source>
+        <translation type="obsolete">La session enregistrée ne sera pas restaurée car zBrowser s&apos;est anormalement arrêté lors de la précedente tentative de restauration.</translation>
     </message>
     <message>
-        <source>Arora crashed while trying to restore this session.  Should I try again?</source>
-        <translation>Arora s&apos;est planté lors de la restauration de la session.  Voulez-vous réessayer ?</translation>
+        <source>zBrowser crashed while trying to restore this session.  Should I try again?</source>
+        <translation>zBrowser s&apos;est planté lors de la restauration de la session.  Voulez-vous réessayer ?</translation>
     </message>
 </context>
 <context>
@@ -453,6 +457,7 @@ Voulez-vous tout de même quitter?</translation>
         <translation>&amp;Édition</translation>
     </message>
     <message>
+
         <source>&amp;Undo</source>
         <translation>&amp;Annuler</translation>
     </message>
@@ -586,9 +591,9 @@ Voulez-vous tout de même quitter?</translation>
         <translation>Masquer la barre d&apos;outils</translation>
     </message>
     <message>
-        <source>%1 - Arora</source>
+        <source>%1 - zBrowser</source>
         <comment>Page title and Browser name</comment>
-        <translation>%1 - Arora</translation>
+        <translation>%1 - zBrowser</translation>
     </message>
     <message>
         <source>Open Web Resource</source>
@@ -703,7 +708,7 @@ Do you want to reload all pages?</source>
     <message>
         <source>About &amp;%1</source>
         <comment>About Browser</comment>
-        <translation>À propos d&apos;&amp;%1</translation>
+        <translation>À propos de &amp;%1</translation>
     </message>
     <message>
         <source>Ctrl+Y</source>
@@ -1202,14 +1207,14 @@ Voulez-vous tout de même quitter?</translation>
     </message>
 </context>
 <context>
-    <name>JavaScriptAroraObject</name>
+    <name>JavaScriptzBrowserObject</name>
     <message>
-        <source>Welcome to Arora!</source>
-        <translation>Bienvenue sur Arora!</translation>
+        <source>Welcome to zBrowser SpringSun!</source>
+        <translation>Bienvenue sur zBrowser SpringSun!</translation>
     </message>
     <message>
-        <source>Arora Start</source>
-        <translation>Démarrage de Arora</translation>
+        <source>zBrowser SpringSun Start</source>
+        <translation>Démarrage de zBrowser SpringSun</translation>
     </message>
     <message>
         <source>Search!</source>
@@ -1220,8 +1225,8 @@ Voulez-vous tout de même quitter?</translation>
         <translation>Résultats de recherche fournis par</translation>
     </message>
     <message>
-        <source>About Arora</source>
-        <translation>A propos d&apos;Arora</translation>
+        <source>About zBrowser</source>
+        <translation>A propos de zBrowser</translation>
     </message>
 </context>
 <context>
@@ -1966,8 +1971,8 @@ Voulez-vous vraiment fermer cette page?
         <translation>Durant la connection à: %1.</translation>
     </message>
     <message>
-        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.arora-browser.org instead of &lt;b&gt;www&lt;/b&gt;.arora-browser.org</source>
-        <translation>Vérifiez que vous n&apos;avez pas commis d&apos;erreurs dans l&apos;adresse tel que &lt;b&gt;ww&lt;/b&gt;.arora-browser.org à la place de &lt;b&gt;www&lt;/b&gt;.arora-browser.org</translation>
+        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 instead of &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</source>
+        <translation>Vérifiez que vous n&apos;avez pas commis d&apos;erreurs dans l&apos;adresse tel que &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 à la place de &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</translation>
     </message>
     <message>
         <source>If your computer or network is protected by a firewall or proxy, make sure that the browser is permitted to access the network.</source>
@@ -2074,6 +2079,13 @@ Voulez-vous vraiment fermer cette page?
     <message>
         <source>Not Found</source>
         <translation>Non trouvé</translation>
+    </message>
+</context>
+<context>
+    <name>zLink</name>
+    <message>
+        <source>Most Visited Hosts</source>
+        <translation>Sites les plus visités</translation>
     </message>
 </context>
 </TS>

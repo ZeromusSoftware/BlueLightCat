@@ -31,7 +31,7 @@ int main(int argc, char **argv)
     QApplication application(argc, argv);
     QMainWindow w;
 
-    QCoreApplication::setApplicationName("arora");
+    QCoreApplication::setApplicationName("zbrowser");
 
     HistoryManager history;
 
@@ -67,7 +67,7 @@ int main(int argc, char **argv)
     historyCompletionModelView->setModel(completionModel);
     tabWidget.addTab(historyCompletionModelView, "HistoryCompletionModel");
 
-    HistoryDialog dialog(0, &history);
+    HistoryDialog dialog;
     tabWidget.addTab(dialog.tree, "DialogModel");
 
     tabWidget.setCurrentIndex(3);

@@ -32,8 +32,8 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Minden jog fenntartva © 2007-2009 Benjamin C. Meyer &amp;lt;&lt;a href=&quot;mailto:ben@meyerhome.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;ben@meyerhome.net&lt;/span&gt;&lt;/a&gt;&amp;gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</source>
-        <translation>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</translation>
+        <source>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</source>
+        <translation>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Close</source>
@@ -335,8 +335,8 @@ p, li { white-space: pre-wrap; }
         <translation>htmlToXBel eszköz szükséges</translation>
     </message>
     <message>
-        <source>htmlToXBel tool, which is shipped with Arora and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
-        <translation>A HTML könyvjelzők importálására szolgáló, az Arora részeként szállított htmlToXBel eszköz nincs telepítve, vagy nem érhető el a keresési útvonalon.</translation>
+        <source>htmlToXBel tool, which is shipped with zBrowser and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
+        <translation>A HTML könyvjelzők importálására szolgáló, az zBrowser részeként szállított htmlToXBel eszköz nincs telepítve, vagy nem érhető el a keresési útvonalon.</translation>
     </message>
     <message>
         <source>Loading Bookmark</source>
@@ -415,11 +415,11 @@ Biztosan ki akar lépni?</translation>
         <translation>A visszaállítás sikertelen</translation>
     </message>
     <message>
-        <source>The saved session will not be restored because Arora crashed while trying to restore this session.</source>
-        <translation type="obsolete">Az elmentett munkamenet nem kerül visszaállításra, mert az Arora összeomlott a művelet közben.</translation>
+        <source>The saved session will not be restored because zBrowser crashed while trying to restore this session.</source>
+        <translation type="obsolete">Az elmentett munkamenet nem kerül visszaállításra, mert az zBrowser összeomlott a művelet közben.</translation>
     </message>
     <message>
-        <source>Arora crashed while trying to restore this session.  Should I try again?</source>
+        <source>zBrowser crashed while trying to restore this session.  Should I try again?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -689,9 +689,9 @@ Biztosan ki akar lépni?</translation>
         <translation>Könyvjelző eszköztár elrejtése</translation>
     </message>
     <message>
-        <source>%1 - Arora</source>
+        <source>%1 - zBrowser</source>
         <comment>Page title and Browser name</comment>
-        <translation>%1 - Arora</translation>
+        <translation>%1 - zBrowser</translation>
     </message>
     <message>
         <source>Open Web Resource</source>
@@ -1232,13 +1232,13 @@ Biztosan ki akar lépni?</translation>
     </message>
 </context>
 <context>
-    <name>JavaScriptAroraObject</name>
+    <name>JavaScriptzBrowserObject</name>
     <message>
-        <source>Welcome to Arora!</source>
+        <source>Welcome to zBrowser!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Arora Start</source>
+        <source>zBrowser Start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1250,7 +1250,7 @@ Biztosan ki akar lépni?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>About Arora</source>
+        <source>About zBrowser</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2077,8 +2077,8 @@ Biztosan be akarja zárni ezt az oldalt?
         <translation>Kapcsolódás: %1.</translation>
     </message>
     <message>
-        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.arora-browser.org instead of &lt;b&gt;www&lt;/b&gt;.arora-browser.org</source>
-        <translation>Nem vétett hibát a hivatkozás beírásakor? (pl. &quot;&lt;b&gt;ww&lt;/b&gt;.arora-browser.org&quot; a &quot;&lt;b&gt;www&lt;/b&gt;.arora-browser.org&quot; helyett)</translation>
+        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 instead of &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</source>
+        <translation>Nem vétett hibát a hivatkozás beírásakor? (pl. &quot;&lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01&quot; a &quot;&lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01&quot; helyett)</translation>
     </message>
     <message>
         <source>If the address is correct, try checking the network connection.</source>

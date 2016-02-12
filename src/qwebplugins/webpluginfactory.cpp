@@ -47,7 +47,7 @@ QObject *WebPluginFactory::create(const QString &mimeType, const QUrl &url, cons
 #ifdef WEBPLUGINFACTORY_DEBUG
     qDebug() << "WebPluginFactory::" << __FUNCTION__ << mimeType << url << argumentNames << argumentValues;
 #endif
-    AroraWebPlugin *plugin = m_pluginsCache[mimeType];
+    zBrowserWebPlugin *plugin = m_pluginsCache[mimeType];
     if (plugin)
         return plugin->create(mimeType, url, argumentNames, argumentValues);
 #ifdef WEBPLUGINFACTORY_DEBUG
@@ -64,7 +64,7 @@ QList<QWebPluginFactory::Plugin> WebPluginFactory::plugins() const
     if (!m_loaded)
         init();
     QList<QWebPluginFactory::Plugin> plugins;
-    foreach (AroraWebPlugin *plugin, m_plugins) {
+    foreach (zBrowserWebPlugin *plugin, m_plugins) {
         QWebPluginFactory::Plugin pluginInfo = plugin->metaPlugin();
         if (!plugin->isAnonymous())
             plugins.append(pluginInfo);
@@ -88,7 +88,7 @@ void WebPluginFactory::init() const
     qDeleteAll(m_plugins);
     m_plugins.clear();
     m_plugins.append(new ClickToFlashPlugin);
-    foreach (AroraWebPlugin *plugin, m_plugins) {
+    foreach (zBrowserWebPlugin *plugin, m_plugins) {
         foreach (const QWebPluginFactory::MimeType &pluginMimeType, plugin->metaPlugin().mimeTypes)
             m_pluginsCache.insert(pluginMimeType.name, plugin);
     }

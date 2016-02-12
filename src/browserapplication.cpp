@@ -73,6 +73,7 @@
 #include "networkaccessmanager.h"
 #include "tabwidget.h"
 #include "webview.h"
+#include "zlink.h"
 
 #include <qbuffer.h>
 #include <qdesktopservices.h>
@@ -98,14 +99,15 @@ NetworkAccessManager *BrowserApplication::s_networkAccessManager = 0;
 BookmarksManager *BrowserApplication::s_bookmarksManager = 0;
 LanguageManager *BrowserApplication::s_languageManager = 0;
 AutoFillManager *BrowserApplication::s_autoFillManager = 0;
+zLink *BrowserApplication::s_zlink = 0;
 
 BrowserApplication::BrowserApplication(int &argc, char **argv)
     : SingleApplication(argc, argv)
     , quitting(false)
 {
-    QCoreApplication::setOrganizationDomain(QLatin1String("arora-browser.org"));
-    QCoreApplication::setApplicationName(QLatin1String("Arora"));
-    QCoreApplication::setApplicationVersion(QLatin1String("0.11.0"
+    QCoreApplication::setOrganizationDomain(QLatin1String("armeedunet.com/BlueLightCat/"));
+    QCoreApplication::setApplicationName(QLatin1String("BlueLightCat"));
+    QCoreApplication::setApplicationVersion(QLatin1String("0.7"
 #ifdef GITVERSION
     " (Git: " GITCHANGENUMBER " " GITVERSION ")"
 #endif
@@ -120,13 +122,13 @@ BrowserApplication::BrowserApplication(int &argc, char **argv)
         QString message = parseArgumentUrl(args.last());
         sendMessage(message.toUtf8());
     }
-    // If we could connect to another Arora then exit
-    QString message = QString(QLatin1String("aroramessage://getwinid"));
+    // If we could connect to another zBrowser then exit
+    QString message = QString(QLatin1String("zbrowsermessage://getwinid"));
     if (sendMessage(message.toUtf8(), 500))
         return;
 
 #ifdef BROWSERAPPLICATION_DEBUG
-    qDebug() << "BrowserApplication::" << __FUNCTION__ << "I am the only arora";
+    qDebug() << "BrowserApplication::" << __FUNCTION__ << "I am the only zbrowser";
 #endif
 
     // not sure what else to do...
@@ -158,7 +160,7 @@ BrowserApplication::BrowserApplication(int &argc, char **argv)
 
     // setting this in the postLaunch actually takes a lot more time
     // because the event has to be propagated to everyone.
-    setWindowIcon(QIcon(QLatin1String(":128x128/arora.png")));
+    setWindowIcon(QIcon(QLatin1String(":128x128/zbrowser.png")));
 
 #ifndef AUTOTESTS
     QTimer::singleShot(0, this, SLOT(postLaunch()));
@@ -176,6 +178,7 @@ BrowserApplication::~BrowserApplication()
     delete s_languageManager;
     delete s_historyManager;
     delete s_autoFillManager;
+    delete s_zlink;
 }
 
 #if defined(Q_WS_MAC)
@@ -222,7 +225,7 @@ void BrowserApplication::messageReceived(QLocalSocket *socket)
         return;
 
     // Got a normal url
-    if (!message.startsWith(QLatin1String("aroramessage://"))) {
+    if (!message.startsWith(QLatin1String("zbrowsermessage://"))) {
         QSettings settings;
         settings.beginGroup(QLatin1String("tabs"));
         TabWidget::OpenUrlIn tab = TabWidget::OpenUrlIn(settings.value(QLatin1String("openLinksFromAppsIn"), TabWidget::NewSelectedTab).toInt());
@@ -236,7 +239,7 @@ void BrowserApplication::messageReceived(QLocalSocket *socket)
         return;
     }
 
-    if (message.startsWith(QLatin1String("aroramessage://getwinid"))) {
+    if (message.startsWith(QLatin1String("zbrowsermessage://getwinid"))) {
 #ifdef Q_OS_WIN
         QString winid = QString(QLatin1String("%1")).arg((qlonglong)mainWindow()->winId());
 #else
@@ -250,13 +253,13 @@ void BrowserApplication::messageReceived(QLocalSocket *socket)
 #ifdef BROWSERAPPLICATION_DEBUG
         qDebug() << "BrowserApplication::" << __FUNCTION__ << "sending win id" << winid << mainWindow()->winId();
 #endif
-        QString message = QLatin1String("aroramessage://winid/") + winid;
+        QString message = QLatin1String("zbrowsermessage://winid/") + winid;
         socket->write(message.toUtf8());
         socket->waitForBytesWritten();
         return;
     }
 
-    if (message.startsWith(QLatin1String("aroramessage://winid"))) {
+    if (message.startsWith(QLatin1String("zbrowsermessage://winid"))) {
         QString winid = message.mid(21);
 #ifdef BROWSERAPPLICATION_DEBUG
         qDebug() << "BrowserApplication::" << __FUNCTION__ << "got win id:" << winid;
@@ -341,6 +344,10 @@ void BrowserApplication::postLaunch()
             case 2:
                 restoreLastSession();
                 break;
+            case 3:
+                //TODO: right place!
+                mainWindow()->gozLink();
+                break;
             }
         }
     }
@@ -374,7 +381,6 @@ void BrowserApplication::loadSettings()
     defaultSettings->setAttribute(QWebSettings::JavascriptEnabled, settings.value(QLatin1String("enableJavascript"), true).toBool());
     defaultSettings->setAttribute(QWebSettings::PluginsEnabled, settings.value(QLatin1String("enablePlugins"), true).toBool());
     defaultSettings->setAttribute(QWebSettings::AutoLoadImages, settings.value(QLatin1String("enableImages"), true).toBool());
-    defaultSettings->setAttribute(QWebSettings::LocalStorageEnabled, settings.value(QLatin1String("enableLocalStorage"), true).toBool());
     defaultSettings->setAttribute(QWebSettings::DeveloperExtrasEnabled, settings.value(QLatin1String("enableInspector"), false).toBool());
 #if QT_VERSION >= 0x040600 || defined(WEBKIT_TRUNK)
     defaultSettings->setAttribute(QWebSettings::DnsPrefetchEnabled, true);
@@ -466,7 +472,7 @@ bool BrowserApplication::restoreLastSession()
         settings.beginGroup(QLatin1String("MainWindow"));
         if (settings.value(QLatin1String("restoring"), false).toBool()) {
             QMessageBox::StandardButton result = QMessageBox::question(0, tr("Restore failed"),
-                tr("Arora crashed while trying to restore this session.  Should I try again?"), QMessageBox::Yes | QMessageBox::No);
+                tr("zBrowser crashed while trying to restore this session.  Should I try again?"), QMessageBox::Yes | QMessageBox::No);
             if (result == QMessageBox::No)
                 return false;
         }
@@ -600,6 +606,18 @@ HistoryManager *BrowserApplication::historyManager()
     if (!s_historyManager)
         s_historyManager = new HistoryManager();
     return s_historyManager;
+}
+
+zLink *BrowserApplication::zlink(int maxNumberEntries)
+{
+    if (!s_zlink){
+        s_zlink = new zLink(maxNumberEntries);
+    }
+    if(s_zlink && s_zlink->maxNumberEntries() != maxNumberEntries){
+        delete s_zlink;
+        s_zlink = new zLink(maxNumberEntries);
+    }
+    return s_zlink;
 }
 
 BookmarksManager *BrowserApplication::bookmarksManager()

@@ -68,16 +68,18 @@
 #include <qpointer.h>
 #include <qurl.h>
 #include <qdatetime.h>
+#include <browsermainwindow.h>
 
 class AutoFillManager;
 class BookmarksManager;
-class BrowserMainWindow;
+//class BrowserMainWindow;
 class CookieJar;
 class DownloadManager;
 class HistoryManager;
 class NetworkAccessManager;
 class LanguageManager;
 class QLocalSocket;
+class zLink;
 class BrowserApplication : public SingleApplication
 {
     Q_OBJECT
@@ -104,7 +106,7 @@ public:
     static BookmarksManager *bookmarksManager();
     static LanguageManager *languageManager();
     static AutoFillManager *autoFillManager();
-
+    static zLink *zlink(int maxNumberEntries = 0);
     static QString installedDataDirectory();
     static QString dataFilePath(const QString &fileName);
 
@@ -149,6 +151,7 @@ private:
     void clean();
 
     static HistoryManager *s_historyManager;
+    static zLink *s_zlink;
     static DownloadManager *s_downloadManager;
     static NetworkAccessManager *s_networkAccessManager;
     static BookmarksManager *s_bookmarksManager;

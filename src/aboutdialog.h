@@ -32,6 +32,7 @@ public:
 
 private slots:
     void authorsButtonClicked();
+    void contributorsButtonClicked();
     void licenseButtonClicked();
 
 private:

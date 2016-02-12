@@ -108,7 +108,7 @@ signals:
     void statusBarVisibilityChangeRequested(bool visible);
     void toolBarVisibilityChangeRequested(bool visible);
     void printRequested(QWebFrame *frame);
-
+    
 public:
     enum OpenUrlIn {
         NewWindow,
@@ -125,7 +125,7 @@ public:
     TabBar *tabBar() { return m_tabBar; }
     void clear();
     void addWebAction(QAction *action, QWebPage::WebAction webAction);
-
+   
     QAction *newTabAction() const;
     QAction *closeTabAction() const;
     QAction *bookmarkTabsAction() const;

@@ -92,7 +92,7 @@ OpenSearchManager *ToolbarSearch::s_openSearchManager = 0;
  */
 ToolbarSearch::ToolbarSearch(QWidget *parent)
     : SearchLineEdit(parent)
-    , m_suggestionsEnabled(true)
+    , m_suggestionsEnabled(false) //, m_suggestionsEnabled(true) FIXME:bodom_lx
     , m_autosaver(new AutoSaver(this))
     , m_maxSavedSearches(10)
     , m_model(new QStandardItemModel(this))
@@ -104,7 +104,8 @@ ToolbarSearch::ToolbarSearch(QWidget *parent)
     connect(openSearchManager(), SIGNAL(currentEngineChanged()),
             this, SLOT(currentEngineChanged()));
 
-    m_completer = new QCompleter(m_model, this);
+    m_completer = new QCompleter(this);
+    m_completer->setModel(m_model);
     m_completer->setCompletionMode(QCompleter::UnfilteredPopupCompletion);
     setCompleter(m_completer);
 
@@ -206,7 +207,7 @@ void ToolbarSearch::load()
     m_recentSearches = settings.value(QLatin1String("recentSearches")).toStringList();
     m_maxSavedSearches = settings.value(QLatin1String("maximumSaved"), m_maxSavedSearches).toInt();
 
-    m_suggestionsEnabled = settings.value(QLatin1String("useSuggestions"), true).toBool();
+    m_suggestionsEnabled = false; //FIXME:bodom_lx settings.value(QLatin1String("useSuggestions"), true).toBool();
     if (m_suggestionsEnabled) {
         connect(this, SIGNAL(textEdited(const QString &)),
                 this, SLOT(textEdited(const QString &)));
@@ -250,9 +251,7 @@ void ToolbarSearch::searchNow()
     Q_ASSERT(engine);
     if (!engine)
         return;
-
     QString searchText = text();
-
     QWebSettings *globalSettings = QWebSettings::globalSettings();
     if (!globalSettings->testAttribute(QWebSettings::PrivateBrowsingEnabled)) {
         QStringList newList = m_recentSearches;

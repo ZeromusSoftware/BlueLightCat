@@ -129,7 +129,6 @@ void SettingsDialog::loadDefaults()
     enableJavascript->setChecked(defaultSettings->testAttribute(QWebSettings::JavascriptEnabled));
     enablePlugins->setChecked(defaultSettings->testAttribute(QWebSettings::PluginsEnabled));
     enableImages->setChecked(defaultSettings->testAttribute(QWebSettings::AutoLoadImages));
-    enableLocalStorage->setChecked(defaultSettings->testAttribute(QWebSettings::LocalStorageEnabled));
     clickToFlash->setChecked(false);
     cookieSessionCombo->setCurrentIndex(0);
     filterTrackingCookiesCheckbox->setChecked(false);
@@ -170,8 +169,9 @@ void SettingsDialog::loadFromSettings()
     settings.endGroup();
 
     settings.beginGroup(QLatin1String("urlloading"));
-    bool search = settings.value(QLatin1String("searchEngineFallback"), false).toBool();
-    searchEngineFallback->setChecked(search);
+    //FIXME:bodom_lx
+    //bool search = settings.value(QLatin1String("searchEngineFallback"), false).toBool();
+    //searchEngineFallback->setChecked(search);
     settings.endGroup();
 
     settings.beginGroup(QLatin1String("downloadmanager"));
@@ -195,7 +195,6 @@ void SettingsDialog::loadFromSettings()
     enableJavascript->setChecked(settings.value(QLatin1String("enableJavascript"), enableJavascript->isChecked()).toBool());
     enablePlugins->setChecked(settings.value(QLatin1String("enablePlugins"), enablePlugins->isChecked()).toBool());
     enableImages->setChecked(settings.value(QLatin1String("enableImages"), enableImages->isChecked()).toBool());
-    enableLocalStorage->setChecked(settings.value(QLatin1String("enableLocalStorage"), enableLocalStorage->isChecked()).toBool());
     userStyleSheet->setText(QString::fromUtf8(settings.value(QLatin1String("userStyleSheet")).toUrl().toEncoded()));
     clickToFlash->setChecked(settings.value(QLatin1String("enableClickToFlash"), clickToFlash->isChecked()).toBool());
     int minimumFontSize = settings.value(QLatin1String("minimumFontSize"), 0).toInt();
@@ -284,7 +283,6 @@ void SettingsDialog::loadFromSettings()
 #if QT_VERSION >= 0x040600 || defined(WEBKIT_TRUNK)
     settings.beginGroup(QLatin1String("WebView"));
     enableAccessKeys->setChecked(settings.value(QLatin1String("enableAccessKeys"), true).toBool());
-    settings.endGroup();
 #else
     enableAccessKeys->setEnabled(false);
 #endif
@@ -329,7 +327,7 @@ void SettingsDialog::saveToSettings()
     settings.endGroup();
 
     settings.beginGroup(QLatin1String("urlloading"));
-    settings.setValue(QLatin1String("searchEngineFallback"), searchEngineFallback->isChecked());
+    //FIXME:bodom_lx settings.setValue(QLatin1String("searchEngineFallback"), searchEngineFallback->isChecked());
     settings.endGroup();
 
     // Appearance
@@ -341,7 +339,6 @@ void SettingsDialog::saveToSettings()
     settings.setValue(QLatin1String("enableJavascript"), enableJavascript->isChecked());
     settings.setValue(QLatin1String("enablePlugins"), enablePlugins->isChecked());
     settings.setValue(QLatin1String("enableImages"), enableImages->isChecked());
-    settings.setValue(QLatin1String("enableLocalStorage"), enableLocalStorage->isChecked());
     QString userStyleSheetString = userStyleSheet->text();
     if (QFile::exists(userStyleSheetString))
         settings.setValue(QLatin1String("userStyleSheet"), QUrl::fromLocalFile(userStyleSheetString));

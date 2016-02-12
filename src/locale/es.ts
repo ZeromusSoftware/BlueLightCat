@@ -6,8 +6,8 @@
         <translation>Navegador ligero basado en WebKit</translation>
     </message>
     <message>
-        <source>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</source>
-        <translation>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</translation>
+        <source>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</source>
+        <translation>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Authors</source>
@@ -334,8 +334,8 @@ p, li { white-space: pre-wrap; }(new line)
         <translation>Se necesita la herramienta htmlToXBel</translation>
     </message>
     <message>
-        <source>htmlToXBel tool, which is shipped with Arora and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
-        <translation>La herramienta htmlToXBel , que se incluye con Arora y es necesaria para importar los marcadores HTML, no está instalada o no está disponible en el camino de búsqueda.</translation>
+        <source>htmlToXBel tool, which is shipped with zBrowser and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
+        <translation>La herramienta htmlToXBel , que se incluye con zBrowser y es necesaria para importar los marcadores HTML, no está instalada o no está disponible en el camino de búsqueda.</translation>
     </message>
     <message>
         <source>Loading Bookmark</source>
@@ -414,12 +414,12 @@ Do you want to quit anyway?</source>
         <translation>Falló la recuperación</translation>
     </message>
     <message>
-        <source>The saved session will not be restored because Arora crashed while trying to restore this session.</source>
-        <translation type="obsolete">La seión guardada no puede ser recuperada ya que Arora falló durante la última recuperación.</translation>
+        <source>The saved session will not be restored because zBrowser crashed while trying to restore this session.</source>
+        <translation type="obsolete">La seión guardada no puede ser recuperada ya que zBrowser falló durante la última recuperación.</translation>
     </message>
     <message>
-        <source>Arora crashed while trying to restore this session.  Should I try again?</source>
-        <translation>Arora se cerró inesperadamente mientras intentaba recuperar esta sesión.  ¿Intentarlo de nuevo?</translation>
+        <source>zBrowser crashed while trying to restore this session.  Should I try again?</source>
+        <translation>zBrowser se cerró inesperadamente mientras intentaba recuperar esta sesión.  ¿Intentarlo de nuevo?</translation>
     </message>
 </context>
 <context>
@@ -647,9 +647,9 @@ Do you want to quit anyway?</source>
         <translation>Ocultar barra de marcadores</translation>
     </message>
     <message>
-        <source>%1 - Arora</source>
+        <source>%1 - zBrowser</source>
         <comment>Page title and Browser name</comment>
-        <translation>%1 - Arora</translation>
+        <translation>%1 - zBrowser</translation>
     </message>
     <message>
         <source>Open Web Resource</source>
@@ -1261,14 +1261,14 @@ Do you want to quit anyway?</source>
     </message>
 </context>
 <context>
-    <name>JavaScriptAroraObject</name>
+    <name>JavaScriptzBrowserObject</name>
     <message>
-        <source>Welcome to Arora!</source>
-        <translation>¡Bienvenido a Arora!</translation>
+        <source>Welcome to zBrowser!</source>
+        <translation>¡Bienvenido a zBrowser!</translation>
     </message>
     <message>
-        <source>Arora Start</source>
-        <translation>Iniciar Arora</translation>
+        <source>zBrowser Start</source>
+        <translation>Iniciar zBrowser</translation>
     </message>
     <message>
         <source>Search!</source>
@@ -1279,8 +1279,8 @@ Do you want to quit anyway?</source>
         <translation>Resultados de la búsqueda proporcionados por</translation>
     </message>
     <message>
-        <source>About Arora</source>
-        <translation>Acerca de Arora</translation>
+        <source>About zBrowser</source>
+        <translation>Acerca de zBrowser</translation>
     </message>
 </context>
 <context>
@@ -2102,8 +2102,8 @@ Do you really want to close this page?
         <translation>Cuando se conecta a: %1.</translation>
     </message>
     <message>
-        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.arora-browser.org instead of &lt;b&gt;www&lt;/b&gt;.arora-browser.org</source>
-        <translation>Compruebe que no hay errores en la dirección como&lt;b&gt;ww&lt;/b&gt;.arora-browser.org en lugar de &lt;b&gt;www&lt;/b&gt;.arora-browser.org</translation>
+        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 instead of &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</source>
+        <translation>Compruebe que no hay errores en la dirección como&lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 en lugar de &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</translation>
     </message>
     <message>
         <source>If your computer or network is protected by a firewall or proxy, make sure that the browser is permitted to access the network.</source>

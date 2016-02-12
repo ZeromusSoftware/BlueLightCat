@@ -1,0 +1,54 @@
+.TH ZBROWSER "1" "March 2012"
+
+.SH NAME
+zBrowser - zeromus Web Browser
+
+.SH SYNOPSIS
+.B zbrowser [Qt options] [url]
+
+.SH DESCRIPTION
+.B zBrowser
+is a lightweight based on Arora, cross-platform web browser using the Qt 4.4 port of the WebKit
+layout engine. It is based on the demo browser application shipped with Qt
+demos.
+
+.SH OPTIONS
+.SS Common Qt Options
+.TP
+.B -style style, -style=style
+Specify the Qt widget style to use (examples: plastique, cleanlooks).
+.TP
+.B -stylesheet stylesheet, -stylesheet=stylesheet
+Specify the user stylesheet to use when rendering widgets.
+.TP
+.B -session session, -session=session
+Restore the application from an earlier \fBsession\fR.
+.TP
+.B -widgetcount
+Print a debug message at the end about the number of widgets left undestroyed
+and the maximum number of widgets that existed at the same time.
+.TP
+.B -reverse
+Sets the application's layout direction to right-to-left.
+
+.SS Options Specific to zBrowser
+.TP
+.B url
+The URL address to open in the browser.
+
+.SH BUGS
+Please report bugs to \fIhttp://zeromuslinux.blogspot.com/2012/02/rapport-de-bugs.html\fR.
+
+.SH AUTHOR
+The author of zBrowser is Bastien Pederencino <zeromus.linux@gmail.com>.
+
+.PP
+This manual page was written by Matvey Kozhev <sikon@ubuntu.com>.
+.PP
+Permission is granted to copy, distribute and/or modify this document under the
+terms of the
+GNU General Public License, Version 2 or any later version published by the Free
+Software Foundation.
+.PP
+On Debian systems, the complete text of the GNU General Public License can be
+found in /usr/share/common-licenses/GPL.

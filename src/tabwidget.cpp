@@ -74,6 +74,7 @@
 #include "locationbar.h"
 #include "opensearchengine.h"
 #include "opensearchmanager.h"
+#include "zlink.h"
 #include "tabbar.h"
 #include "toolbarsearch.h"
 #include "webactionmapper.h"
@@ -139,18 +140,14 @@ TabWidget::TabWidget(QWidget *parent)
     m_closeTabAction = new QAction(this);
     m_closeTabAction->setShortcuts(QKeySequence::Close);
     m_closeTabAction->setIcon(QIcon(QLatin1String(":graphics/closetab.png")));
-#if QT_VERSION < 0x040600 || (QT_VERSION >= 0x040600 && !defined(Q_WS_X11))
-    m_closeTabAction->setIconVisibleInMenu(false);
-#endif
+    m_closeTabAction->setIconVisibleInMenu(true);
     connect(m_closeTabAction, SIGNAL(triggered()), this, SLOT(closeTab()));
 
     m_bookmarkTabsAction = new QAction(this);
     connect(m_bookmarkTabsAction, SIGNAL(triggered()), this, SLOT(bookmarkTabs()));
 
     m_newTabAction->setIcon(QIcon(QLatin1String(":graphics/addtab.png")));
-#if QT_VERSION < 0x040600 || (QT_VERSION >= 0x040600 && !defined(Q_WS_X11))
-    m_newTabAction->setIconVisibleInMenu(false);
-#endif
+    m_newTabAction->setIconVisibleInMenu(true);
 
     m_nextTabAction = new QAction(this);
     connect(m_nextTabAction, SIGNAL(triggered()), this, SLOT(nextTab()));
@@ -169,7 +166,7 @@ TabWidget::TabWidget(QWidget *parent)
             this, SLOT(aboutToShowRecentTriggeredAction(QAction *)));
     m_recentlyClosedTabsAction = new QAction(this);
     m_recentlyClosedTabsAction->setMenu(m_recentlyClosedTabsMenu);
-    m_recentlyClosedTabsAction->setEnabled(false);
+    m_recentlyClosedTabsAction->setEnabled(true);
 
 #ifndef Q_WS_MAC // can't seem to figure out the background color :(
     addTabButton = new QToolButton(this);
@@ -451,10 +448,10 @@ void TabWidget::menuBarVisibilityChangeRequestedCheck(bool visible)
         emit menuBarVisibilityChangeRequested(visible);
 }
 
-void TabWidget::statusBarVisibilityChangeRequestedCheck(bool visible)
+void TabWidget::statusBarVisibilityChangeRequestedCheck(bool hidden)
 {
     if (count() == 1)
-        emit statusBarVisibilityChangeRequested(visible);
+        emit statusBarVisibilityChangeRequested(hidden);
 }
 
 void TabWidget::toolBarVisibilityChangeRequestedCheck(bool visible)
@@ -818,6 +815,7 @@ QUrl TabWidget::guessUrlFromString(const QString &string)
 {
     OpenSearchManager *manager = ToolbarSearch::openSearchManager();
     QUrl url = manager->convertKeywordSearchToUrl(string);
+
     if (url.isValid())
         return url;
 
@@ -828,8 +826,17 @@ QUrl TabWidget::guessUrlFromString(const QString &string)
 #endif
 
     if (url.scheme() == QLatin1String("about")
-        && url.path() == QLatin1String("home"))
-        url = QUrl(QLatin1String("qrc:/startpage.html"));
+        && url.path() == QLatin1String("home")){
+        QSettings settings;
+        settings.beginGroup(QLatin1String("MainWindow"));
+        int startup = settings.value(QLatin1String("startupBehavior")).toInt();
+
+        if (startup == 0)
+            url = QUrl(QLatin1String("qrc:/startpage.html"));
+        if (startup == 3)
+            url = QUrl(QLatin1String("about:zlink"));
+    }
+
 
     // QUrl::isValid() is too much tolerant.
     // We actually want to check if the url conforms to the RFC, which QUrl::isValid() doesn't state.
@@ -838,7 +845,7 @@ QUrl TabWidget::guessUrlFromString(const QString &string)
 
     QSettings settings;
     settings.beginGroup(QLatin1String("urlloading"));
-    bool search = settings.value(QLatin1String("searchEngineFallback"), false).toBool();
+    bool search = true; //FIXME:bodom_lx //settings.value(QLatin1String("searchEngineFallback"), false).toBool();
 
     if (search) {
         url = ToolbarSearch::openSearchManager()->currentEngine()->searchUrl(string.trimmed());
@@ -871,24 +878,24 @@ void TabWidget::loadSettings()
 
     QSettings settings;
     settings.beginGroup(QLatin1String("tabs"));
-    bool newTabButtonInRightCorner = settings.value(QLatin1String("newTabButtonInRightCorner"), true).toBool();
+    bool newTabButtonInLeftCorner = settings.value(QLatin1String("newTabButtonInLeftCorner"), true).toBool();
 #ifndef Q_WS_MAC
-    setCornerWidget(addTabButton, newTabButtonInRightCorner ? Qt::TopRightCorner : Qt::TopLeftCorner);
-    addTabButton->show();
+    setCornerWidget(addTabButton, newTabButtonInLeftCorner ? Qt::TopLeftCorner : Qt::TopRightCorner);
+    addTabButton->hide();
 #endif
 
-    bool oneCloseButton = settings.value(QLatin1String("oneCloseButton"), false).toBool();
+    bool oneCloseButton = settings.value(QLatin1String("oneCloseButton"), true).toBool();
     if (oneCloseButton) {
         if (!closeTabButton) {
             closeTabButton = new QToolButton(this);
             closeTabButton->setDefaultAction(m_closeTabAction);
             closeTabButton->setAutoRaise(true);
-            closeTabButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
+            closeTabButton->setIcon(QIcon(QLatin1String(":graphics/closetab.png")));
         }
-        setCornerWidget(closeTabButton, newTabButtonInRightCorner ? Qt::TopLeftCorner : Qt::TopRightCorner);
+    setCornerWidget(closeTabButton, newTabButtonInLeftCorner ? Qt::TopLeftCorner : Qt::TopRightCorner);
         closeTabButton->setVisible(oneCloseButton);
     } else {
-        setCornerWidget(0, newTabButtonInRightCorner ? Qt::TopLeftCorner : Qt::TopRightCorner);
+    setCornerWidget(closeTabButton, newTabButtonInLeftCorner ? Qt::TopLeftCorner : Qt::TopRightCorner);
     }
     m_tabBar->setTabsClosable(!oneCloseButton);
 }
@@ -936,13 +943,20 @@ void TabWidget::loadUrl(const QUrl &url, OpenUrlIn tab, const QString &title)
         loadUrlFromUser(url, title);
         return;
     }
-    if (!url.isValid())
+    if (url.toString().indexOf(QString::fromLatin1("about:zlink")) == 0
+        || !url.isValid())
         return;
     WebView *webView = getView(tab, currentWebView());
     if (webView) {
         int index = webViewIndex(webView);
         if (index != -1)
             locationBar(index)->setText(QString::fromUtf8(url.toEncoded()));
+        if(url.toString().compare(QString::fromLatin1("about:zlink")) == 0){
+            zLink* zlink = BrowserApplication::zlink();
+            webView->setContent(zlink->render());
+            emit setCurrentTitle(url.toString());
+            return;
+        }
         webView->loadUrl(url, title);
     }
 }

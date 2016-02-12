@@ -32,8 +32,8 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Opphavsrett © 2007-2008 Benjamin C. Meyer &amp;lt;&lt;a href=&quot;mailto:ben@meyerhome.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;ben@meyerhome.net&lt;/span&gt;&lt;/a&gt;&amp;gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</source>
-        <translation>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</translation>
+        <source>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</source>
+        <translation>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Close</source>
@@ -363,8 +363,8 @@ p, li { white-space: pre-wrap; }
         <translation>trenger htmlToXBel verktøy</translation>
     </message>
     <message>
-        <source>htmlToXBel tool, which is shipped with Arora and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
-        <translation>htmlToXBel verktøyet som følger med Arora og som trengs for å importere HTML bokmerker, er ikke installert eller er ikke i søkebanene.</translation>
+        <source>htmlToXBel tool, which is shipped with zBrowser and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
+        <translation>htmlToXBel verktøyet som følger med zBrowser og som trengs for å importere HTML bokmerker, er ikke installert eller er ikke i søkebanene.</translation>
     </message>
     <message>
         <source>Loading Bookmark</source>
@@ -431,27 +431,27 @@ p, li { white-space: pre-wrap; }
         <source>There are %1 windows and %2 tabs open
 Do you want to quit anyway?</source>
         <translation>Det er %1 vinduer og %2 faner åpne
-Er du sikker på at du vil avslutte Arora?</translation>
+Er du sikker på at du vil avslutte zBrowser?</translation>
     </message>
     <message>
         <source>Restore failed</source>
         <translation>Gjennopretningen misslyktes</translation>
     </message>
     <message>
-        <source>The saved session will not being restored because last time it was restored Arora crashed.</source>
-        <translation type="obsolete">Den lagrede økten blir ikke gjennoprettet siden forrige gang den ble gjnoprettet krasjet Arora.</translation>
+        <source>The saved session will not being restored because last time it was restored zBrowser crashed.</source>
+        <translation type="obsolete">Den lagrede økten blir ikke gjennoprettet siden forrige gang den ble gjnoprettet krasjet zBrowser.</translation>
     </message>
     <message>
         <source> (Change: %1 %2)</source>
         <translation type="obsolete">(Endring: %1 %2)</translation>
     </message>
     <message>
-        <source>The saved session will not be restored because Arora crashed while trying to restore this session.</source>
-        <translation type="obsolete">Den lagrede økten blir ikke gjennoprettet siden det førte til at Arora krasjet.</translation>
+        <source>The saved session will not be restored because zBrowser crashed while trying to restore this session.</source>
+        <translation type="obsolete">Den lagrede økten blir ikke gjennoprettet siden det førte til at zBrowser krasjet.</translation>
     </message>
     <message>
-        <source>Arora crashed while trying to restore this session.  Should I try again?</source>
-        <translation>Arora kræsjet forrige gang vi prøvde å gjennoprette denne siden. Skal vi prøve igjenn?</translation>
+        <source>zBrowser crashed while trying to restore this session.  Should I try again?</source>
+        <translation>zBrowser kræsjet forrige gang vi prøvde å gjennoprette denne siden. Skal vi prøve igjenn?</translation>
     </message>
 </context>
 <context>
@@ -626,8 +626,8 @@ Er du sikker på at du vil avslutte Arora?</translation>
         <translation>Om &amp;Qt</translation>
     </message>
     <message>
-        <source>About &amp;Arora</source>
-        <translation type="obsolete">Om &amp;Arora</translation>
+        <source>About &amp;zBrowser</source>
+        <translation type="obsolete">Om &amp;zBrowser</translation>
     </message>
     <message>
         <source>Navigation</source>
@@ -650,13 +650,13 @@ Er du sikker på at du vil avslutte Arora?</translation>
         <translation>Skjul verktøylinjen</translation>
     </message>
     <message>
-        <source>Arora</source>
-        <translation type="obsolete">Arora</translation>
+        <source>zBrowser</source>
+        <translation type="obsolete">zBrowser</translation>
     </message>
     <message>
-        <source>%1 - Arora</source>
+        <source>%1 - zBrowser</source>
         <comment>Page title and Browser name</comment>
-        <translation>%1 - Arora</translation>
+        <translation>%1 - zBrowser</translation>
     </message>
     <message>
         <source>Open Web Resource</source>
@@ -1366,14 +1366,14 @@ Er du sikker på at du vil avslutte?</translation>
     </message>
 </context>
 <context>
-    <name>JavaScriptAroraObject</name>
+    <name>JavaScriptzBrowserObject</name>
     <message>
-        <source>Welcome to Arora!</source>
-        <translation>Velkommen til Arora!</translation>
+        <source>Welcome to zBrowser!</source>
+        <translation>Velkommen til zBrowser!</translation>
     </message>
     <message>
-        <source>Arora Start</source>
-        <translation>Arora start</translation>
+        <source>zBrowser Start</source>
+        <translation>zBrowser start</translation>
     </message>
     <message>
         <source>Search!</source>
@@ -1384,8 +1384,8 @@ Er du sikker på at du vil avslutte?</translation>
         <translation>Søkeresultater levert av</translation>
     </message>
     <message>
-        <source>About Arora</source>
-        <translation>Om Arora</translation>
+        <source>About zBrowser</source>
+        <translation>Om zBrowser</translation>
     </message>
 </context>
 <context>
@@ -2305,8 +2305,8 @@ Vil du virkelig lukke denne siden?
         <translation>Hvis datamaskinen eller nettverket ditt er beskyttet av en brannmur eller mellomtjener, sjekk at nettleseren har adgang til nettverket.</translation>
     </message>
     <message>
-        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.arora-browser.org instead of &lt;b&gt;www&lt;/b&gt;.arora-browser.org</source>
-        <translation>Sjekk adresselinjen for feil som &lt;b&gt;ww&lt;/b&gt;.arora-browser.org isteden for &lt;b&gt;www&lt;/b&gt;.arora-browser.org</translation>
+        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 instead of &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</source>
+        <translation>Sjekk adresselinjen for feil som &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 isteden for &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</translation>
     </message>
     <message>
         <source>If the address is correct, try checking the network connection.</source>

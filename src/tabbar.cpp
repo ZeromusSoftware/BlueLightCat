@@ -90,6 +90,50 @@ TabBar::TabBar(QWidget *parent)
     , m_viewTabBarAction(0)
     , m_showTabBarWhenOneTab(true)
 {
+    setStyleSheet(QLatin1String("\
+                        QTabBar {\
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\
+                                                            stop: 0 white,\
+                                                            stop: 0.49 rgb(215, 215, 215),\
+                                                            stop: .5 rgb(220, 220, 220),\
+                                                            stop: 1.0 rgb(230, 230, 230));\
+                                border: 1px solid lightgrey;\
+                                border-bottom-left-radius: 11px;\
+                                }\
+                        QTabBar::tab {\
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\
+                                                            stop: 0 white,\
+                                                            stop: 0.49 rgb(230, 240, 240),\
+                                                            stop: .5 rgb(220, 230, 230),\
+                                                            stop: 1.0 rgb(215, 215, 215));\
+                                border-bottom: 1px solid rgb(190, 190, 190);\
+                                border-bottom-left-radius: 11px;\
+                                border-bottom-right-radius: 11px;\
+                                border-left: 1px solid rgb(190, 190, 190);\
+                                border-right: 1px solid rgb(190, 190, 190);\
+                                height: 12px;\
+                                margin-left: 1px;\
+                                margin-right: 1px;\
+                                min-width: 80px;\
+                                padding-bottom: 2px;\
+                                padding-top: 2px;\
+                                }\
+                        QTabBar::tab:hover {\
+                                border-bottom: 1px solid rgb(160, 160, 160);\
+                                border-left: 1px solid rgb(170, 170, 170);\
+                                border-right: 1px solid rgb(150, 150, 150);\
+                        }\
+                        QTabBar::tab:selected {\
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\
+                                                            stop: 0 white,\
+                                                            stop: 0.49 rgb(210, 210, 210),\
+                                                            stop: .5 rgb(200, 200, 200),\
+                                                            stop: 1.0 rgb(180, 180, 180));\
+                                height: 15px;\
+                                }\
+                                "));
+
+
     setContextMenuPolicy(Qt::CustomContextMenu);
     setAcceptDrops(true);
     setElideMode(Qt::ElideRight);
@@ -342,4 +386,3 @@ void TabBar::updateVisibility()
         m_viewTabBarAction->setEnabled(enabled);
     updateViewToolBarAction();
 }
-

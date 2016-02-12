@@ -16,8 +16,8 @@
         <translation>Lichte browser gebaseerd op WebKit</translation>
     </message>
     <message>
-        <source>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</source>
-        <translation>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</translation>
+        <source>&lt;a href=&quot;http://&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</source>
+        <translation>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Close</source>
@@ -322,8 +322,8 @@ p, li { white-space: pre-wrap; }
         <translation>htmlToXBel is nodig</translation>
     </message>
     <message>
-        <source>htmlToXBel tool, which is shipped with Arora and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
-        <translation>htmlToXBel, wat wordt geleverd met Arora, is nodig om HTML-bladwijzers te importeren. Het is echter niet geïnstalleerd.</translation>
+        <source>htmlToXBel tool, which is shipped with zBrowser and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
+        <translation>htmlToXBel, wat wordt geleverd met zBrowser, is nodig om HTML-bladwijzers te importeren. Het is echter niet geïnstalleerd.</translation>
     </message>
     <message>
         <source>Loading Bookmark</source>
@@ -390,8 +390,8 @@ Wilt u toch afsluiten?</translation>
         <translation>Herstellen mislukt</translation>
     </message>
     <message>
-        <source>Arora crashed while trying to restore this session.  Should I try again?</source>
-        <translation>Arora crashte bij het herstellen van deze sessie. Opnieuw proberen?</translation>
+        <source>zBrowser crashed while trying to restore this session.  Should I try again?</source>
+        <translation>zBrowser crashte bij het herstellen van deze sessie. Opnieuw proberen?</translation>
     </message>
 </context>
 <context>
@@ -587,9 +587,9 @@ Wilt u toch afsluiten?</translation>
         <translation>Werkbalk verbergen</translation>
     </message>
     <message>
-        <source>%1 - Arora</source>
+        <source>%1 - zBrowser</source>
         <comment>Page title and Browser name</comment>
-        <translation>%1 - Arora</translation>
+        <translation>%1 - zBrowser</translation>
     </message>
     <message>
         <source>Open Web Resource</source>
@@ -1187,14 +1187,14 @@ Wilt u toch afsluiten?</translation>
     </message>
 </context>
 <context>
-    <name>JavaScriptAroraObject</name>
+    <name>JavaScriptzBrowserObject</name>
     <message>
-        <source>Welcome to Arora!</source>
-        <translation>Welkom bij Arora!</translation>
+        <source>Welcome to zBrowser!</source>
+        <translation>Welkom bij zBrowser!</translation>
     </message>
     <message>
-        <source>Arora Start</source>
-        <translation>Arora Start</translation>
+        <source>zBrowser Start</source>
+        <translation>zBrowser Start</translation>
     </message>
     <message>
         <source>Search!</source>
@@ -1205,8 +1205,8 @@ Wilt u toch afsluiten?</translation>
         <translation>Zoekresultaten van</translation>
     </message>
     <message>
-        <source>About Arora</source>
-        <translation>Over Arora</translation>
+        <source>About zBrowser</source>
+        <translation>Over zBrowser</translation>
     </message>
 </context>
 <context>
@@ -1935,8 +1935,8 @@ Bent u zeker dat u deze pagina wilt sluiten?
         <translation>Bij het verbinden met: %1.</translation>
     </message>
     <message>
-        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.arora-browser.org instead of &lt;b&gt;www&lt;/b&gt;.arora-browser.org</source>
-        <translation>Het adres controleren op fouten als &lt;b&gt;ww&lt;/b&gt;.arora-browser.org in plaats van &lt;b&gt;www&lt;/b&gt;.arora-browser.org</translation>
+        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 instead of &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</source>
+        <translation>Het adres controleren op fouten als &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 in plaats van &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</translation>
     </message>
     <message>
         <source>If your computer or network is protected by a firewall or proxy, make sure that the browser is permitted to access the network.</source>

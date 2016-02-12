@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2014 Benjamin C. Meyer <ben@meyerhome.net>
+ * Copyright 2008 Benjamin C. Meyer <ben@meyerhome.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,14 +18,12 @@
  */
 
 #include <QtTest/QtTest>
-#include "qtest_arora.h"
+#include "qtest_zbrowser.h"
 
 #include <historymanager.h>
 #include <history.h>
 #include <historycompleter.h>
 #include <modeltest.h>
-
-#include <qwebsettings.h>
 
 class tst_HistoryManager : public QObject
 {
@@ -42,8 +40,6 @@ private slots:
     void history();
     void addHistoryEntry_data();
     void addHistoryEntry();
-    void addHistoryEntry_private();
-    void addHistoryEntry_url();
     void updateHistoryEntry_data();
     void updateHistoryEntry();
     void daysToExpire_data();
@@ -82,8 +78,8 @@ public:
         setDaysToExpire(30);
     }
 
-    void prependHistoryEntry(const HistoryEntry &item)
-        { HistoryManager::prependHistoryEntry(item); }
+    void addHistoryEntry(const HistoryEntry &item)
+        { HistoryManager::addHistoryEntry(item); }
 };
 
 // This will be called before the first test function is executed.
@@ -136,7 +132,7 @@ void tst_HistoryManager::history_data()
 void tst_HistoryManager::history()
 {
     SubHistory history;
-    history.prependHistoryEntry(HistoryEntry());
+    history.addHistoryEntry(HistoryEntry());
     history.clear();
     QCOMPARE(history.daysToExpire(), 30);
     history.setDaysToExpire(-1);
@@ -204,29 +200,9 @@ void tst_HistoryManager::addHistoryEntry()
     SubHistory history;
     history.setHistory(initial);
     for (int i = 0; i < items.count(); ++i)
-        history.prependHistoryEntry(items[i]);
+        history.addHistoryEntry(items[i]);
     QCOMPARE(history.history().count(), expected.count());
     QCOMPARE(history.history(), expected);
-}
-
-void tst_HistoryManager::addHistoryEntry_private()
-{
-    SubHistory history;
-    history.setHistory(HistoryList());
-    QWebSettings *globalSettings = QWebSettings::globalSettings();
-    globalSettings->setAttribute(QWebSettings::PrivateBrowsingEnabled, true);
-    history.prependHistoryEntry(HistoryEntry());
-    globalSettings->setAttribute(QWebSettings::PrivateBrowsingEnabled, false);
-    QVERIFY(history.history().isEmpty());
-}
-
-void tst_HistoryManager::addHistoryEntry_url()
-{
-    SubHistory history;
-    QString urlWithPassword("http://username:password@example.com");
-    history.addHistoryEntry(urlWithPassword);
-    QString cleanedUrl = "http://username@example.com";
-    QCOMPARE(history.history()[0].url, cleanedUrl);
 }
 
 void tst_HistoryManager::updateHistoryEntry_data()
@@ -302,7 +278,7 @@ void tst_HistoryManager::daysToExpire()
     for (int i = 0; i < list.count(); ++i) {
         HistoryEntry item = list.at(i);
         item.dateTime = QDateTime::currentDateTime();
-        history.prependHistoryEntry(item);
+        history.addHistoryEntry(item);
     }
 }
 
@@ -411,7 +387,7 @@ void tst_HistoryManager::saveload()
         // add url
         HistoryEntry foo("http://new.com", QDateTime::currentDateTime().addDays(1));
         post.prepend(foo);
-        history.prependHistoryEntry(foo);
+        history.addHistoryEntry(foo);
     }
 
     {

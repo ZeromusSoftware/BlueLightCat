@@ -29,9 +29,9 @@
 #ifndef CLICKTOFLASHPLUGIN_H
 #define CLICKTOFLASHPLUGIN_H
 
-#include "arorawebplugin.h"
+#include "zbrowserwebplugin.h"
 
-class ClickToFlashPlugin : public AroraWebPlugin
+class ClickToFlashPlugin : public zBrowserWebPlugin
 {
 
 public:

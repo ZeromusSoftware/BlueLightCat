@@ -32,8 +32,8 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Copyright © 2007-2008 Benjamin C. Meyer &amp;lt;&lt;a href=&quot;mailto:ben@meyerhome.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;ben@meyerhome.net&lt;/span&gt;&lt;/a&gt;&amp;gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</source>
-        <translation>&lt;a href=&quot;http://arora-browser.org&quot;&gt;http://arora-browser.org&lt;/a&gt;</translation>
+        <source>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</source>
+        <translation>&lt;a href=&quot;http://sites.google.com/site/zeromusparadoxe01&quot;&gt;http://sites.google.com/site/zeromusparadoxe01&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Close</source>
@@ -359,8 +359,8 @@ p, li { white-space: pre-wrap; }
         <translation>Інструмент запиту htmlToXBel</translation>
     </message>
     <message>
-        <source>htmlToXBel tool, which is shipped with Arora and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
-        <translation>Інструмент htmlToXBel, який поставляється з Arora і потрібний для імпорту закладок у HTML, не встановлено або недоступний в шляхах пошуку.</translation>
+        <source>htmlToXBel tool, which is shipped with zBrowser and is needed to import HTML bookmarks, is not installed or not available in the search paths.</source>
+        <translation>Інструмент htmlToXBel, який поставляється з zBrowser і потрібний для імпорту закладок у HTML, не встановлено або недоступний в шляхах пошуку.</translation>
     </message>
     <message>
         <source>Loading Bookmark</source>
@@ -438,12 +438,12 @@ Do you want to quit anyway?</source>
         <translation>Невдале відновлення</translation>
     </message>
     <message>
-        <source>The saved session will not be restored because Arora crashed while trying to restore this session.</source>
-        <translation type="obsolete">Збережений сеанс не буде відновлена, оскільки Arora аварійно завершується при спробі відновити її.</translation>
+        <source>The saved session will not be restored because zBrowser crashed while trying to restore this session.</source>
+        <translation type="obsolete">Збережений сеанс не буде відновлена, оскільки zBrowser аварійно завершується при спробі відновити її.</translation>
     </message>
     <message>
-        <source>Arora crashed while trying to restore this session.  Should I try again?</source>
-        <translation>Arora зазнала краху протягом відновлення цього сеансу.  Спробувати ще раз?</translation>
+        <source>zBrowser crashed while trying to restore this session.  Should I try again?</source>
+        <translation>zBrowser зазнала краху протягом відновлення цього сеансу.  Спробувати ще раз?</translation>
     </message>
 </context>
 <context>
@@ -663,8 +663,8 @@ Do you want to quit anyway?</source>
         <translation>Про &amp;Qt</translation>
     </message>
     <message>
-        <source>About &amp;Arora</source>
-        <translation type="obsolete">Про &amp;Arora</translation>
+        <source>About &amp;zBrowser</source>
+        <translation type="obsolete">Про &amp;zBrowser</translation>
     </message>
     <message>
         <source>Navigation</source>
@@ -695,13 +695,13 @@ Do you want to quit anyway?</source>
         <translation>Сховати панель закладок</translation>
     </message>
     <message>
-        <source>Arora</source>
-        <translation type="obsolete">Arora</translation>
+        <source>zBrowser</source>
+        <translation type="obsolete">zBowser</translation>
     </message>
     <message>
-        <source>%1 - Arora</source>
+        <source>%1 - zBrowser</source>
         <comment>Page title and Browser name</comment>
-        <translation>%1 — Arora</translation>
+        <translation>%1 — zBrowser</translation>
     </message>
     <message>
         <source>Open Web Resource</source>
@@ -1092,8 +1092,8 @@ Do you want to reload all pages?</source>
         <translation type="obsolete">Ліворуч:</translation>
     </message>
     <message>
-        <source>Foo Bar Baz Arora LineEdit Manual Test This is the end</source>
-        <translation type="obsolete">Foo Bar Baz Arora LineEdit Manual Test This is the end</translation>
+        <source>Foo Bar Baz zBrowser LineEdit Manual Test This is the end</source>
+        <translation type="obsolete">Foo Bar Baz zBrowser LineEdit Manual Test This is the end</translation>
     </message>
     <message>
         <source>Right:</source>
@@ -1104,8 +1104,8 @@ Do you want to reload all pages?</source>
         <translation type="obsolete">Порожньо:</translation>
     </message>
     <message>
-        <source>Foo Bar Baz Arora LineEdit Manual Test</source>
-        <translation type="obsolete">Foo Bar Baz Arora LineEdit Manual Test</translation>
+        <source>Foo Bar Baz zBrowser LineEdit Manual Test</source>
+        <translation type="obsolete">Foo Bar Baz zBrowser LineEdit Manual Test</translation>
     </message>
     <message>
         <source>Widget</source>
@@ -1415,14 +1415,14 @@ Do you want to quit anyway?</source>
     </message>
 </context>
 <context>
-    <name>JavaScriptAroraObject</name>
+    <name>JavaScriptzBrowserObject</name>
     <message>
-        <source>Welcome to Arora!</source>
-        <translation>Ласкаво просимо до Arora!</translation>
+        <source>Welcome to zBrowser!</source>
+        <translation>Ласкаво просимо до zBrowser!</translation>
     </message>
     <message>
-        <source>Arora Start</source>
-        <translation>Запуск Arora</translation>
+        <source>zBrowser Start</source>
+        <translation>Запуск zBrowser</translation>
     </message>
     <message>
         <source>Search!</source>
@@ -1433,8 +1433,8 @@ Do you want to quit anyway?</source>
         <translation>Результати пошуку надаються</translation>
     </message>
     <message>
-        <source>About Arora</source>
-        <translation>Про Arora</translation>
+        <source>About zBrowser</source>
+        <translation>Про zBrowser</translation>
     </message>
 </context>
 <context>
@@ -2324,8 +2324,8 @@ Do you really want to close this page?
         <translation>Коли з&apos;єднуємся з: %1.</translation>
     </message>
     <message>
-        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.arora-browser.org instead of &lt;b&gt;www&lt;/b&gt;.arora-browser.org</source>
-        <translation>Перевірте адресу на помилки такі, як &lt;b&gt;ww&lt;/b&gt;.arora-browser.org замість &lt;b&gt;www&lt;/b&gt;.arora-browser.org</translation>
+        <source>Check the address for errors such as &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 instead of &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</source>
+        <translation>Перевірте адресу на помилки такі, як &lt;b&gt;ww&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01 замість &lt;b&gt;www&lt;/b&gt;.sites.google.com/site/zeromusparadoxe01</translation>
     </message>
     <message>
         <source>If your computer or network is protected by a firewall or proxy, make sure that the browser is permitted to access the network.</source>

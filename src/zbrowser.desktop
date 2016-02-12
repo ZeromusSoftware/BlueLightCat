@@ -1,0 +1,24 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Categories=Application;Qt;Network;WebBrowser;
+Comment[fr]=Browse the World Wide Web
+Comment=Browse the World Wide Web
+Comment[fr_FR]=Surfer sur le web
+Exec=zeromus-browser %u
+GenericName[fr]=Web Browser
+GenericName=Web Browser
+GenericName[fr_FR]=Navigateur web
+Icon=zbrowser
+MimeType=text/html;image/png;image/jpeg;image/gif;application/xml;application/xml;application/xhtml+xml;
+Name[fr]=Zeromus Browser
+Name=Zeromus Browser
+Name[fr_FR]=Zeromus Browser
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=

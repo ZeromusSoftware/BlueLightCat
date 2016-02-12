@@ -68,6 +68,7 @@
 #include <qtimer.h>
 #include <qurl.h>
 #include <qwebhistoryinterface.h>
+#include "zlink/zlinkfiltermodel.h"
 
 class HistoryEntry
 {
@@ -96,6 +97,7 @@ public:
 class AutoSaver;
 class HistoryModel;
 class HistoryFilterModel;
+class zLinkFilterModel;
 class HistoryTreeModel;
 class HistoryManager : public QWebHistoryInterface
 {
@@ -127,6 +129,7 @@ public:
     // History manager keeps around these models for use by the completer and other classes
     HistoryModel *historyModel() const;
     HistoryFilterModel *historyFilterModel() const;
+    zLinkFilterModel *zlinkFilterModel() const;
     HistoryTreeModel *historyTreeModel() const;
 
 public slots:
@@ -136,9 +139,10 @@ public slots:
 private slots:
     void save();
     void checkForExpired();
+    void refreshFrecencies();
 
 protected:
-    void prependHistoryEntry(const HistoryEntry &item);
+    void addHistoryEntry(const HistoryEntry &item);
     void removeHistoryEntry(const HistoryEntry &item);
 
 private:
@@ -149,12 +153,14 @@ private:
     AutoSaver *m_saveTimer;
     int m_daysToExpire;
     QTimer m_expiredTimer;
+    QTimer m_frecencyTimer;
     QHash<QString, int> m_atomicStringHash;
     QList<HistoryEntry> m_history;
     QString m_lastSavedUrl;
 
     HistoryModel *m_historyModel;
     HistoryFilterModel *m_historyFilterModel;
+    zLinkFilterModel *m_zlinkFilterModel;
     HistoryTreeModel *m_historyTreeModel;
 };
 
